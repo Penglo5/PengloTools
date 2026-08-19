@@ -1,26 +1,959 @@
-Gorilla Tag
-                </h3>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-                <p>
-                    Official Gorilla Tag website.
-                </p>
+<meta charset="UTF-8">
 
-                <a
-                    class="button"
-                    href="https://www.gorillatagvr.com/"
-                    target="_blank"
-                >
-                    Visit
-                </a>
+<meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+>
 
-            </div>
+<title>Penglo Tools 🐧</title>
+
+
+<style>
+
+/* -------------------------
+   MAIN PAGE
+------------------------- */
+
+* {
+    box-sizing: border-box;
+}
+
+
+body {
+    margin: 0;
+
+    font-family: Arial, sans-serif;
+
+    background: #0b0e13;
+
+    color: white;
+}
+
+
+/* -------------------------
+   HEADER
+------------------------- */
+
+header {
+    background: #121722;
+
+    border-bottom: 1px solid #252c38;
+
+    padding: 30px 20px;
+
+    text-align: center;
+}
+
+
+.logo {
+    font-size: 45px;
+
+    margin-bottom: 5px;
+}
+
+
+header h1 {
+    margin: 0;
+
+    font-size: 38px;
+}
+
+
+header p {
+    color: #9ca6b5;
+
+    margin-top: 10px;
+}
+
+
+/* -------------------------
+   NAVIGATION
+------------------------- */
+
+nav {
+    background: #10141d;
+
+    border-bottom: 1px solid #252c38;
+
+    padding: 12px;
+
+    display: flex;
+
+    justify-content: center;
+
+    gap: 8px;
+
+    flex-wrap: wrap;
+}
+
+
+nav button {
+    background: #1b212d;
+
+    color: white;
+
+    border: 1px solid #2c3442;
+
+    border-radius: 8px;
+
+    padding: 10px 16px;
+
+    cursor: pointer;
+}
+
+
+nav button:hover {
+    background: #293242;
+}
+
+
+/* -------------------------
+   CONTAINER
+------------------------- */
+
+.container {
+    max-width: 1100px;
+
+    margin: auto;
+
+    padding: 30px 20px;
+}
+
+
+/* -------------------------
+   SEARCH
+------------------------- */
+
+.search {
+    width: 100%;
+
+    padding: 16px;
+
+    border-radius: 10px;
+
+    border: 1px solid #303847;
+
+    background: #151a23;
+
+    color: white;
+
+    font-size: 16px;
+
+    outline: none;
+
+    margin-bottom: 30px;
+}
+
+
+.search:focus {
+    border-color: #7289ff;
+}
+
+
+/* -------------------------
+   SECTIONS
+------------------------- */
+
+.section {
+    margin-bottom: 45px;
+}
+
+
+.section-title {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: space-between;
+
+    margin-bottom: 15px;
+}
+
+
+.section-title h2 {
+    margin: 0;
+}
+
+
+/* -------------------------
+   BADGES
+------------------------- */
+
+.badge {
+    background: #252d3b;
+
+    color: #aeb8c9;
+
+    padding: 5px 9px;
+
+    border-radius: 20px;
+
+    font-size: 12px;
+}
+
+
+/* -------------------------
+   CARDS
+------------------------- */
+
+.cards {
+    display: grid;
+
+    grid-template-columns:
+        repeat(auto-fit, minmax(230px, 1fr));
+
+    gap: 16px;
+}
+
+
+.card {
+    background: #141922;
+
+    border: 1px solid #272f3c;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    transition: 0.2s;
+}
+
+
+.card:hover {
+    transform: translateY(-4px);
+
+    border-color: #4a566b;
+}
+
+
+.card h3 {
+    margin: 0 0 8px;
+}
+
+
+.card p {
+    color: #9ca6b5;
+
+    font-size: 14px;
+
+    line-height: 1.5;
+}
+
+
+/* -------------------------
+   BUTTONS
+------------------------- */
+
+.button {
+    display: inline-block;
+
+    background: #586ee8;
+
+    color: white;
+
+    border: none;
+
+    border-radius: 7px;
+
+    padding: 9px 14px;
+
+    cursor: pointer;
+
+    text-decoration: none;
+
+    margin-top: 8px;
+}
+
+
+.button:hover {
+    background: #6c80ff;
+}
+
+
+.secondary {
+    background: #242b38;
+}
+
+
+.secondary:hover {
+    background: #303949;
+}
+
+
+/* -------------------------
+   TOOL BOX
+------------------------- */
+
+.tool-box {
+    background: #10151e;
+
+    border: 1px solid #293240;
+
+    border-radius: 12px;
+
+    padding: 20px;
+
+    margin-top: 15px;
+}
+
+
+textarea,
+.tool-input {
+    width: 100%;
+
+    background: #171d27;
+
+    color: white;
+
+    border: 1px solid #303847;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    outline: none;
+
+    margin: 8px 0;
+
+    font-family: monospace;
+}
+
+
+textarea {
+    min-height: 130px;
+
+    resize: vertical;
+}
+
+
+/* -------------------------
+   OUTPUT
+------------------------- */
+
+.output {
+    white-space: pre-wrap;
+
+    word-break: break-word;
+
+    background: #090c11;
+
+    border: 1px solid #272f3c;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    margin-top: 10px;
+
+    color: #cbd3df;
+
+    min-height: 40px;
+}
+
+
+/* -------------------------
+   OTHER
+------------------------- */
+
+.hidden {
+    display: none;
+}
+
+
+.featured {
+    border-color: #586ee8;
+}
+
+
+/* -------------------------
+   FOOTER
+------------------------- */
+
+footer {
+    text-align: center;
+
+    color: #687384;
+
+    border-top: 1px solid #252c38;
+
+    padding: 30px;
+
+    margin-top: 40px;
+}
+
+
+/* -------------------------
+   TOAST
+------------------------- */
+
+.toast {
+    position: fixed;
+
+    bottom: 20px;
+
+    right: 20px;
+
+    background: #1d2531;
+
+    border: 1px solid #354052;
+
+    padding: 12px 18px;
+
+    border-radius: 8px;
+
+    display: none;
+}
+
+
+/* -------------------------
+   MOBILE
+------------------------- */
+
+@media (max-width: 600px) {
+
+    header h1 {
+        font-size: 30px;
+    }
+
+
+    .logo {
+        font-size: 38px;
+    }
+
+
+    .container {
+        padding: 20px 12px;
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- -------------------------
+     HEADER
+------------------------- -->
+
+<header>
+
+    <div class="logo">
+        🐧
+    </div>
+
+
+    <h1>
+        Penglo Tools
+    </h1>
+
+
+    <p>
+        Tools, files and useful links — all in one place.
+    </p>
+
+</header>
+
+
+<!-- -------------------------
+     NAVIGATION
+------------------------- -->
+
+<nav>
+
+    <button onclick="showAll()">
+        🏠 Home
+    </button>
+
+
+    <button onclick="showCategory('tools')">
+        🔧 Tools
+    </button>
+
+
+    <button onclick="showCategory('files')">
+        📁 Files
+    </button>
+
+
+    <button onclick="showCategory('links')">
+        🔗 Links
+    </button>
+
+</nav>
+
+
+<div class="container">
+
+
+<!-- -------------------------
+     SEARCH
+------------------------- -->
+
+<input
+    id="search"
+    class="search"
+    type="text"
+    placeholder="🔍 Search Penglo Tools..."
+    oninput="searchItems()"
+>
+
+
+<!-- -------------------------
+     FEATURED
+------------------------- -->
+
+<section class="section category">
+
+
+    <div class="section-title">
+
+        <h2>
+            ⭐ Featured
+        </h2>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card featured searchable">
+
+            <h3>
+                🐧 Welcome to Penglo Tools
+            </h3>
+
+
+            <p>
+                Your personal collection of tools,
+                downloads and useful links.
+            </p>
+
+
+            <button
+                class="button"
+                onclick="showAll()"
+            >
+                Explore
+            </button>
 
         </div>
 
-    </section>
+
+        <div class="card featured searchable">
+
+            <h3>
+                🔧 Text Tools
+            </h3>
+
+
+            <p>
+                Quickly convert, format and copy text.
+            </p>
+
+
+            <button
+                class="button"
+                onclick="showTool('text')"
+            >
+                Open Tool
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- -------------------------
+     TOOLS
+------------------------- -->
+
+<section
+    id="tools"
+    class="section category"
+>
+
+
+    <div class="section-title">
+
+        <h2>
+            🔧 Tools
+        </h2>
+
+
+        <span
+            id="toolCount"
+            class="badge"
+        >
+            4 tools
+        </span>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <!-- TEXT CONVERTER -->
+
+        <div class="card searchable">
+
+            <h3>
+                📝 Text Converter
+            </h3>
+
+
+            <p>
+                Convert text between uppercase
+                and lowercase.
+            </p>
+
+
+            <button
+                class="button"
+                onclick="showTool('text')"
+            >
+                Open
+            </button>
+
+        </div>
+
+
+        <!-- JSON FORMATTER -->
+
+        <div class="card searchable">
+
+            <h3>
+                📦 JSON Formatter
+            </h3>
+
+
+            <p>
+                Format messy JSON and make it
+                easier to read.
+            </p>
+
+
+            <button
+                class="button"
+                onclick="showTool('json')"
+            >
+                Open
+            </button>
+
+        </div>
+
+
+        <!-- UUID GENERATOR -->
+
+        <div class="card searchable">
+
+            <h3>
+                🔢 UUID Generator
+            </h3>
+
+
+            <p>
+                Generate a random UUID instantly.
+            </p>
+
+
+            <button
+                class="button"
+                onclick="generateUUID()"
+            >
+                Generate
+            </button>
+
+        </div>
+
+
+        <!-- COLOR PICKER -->
+
+        <div class="card searchable">
+
+            <h3>
+                🎨 Color Picker
+            </h3>
+
+
+            <p>
+                Pick a color and copy its HEX code.
+            </p>
+
+
+            <input
+                type="color"
+                id="colorPicker"
+                value="#586ee8"
+                onchange="updateColor()"
+            >
+
+
+            <p id="colorValue">
+                #586EE8
+            </p>
+
+
+            <button
+                class="button"
+                onclick="copyColor()"
+            >
+                Copy Color
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- -------------------------
+         TEXT TOOL
+    ------------------------- -->
+
+    <div
+        id="textTool"
+        class="tool-box hidden"
+    >
+
+        <h3>
+            📝 Text Converter
+        </h3>
+
+
+        <textarea
+            id="textInput"
+            placeholder="Type or paste your text here..."
+        ></textarea>
+
+
+        <button
+            class="button"
+            onclick="upperText()"
+        >
+            UPPERCASE
+        </button>
+
+
+        <button
+            class="button secondary"
+            onclick="lowerText()"
+        >
+            lowercase
+        </button>
+
+
+        <button
+            class="button secondary"
+            onclick="copyText()"
+        >
+            Copy
+        </button>
+
+    </div>
+
+
+    <!-- -------------------------
+         JSON TOOL
+    ------------------------- -->
+
+    <div
+        id="jsonTool"
+        class="tool-box hidden"
+    >
+
+        <h3>
+            📦 JSON Formatter
+        </h3>
+
+
+        <textarea
+            id="jsonInput"
+            placeholder="Paste JSON here..."
+        ></textarea>
+
+
+        <button
+            class="button"
+            onclick="formatJSON()"
+        >
+            Format JSON
+        </button>
+
+
+        <div
+            id="jsonOutput"
+            class="output"
+        ></div>
+
+    </div>
+
+</section>
+
+
+<!-- -------------------------
+     FILES
+------------------------- -->
+
+<section
+    id="files"
+    class="section category"
+>
+
+
+    <div class="section-title">
+
+        <h2>
+            📁 Files
+        </h2>
+
+
+        <span
+            id="fileCount"
+            class="badge"
+        >
+            0 files
+        </span>
+
+    </div>
+
+
+    <!--
+        FILES ARE GENERATED AUTOMATICALLY
+        FROM THE FILE LIST IN JAVASCRIPT.
+    -->
+
+
+    <div
+        id="fileList"
+        class="cards"
+    ></div>
+
+</section>
+
+
+<!-- -------------------------
+     LINKS
+------------------------- -->
+
+<section
+    id="links"
+    class="section category"
+>
+
+
+    <div class="section-title">
+
+        <h2>
+            🔗 Links
+        </h2>
+
+
+        <span class="badge">
+            Useful
+        </span>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <!-- GITHUB -->
+
+        <div class="card searchable">
+
+            <h3>
+                🐙 GitHub
+            </h3>
+
+
+            <p>
+                Visit GitHub.
+            </p>
+
+
+            <a
+                class="button"
+                href="https://github.com/"
+                target="_blank"
+            >
+                Visit
+            </a>
+
+        </div>
+
+
+        <!-- YOUTUBE -->
+
+        <div class="card searchable">
+
+            <h3>
+                ▶️ YouTube
+            </h3>
+
+
+            <p>
+                Visit YouTube.
+            </p>
+
+
+            <a
+                class="button"
+                href="https://youtube.com/"
+                target="_blank"
+            >
+                Visit
+            </a>
+
+        </div>
+
+
+        <!-- GORILLA TAG -->
+
+        <div class="card searchable">
+
+            <h3>
+                🎮 Gorilla Tag
+            </h3>
+
+
+            <p>
+                Official Gorilla Tag website.
+            </p>
+
+
+            <a
+                class="button"
+                href="https://www.gorillatagvr.com/"
+                target="_blank"
+            >
+                Visit
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+
 
 </div>
 
+
+<!-- -------------------------
+     FOOTER
+------------------------- -->
 
 <footer>
 
@@ -35,6 +968,10 @@ Gorilla Tag
 </footer>
 
 
+<!-- -------------------------
+     TOAST
+------------------------- -->
+
 <div
     id="toast"
     class="toast"
@@ -47,11 +984,63 @@ Gorilla Tag
 
 
 /* -------------------------
+   FILE LIST
+------------------------- */
+
+
+/*
+    ADD YOUR FILES HERE.
+
+    Example:
+
+    {
+        name: "My Mod",
+        file: "files/mymod.dll",
+        description: "My awesome mod.",
+        type: "DLL"
+    }
+
+    Make sure the actual file
+    exists inside your "files"
+    folder on GitHub.
+*/
+
+
+const files = [
+
+    {
+        name: "Example File",
+
+        file: "files/example.txt",
+
+        description:
+            "My first Penglo Tools download.",
+
+        type: "TXT"
+    },
+
+
+    {
+        name: "Example ZIP",
+
+        file: "files/example.zip",
+
+        description:
+            "Example ZIP download.",
+
+        type: "ZIP"
+    }
+
+];
+
+
+/* -------------------------
    NAVIGATION
 ------------------------- */
 
 
 function showAll() {
+
 
     document
         .querySelectorAll(".category")
@@ -73,6 +1062,7 @@ function showAll() {
 
 
 function showCategory(category) {
+
 
     document
         .querySelectorAll(".category")
@@ -106,6 +1096,7 @@ function showCategory(category) {
 
 function searchItems() {
 
+
     const search =
         document
             .getElementById("search")
@@ -116,6 +1107,7 @@ function searchItems() {
     document
         .querySelectorAll(".searchable")
         .forEach(item => {
+
 
             const text =
                 item.innerText.toLowerCase();
@@ -143,6 +1135,7 @@ function searchItems() {
 
 function hideTools() {
 
+
     document
         .getElementById("textTool")
         .classList.add("hidden");
@@ -157,10 +1150,12 @@ function hideTools() {
 
 function showTool(tool) {
 
+
     hideTools();
 
 
     if (tool === "text") {
+
 
         document
             .getElementById("textTool")
@@ -170,6 +1165,7 @@ function showTool(tool) {
 
 
     if (tool === "json") {
+
 
         document
             .getElementById("jsonTool")
@@ -187,6 +1183,7 @@ function showTool(tool) {
 
 function upperText() {
 
+
     const input =
         document.getElementById("textInput");
 
@@ -198,6 +1195,7 @@ function upperText() {
 
 
 function lowerText() {
+
 
     const input =
         document.getElementById("textInput");
@@ -211,13 +1209,14 @@ function lowerText() {
 
 function copyText() {
 
+
     const text =
         document
             .getElementById("textInput")
             .value;
 
 
-    navigator.clipboard.writeText(text);
+    copyToClipboard(text);
 
 
     showToast("Text copied!");
@@ -232,6 +1231,7 @@ function copyText() {
 
 function formatJSON() {
 
+
     const input =
         document
             .getElementById("jsonInput")
@@ -245,6 +1245,7 @@ function formatJSON() {
 
     try {
 
+
         const parsed =
             JSON.parse(input);
 
@@ -256,10 +1257,12 @@ function formatJSON() {
                 4
             );
 
+
     }
 
 
     catch (error) {
+
 
         output.textContent =
             "❌ Invalid JSON:\n" +
@@ -277,11 +1280,12 @@ function formatJSON() {
 
 function generateUUID() {
 
+
     const uuid =
         crypto.randomUUID();
 
 
-    navigator.clipboard.writeText(uuid);
+    copyToClipboard(uuid);
 
 
     showToast(uuid);
@@ -295,6 +1299,7 @@ function generateUUID() {
 
 
 function updateColor() {
+
 
     const color =
         document
@@ -312,25 +1317,158 @@ function updateColor() {
 
 function copyColor() {
 
+
     const color =
         document
             .getElementById("colorPicker")
             .value;
 
 
-    const text =
-        document.createElement("textarea");
+    copyToClipboard(color);
 
 
-    text.value = color;
+    showToast(
+        "Copied " +
+        color +
+        "!"
+    );
+
+}
+
+
+/* -------------------------
+   FILE SYSTEM
+------------------------- */
+
+
+function loadFiles() {
+
+
+    const fileList =
+        document.getElementById("fileList");
+
+  const files = [
+
+    {
+    name: "test",
+    file: "files/test.dll",
+    description: "test.",
+    type: "DLL"
+}
+
+
+    const fileCount =
+        document.getElementById("fileCount");
+
+
+    fileList.innerHTML = "";
+
+
+    files.forEach(item => {
+
+
+        const card =
+            document.createElement("div");
+
+
+        card.className =
+            "card searchable";
+
+
+        card.innerHTML = `
+
+            <h3>
+                📄 ${item.name}
+            </h3>
+
+
+            <p>
+                ${item.description}
+            </p>
+
+
+            <span class="badge">
+                ${item.type}
+            </span>
+
+
+            <br>
+
+
+            <a
+                class="button"
+                href="${item.file}"
+                download
+            >
+                Download
+            </a>
+
+
+            <button
+                class="button secondary"
+                onclick="copyFileLink('${item.file}')"
+            >
+                Copy Link
+            </button>
+
+        `;
+
+
+        fileList.appendChild(card);
+
+    });
+
+
+    fileCount.textContent =
+        files.length +
+        " files";
+
+}
+
+
+function copyFileLink(file) {
+
+
+    const url =
+        new URL(
+            file,
+            window.location.href
+        ).href;
+
+
+    copyToClipboard(url);
+
+
+    showToast(
+        "File link copied!"
+    );
+
+}
+
+
+/* -------------------------
+   CLIPBOARD
+------------------------- */
+
+
+function copyToClipboard(text) {
+
+
+    const textarea =
+        document.createElement(
+            "textarea"
+        );
+
+
+    textarea.value = text;
 
 
     document
         .body
-        .appendChild(text);
+        .appendChild(textarea);
 
 
-    text.select();
+    textarea.select();
 
 
     document.execCommand("copy");
@@ -338,12 +1476,7 @@ function copyColor() {
 
     document
         .body
-        .removeChild(text);
-
-
-    showToast(
-        "Copied " + color + "!"
-    );
+        .removeChild(textarea);
 
 }
 
@@ -354,6 +1487,7 @@ function copyColor() {
 
 
 function showToast(message) {
+
 
     const toast =
         document
@@ -370,14 +1504,25 @@ function showToast(message) {
 
     setTimeout(() => {
 
+
         toast.style.display =
             "none";
+
 
     }, 2000);
 
 }
 
+
+/* -------------------------
+   START WEBSITE
+------------------------- */
+
+
+loadFiles();
+
 </script>
+
 
 </body>
 </html>
