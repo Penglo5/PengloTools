@@ -2,16 +2,22 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
 
     <title>Penglo Tools 🐧</title>
 
+
     <style>
 
-        /* -------------------------
+        /* =========================
            MAIN PAGE
-        ------------------------- */
+        ========================= */
 
         * {
             box-sizing: border-box;
@@ -25,9 +31,9 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            HEADER
-        ------------------------- */
+        ========================= */
 
         header {
             background: #121722;
@@ -50,9 +56,9 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            NAVIGATION
-        ------------------------- */
+        ========================= */
 
         nav {
             background: #10141d;
@@ -71,6 +77,7 @@
             border-radius: 8px;
             padding: 10px 16px;
             cursor: pointer;
+            font-weight: bold;
         }
 
         nav button:hover {
@@ -78,9 +85,9 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            CONTAINER
-        ------------------------- */
+        ========================= */
 
         .container {
             max-width: 1100px;
@@ -89,9 +96,9 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            SEARCH
-        ------------------------- */
+        ========================= */
 
         .search {
             width: 100%;
@@ -110,9 +117,9 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            SECTIONS
-        ------------------------- */
+        ========================= */
 
         .section {
             margin-bottom: 45px;
@@ -123,12 +130,13 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 15px;
+            gap: 10px;
         }
 
 
-        /* -------------------------
+        /* =========================
            CARDS
-        ------------------------- */
+        ========================= */
 
         .cards {
             display: grid;
@@ -160,23 +168,14 @@
             line-height: 1.5;
         }
 
-
-        /* -------------------------
-           FEATURED
-        ------------------------- */
-
         .featured {
             border-color: #ff8800;
         }
 
-        .featured:hover {
-            border-color: #ff8800;
-        }
 
-
-        /* -------------------------
+        /* =========================
            BUTTONS
-        ------------------------- */
+        ========================= */
 
         .button {
             display: inline-block;
@@ -188,6 +187,7 @@
             cursor: pointer;
             text-decoration: none;
             margin-top: 8px;
+            font-weight: bold;
         }
 
         .button:hover {
@@ -195,9 +195,9 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            BADGES
-        ------------------------- */
+        ========================= */
 
         .badge {
             background: #252d3b;
@@ -205,12 +205,13 @@
             padding: 5px 9px;
             border-radius: 20px;
             font-size: 12px;
+            white-space: nowrap;
         }
 
 
-        /* -------------------------
+        /* =========================
            TOOL BOX
-        ------------------------- */
+        ========================= */
 
         .tool-box {
             background: #090844;
@@ -238,9 +239,9 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            COLOR PICKER
-        ------------------------- */
+        ========================= */
 
         input[type="color"] {
             width: 70px;
@@ -251,9 +252,9 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            OUTPUT
-        ------------------------- */
+        ========================= */
 
         .output {
             white-space: pre-wrap;
@@ -264,12 +265,13 @@
             padding: 12px;
             margin-top: 10px;
             color: #cbd3df;
+            font-family: monospace;
         }
 
 
-        /* -------------------------
+        /* =========================
            FILE SECTIONS
-        ------------------------- */
+        ========================= */
 
         .file-section {
             background: #090844;
@@ -330,18 +332,74 @@
         }
 
 
-        /* -------------------------
-           OTHER
-        ------------------------- */
+        /* =========================
+           DLL READER
+        ========================= */
 
-        .hidden {
+        .dll-drop {
+            border: 2px dashed #ff8800;
+            border-radius: 10px;
+            padding: 30px 15px;
+            text-align: center;
+            margin: 15px 0;
+            background: #05052b;
+            cursor: pointer;
+            transition: 0.2s;
+        }
+
+        .dll-drop:hover {
+            border-color: #de7ff0;
+            background: #090844;
+        }
+
+        .dll-drop.dragover {
+            border-color: #de7ff0;
+            transform: scale(1.01);
+        }
+
+        .dll-file-input {
             display: none;
         }
 
+        .dll-info {
+            line-height: 1.8;
+            font-family: monospace;
+        }
 
-        /* -------------------------
+        .dll-search {
+            margin-top: 15px;
+            margin-bottom: 10px;
+        }
+
+        .dll-strings {
+            max-height: 500px;
+            overflow: auto;
+        }
+
+        .dll-string {
+            padding: 5px 7px;
+            border-bottom: 1px solid #171b27;
+            word-break: break-all;
+        }
+
+        .dll-string:hover {
+            background: #090844;
+            color: #ff8800;
+        }
+
+
+        /* =========================
+           HIDDEN
+        ========================= */
+
+        .hidden {
+            display: none !important;
+        }
+
+
+        /* =========================
            FOOTER
-        ------------------------- */
+        ========================= */
 
         footer {
             text-align: center;
@@ -352,9 +410,9 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            TOAST
-        ------------------------- */
+        ========================= */
 
         .toast {
             position: fixed;
@@ -365,12 +423,13 @@
             padding: 12px 18px;
             border-radius: 8px;
             display: none;
+            z-index: 9999;
         }
 
 
-        /* -------------------------
+        /* =========================
            MOBILE
-        ------------------------- */
+        ========================= */
 
         @media (max-width: 600px) {
 
@@ -390,6 +449,11 @@
                 grid-template-columns: 1fr;
             }
 
+            nav button {
+                flex: 1;
+                min-width: 100px;
+            }
+
         }
 
     </style>
@@ -400,9 +464,9 @@
 <body>
 
 
-    <!-- -------------------------
+    <!-- =========================
          HEADER
-    ------------------------- -->
+    ========================= -->
 
     <header>
 
@@ -421,9 +485,9 @@
     </header>
 
 
-    <!-- -------------------------
+    <!-- =========================
          NAVIGATION
-    ------------------------- -->
+    ========================= -->
 
     <nav>
 
@@ -439,6 +503,10 @@
             📁 Files
         </button>
 
+        <button onclick="showCategory('dllReader')">
+            📦 DLL Reader
+        </button>
+
         <button onclick="showCategory('links')">
             🔗 My Other Links
         </button>
@@ -449,9 +517,9 @@
     <div class="container">
 
 
-        <!-- -------------------------
+        <!-- =========================
              SEARCH
-        ------------------------- -->
+        ========================= -->
 
         <input
             id="search"
@@ -462,11 +530,14 @@
         >
 
 
-        <!-- -------------------------
+        <!-- =========================
              FEATURED
-        ------------------------- -->
+        ========================= -->
 
-        <section class="section category">
+        <section
+            id="home"
+            class="section category"
+        >
 
             <div class="section-title">
 
@@ -511,18 +582,39 @@
 
                 </div>
 
+
+                <div class="card featured searchable">
+
+                    <h3>
+                        📦 DLL Reader
+                    </h3>
+
+                    <p>
+                        Inspect .NET DLL files
+                        directly in your browser.
+                    </p>
+
+                    <button
+                        class="button"
+                        onclick="showCategory('dllReader')"
+                    >
+                        Open DLL Reader
+                    </button>
+
+                </div>
+
             </div>
 
         </section>
 
 
-        <!-- -------------------------
+        <!-- =========================
              TOOLS
-        ------------------------- -->
+        ========================= -->
 
         <section
             id="tools"
-            class="section category"
+            class="section category hidden"
         >
 
             <div class="section-title">
@@ -540,6 +632,8 @@
 
             <div class="cards">
 
+
+                <!-- TEXT -->
 
                 <div class="card searchable">
 
@@ -562,6 +656,8 @@
                 </div>
 
 
+                <!-- JSON -->
+
                 <div class="card searchable">
 
                     <h3>
@@ -583,6 +679,8 @@
                 </div>
 
 
+                <!-- UUID -->
+
                 <div class="card searchable">
 
                     <h3>
@@ -602,6 +700,8 @@
 
                 </div>
 
+
+                <!-- COLOR -->
 
                 <div class="card searchable">
 
@@ -712,13 +812,13 @@
         </section>
 
 
-        <!-- -------------------------
+        <!-- =========================
              FILES
-        ------------------------- -->
+        ========================= -->
 
         <section
             id="files"
-            class="section category"
+            class="section category hidden"
         >
 
             <div class="section-title">
@@ -736,9 +836,7 @@
 
             <!-- GAME FILES -->
 
-            <div
-                class="file-section searchable"
-            >
+            <div class="file-section searchable">
 
                 <div class="file-section-header">
 
@@ -796,11 +894,9 @@
             </div>
 
 
-            <!-- TOOLS -->
+            <!-- TOOLS FILES -->
 
-            <div
-                class="file-section searchable"
-            >
+            <div class="file-section searchable">
 
                 <div class="file-section-header">
 
@@ -860,9 +956,7 @@
 
             <!-- PROJECTS -->
 
-            <div
-                class="file-section searchable"
-            >
+            <div class="file-section searchable">
 
                 <div class="file-section-header">
 
@@ -922,9 +1016,7 @@
 
             <!-- ASSETS -->
 
-            <div
-                class="file-section searchable"
-            >
+            <div class="file-section searchable">
 
                 <div class="file-section-header">
 
@@ -984,13 +1076,111 @@
         </section>
 
 
-        <!-- -------------------------
+        <!-- =========================
+             DLL READER
+        ========================= -->
+
+        <section
+            id="dllReader"
+            class="section category hidden"
+        >
+
+            <div class="section-title">
+
+                <h2>
+                    📦 DLL Reader
+                </h2>
+
+                <span class="badge">
+                    .DLL
+                </span>
+
+            </div>
+
+
+            <div class="tool-box">
+
+                <h3>
+                    🔍 Read a DLL
+                </h3>
+
+                <p>
+                    Select a .NET DLL to inspect
+                    readable information locally.
+                </p>
+
+
+                <!-- DROP AREA -->
+
+                <label
+                    id="dllDrop"
+                    class="dll-drop"
+                    for="dllInput"
+                >
+
+                    <strong>
+                        📁 Choose DLL
+                    </strong>
+
+                    <br>
+
+                    <span>
+                        or drag and drop a .dll here
+                    </span>
+
+                </label>
+
+
+                <input
+                    id="dllInput"
+                    class="dll-file-input"
+                    type="file"
+                    accept=".dll"
+                >
+
+
+                <!-- DLL INFO -->
+
+                <div
+                    id="dllInfo"
+                    class="output dll-info"
+                >
+                    No DLL selected.
+                </div>
+
+
+                <!-- SEARCH -->
+
+                <input
+                    id="dllSearch"
+                    class="search dll-search"
+                    type="text"
+                    placeholder="🔍 Search DLL strings..."
+                    oninput="searchDLL()"
+                >
+
+
+                <!-- STRINGS -->
+
+                <div
+                    id="dllStrings"
+                    class="output dll-strings"
+                >
+                    DLL strings will appear here.
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- =========================
              LINKS
-        ------------------------- -->
+        ========================= -->
 
         <section
             id="links"
-            class="section category"
+            class="section category hidden"
         >
 
             <div class="section-title">
@@ -1008,6 +1198,8 @@
 
             <div class="cards">
 
+
+                <!-- GITHUB -->
 
                 <div class="card searchable">
 
@@ -1031,6 +1223,8 @@
                 </div>
 
 
+                <!-- YOUTUBE -->
+
                 <div class="card searchable">
 
                     <h3>
@@ -1052,6 +1246,8 @@
 
                 </div>
 
+
+                <!-- TIKTOK -->
 
                 <div class="card searchable">
 
@@ -1081,9 +1277,9 @@
     </div>
 
 
-    <!-- -------------------------
+    <!-- =========================
          FOOTER
-    ------------------------- -->
+    ========================= -->
 
     <footer>
 
@@ -1098,9 +1294,9 @@
     </footer>
 
 
-    <!-- -------------------------
+    <!-- =========================
          TOAST
-    ------------------------- -->
+    ========================= -->
 
     <div
         id="toast"
@@ -1112,10 +1308,9 @@
 
     <script>
 
-
-        /* -------------------------
+        /* =========================
            NAVIGATION
-        ------------------------- */
+        ========================= */
 
         function showAll() {
 
@@ -1134,7 +1329,6 @@
             ).value = "";
 
             hideTools();
-
         }
 
 
@@ -1158,12 +1352,17 @@
 
             hideTools();
 
+            window.scrollTo({
+                top: 0,
+                behavior: "smooth"
+            });
+
         }
 
 
-        /* -------------------------
+        /* =========================
            SEARCH
-        ------------------------- */
+        ========================= */
 
         function searchItems() {
 
@@ -1191,23 +1390,25 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            FILE SECTIONS
-        ------------------------- */
+        ========================= */
 
         function toggleFiles(id) {
 
             const section =
                 document.getElementById(id);
 
-            section.classList.toggle("open");
+            section.classList.toggle(
+                "open"
+            );
 
         }
 
 
-        /* -------------------------
+        /* =========================
            TOOLS
-        ------------------------- */
+        ========================= */
 
         function hideTools() {
 
@@ -1230,7 +1431,9 @@
 
                 document
                     .getElementById("textTool")
-                    .classList.remove("hidden");
+                    .classList.remove(
+                        "hidden"
+                    );
 
             }
 
@@ -1238,16 +1441,18 @@
 
                 document
                     .getElementById("jsonTool")
-                    .classList.remove("hidden");
+                    .classList.remove(
+                        "hidden"
+                    );
 
             }
 
         }
 
 
-        /* -------------------------
+        /* =========================
            TEXT CONVERTER
-        ------------------------- */
+        ========================= */
 
         function upperText() {
 
@@ -1282,7 +1487,7 @@
                     "textInput"
                 );
 
-            copyTextToClipboard(
+            copyToClipboard(
                 input.value
             );
 
@@ -1293,9 +1498,9 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            JSON FORMATTER
-        ------------------------- */
+        ========================= */
 
         function formatJSON() {
 
@@ -1315,7 +1520,6 @@
                     "Paste JSON here first.";
 
                 return;
-
             }
 
             try {
@@ -1347,16 +1551,16 @@
         }
 
 
-        /* -------------------------
-           UUID GENERATOR
-        ------------------------- */
+        /* =========================
+           UUID
+        ========================= */
 
         function generateUUID() {
 
             const uuid =
                 crypto.randomUUID();
 
-            copyTextToClipboard(
+            copyToClipboard(
                 uuid
             );
 
@@ -1367,9 +1571,9 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            COLOR PICKER
-        ------------------------- */
+        ========================= */
 
         function updateColor() {
 
@@ -1393,7 +1597,7 @@
                     "colorPicker"
                 ).value;
 
-            copyTextToClipboard(
+            copyToClipboard(
                 color
             );
 
@@ -1406,11 +1610,433 @@
         }
 
 
-        /* -------------------------
-           CLIPBOARD
-        ------------------------- */
+        /* =========================
+           DLL READER
+        ========================= */
 
-        function copyTextToClipboard(text) {
+        let dllStringList = [];
+
+
+        document
+            .getElementById("dllInput")
+            .addEventListener(
+                "change",
+                readDLL
+            );
+
+
+        async function readDLL(event) {
+
+            const file =
+                event.target.files[0];
+
+            if (!file)
+                return;
+
+
+            const info =
+                document.getElementById(
+                    "dllInfo"
+                );
+
+            const output =
+                document.getElementById(
+                    "dllStrings"
+                );
+
+
+            info.textContent =
+                "⏳ Reading " +
+                file.name +
+                "...";
+
+
+            try {
+
+                const buffer =
+                    await file.arrayBuffer();
+
+                const bytes =
+                    new Uint8Array(
+                        buffer
+                    );
+
+
+                /* -------------------------
+                   BASIC FILE INFO
+                ------------------------- */
+
+                const size =
+                    bytes.length;
+
+
+                const isPE =
+                    bytes[0] === 0x4D &&
+                    bytes[1] === 0x5A;
+
+
+                /*
+                 * BSJB is the signature
+                 * used by .NET metadata.
+                 */
+
+                let isDotNet = false;
+
+
+                for (
+                    let i = 0;
+                    i < bytes.length - 4;
+                    i++
+                ) {
+
+                    if (
+                        bytes[i] === 0x42 &&
+                        bytes[i + 1] === 0x53 &&
+                        bytes[i + 2] === 0x4A &&
+                        bytes[i + 3] === 0x42
+                    ) {
+
+                        isDotNet = true;
+
+                        break;
+
+                    }
+
+                }
+
+
+                info.innerHTML = `
+
+                    <strong>
+                        📦 ${escapeHTML(file.name)}
+                    </strong>
+
+                    <br>
+
+                    Size:
+                    ${formatBytes(size)}
+
+                    <br>
+
+                    PE/DLL:
+                    ${isPE ? "✅ Yes" : "❌ No"}
+
+                    <br>
+
+                    .NET Assembly:
+                    ${isDotNet
+                        ? "✅ Detected"
+                        : "❌ Not detected"}
+
+                `;
+
+
+                /* -------------------------
+                   EXTRACT STRINGS
+                ------------------------- */
+
+                dllStringList =
+                    extractStrings(
+                        bytes
+                    );
+
+
+                renderDLLStrings(
+                    dllStringList
+                );
+
+
+                showToast(
+                    "DLL loaded!"
+                );
+
+
+            }
+
+            catch (error) {
+
+                info.textContent =
+                    "❌ Could not read DLL.";
+
+                output.textContent =
+                    error.message;
+
+            }
+
+        }
+
+
+        /* =========================
+           DLL STRING EXTRACTION
+        ========================= */
+
+        function extractStrings(bytes) {
+
+            const strings = [];
+
+            let current = "";
+
+
+            for (
+                let i = 0;
+                i < bytes.length;
+                i++
+            ) {
+
+                const value =
+                    bytes[i];
+
+
+                if (
+                    value >= 32 &&
+                    value <= 126
+                ) {
+
+                    current +=
+                        String.fromCharCode(
+                            value
+                        );
+
+                }
+
+                else {
+
+                    if (
+                        current.length >= 4
+                    ) {
+
+                        strings.push(
+                            current
+                        );
+
+                    }
+
+                    current = "";
+
+                }
+
+            }
+
+
+            if (
+                current.length >= 4
+            ) {
+
+                strings.push(
+                    current
+                );
+
+            }
+
+
+            return [
+                ...new Set(strings)
+            ];
+
+        }
+
+
+        /* =========================
+           DLL SEARCH
+        ========================= */
+
+        function searchDLL() {
+
+            const search =
+                document
+                    .getElementById(
+                        "dllSearch"
+                    )
+                    .value
+                    .toLowerCase();
+
+
+            const results =
+                dllStringList.filter(
+                    value =>
+                        value
+                            .toLowerCase()
+                            .includes(
+                                search
+                            )
+                );
+
+
+            renderDLLStrings(
+                search
+                    ? results
+                    : dllStringList
+            );
+
+        }
+
+
+        /* =========================
+           DLL STRING DISPLAY
+        ========================= */
+
+        function renderDLLStrings(
+            strings
+        ) {
+
+            const output =
+                document.getElementById(
+                    "dllStrings"
+                );
+
+
+            if (!strings.length) {
+
+                output.textContent =
+                    "No readable strings found.";
+
+                return;
+
+            }
+
+
+            output.innerHTML =
+                strings
+                    .map(
+                        string => `
+                            <div class="dll-string">
+                                ${escapeHTML(string)}
+                            </div>
+                        `
+                    )
+                    .join("");
+
+        }
+
+
+        /* =========================
+           FILE SIZE
+        ========================= */
+
+        function formatBytes(bytes) {
+
+            if (bytes === 0)
+                return "0 Bytes";
+
+
+            const units = [
+                "Bytes",
+                "KB",
+                "MB",
+                "GB"
+            ];
+
+
+            const index =
+                Math.floor(
+                    Math.log(bytes) /
+                    Math.log(1024)
+                );
+
+
+            return (
+                parseFloat(
+                    (
+                        bytes /
+                        Math.pow(
+                            1024,
+                            index
+                        )
+                    ).toFixed(2)
+                ) +
+                " " +
+                units[index]
+            );
+
+        }
+
+
+        /* =========================
+           DRAG & DROP
+        ========================= */
+
+        const dllDrop =
+            document.getElementById(
+                "dllDrop"
+            );
+
+
+        dllDrop.addEventListener(
+            "dragover",
+            event => {
+
+                event.preventDefault();
+
+                dllDrop.classList.add(
+                    "dragover"
+                );
+
+            }
+        );
+
+
+        dllDrop.addEventListener(
+            "dragleave",
+            () => {
+
+                dllDrop.classList.remove(
+                    "dragover"
+                );
+
+            }
+        );
+
+
+        dllDrop.addEventListener(
+            "drop",
+            event => {
+
+                event.preventDefault();
+
+                dllDrop.classList.remove(
+                    "dragover"
+                );
+
+
+                const file =
+                    event.dataTransfer
+                        .files[0];
+
+
+                if (
+                    file &&
+                    file.name
+                        .toLowerCase()
+                        .endsWith(".dll")
+                ) {
+
+                    readDLL({
+                        target: {
+                            files: [file]
+                        }
+                    });
+
+                }
+
+                else {
+
+                    showToast(
+                        "Please drop a .DLL file!"
+                    );
+
+                }
+
+            }
+        );
+
+
+        /* =========================
+           CLIPBOARD
+        ========================= */
+
+        function copyToClipboard(
+            text
+        ) {
 
             if (
                 navigator.clipboard &&
@@ -1423,6 +2049,7 @@
                 return;
 
             }
+
 
             const textarea =
                 document.createElement(
@@ -1447,29 +2074,70 @@
         }
 
 
-        /* -------------------------
+        /* =========================
            TOAST
-        ------------------------- */
+        ========================= */
 
-        function showToast(message) {
+        function showToast(
+            message
+        ) {
 
             const toast =
                 document.getElementById(
                     "toast"
                 );
 
+
             toast.textContent =
                 message;
+
 
             toast.style.display =
                 "block";
 
-            setTimeout(() => {
 
-                toast.style.display =
-                    "none";
+            setTimeout(
+                () => {
 
-            }, 2000);
+                    toast.style.display =
+                        "none";
+
+                },
+                2000
+            );
+
+        }
+
+
+        /* =========================
+           HTML SAFETY
+        ========================= */
+
+        function escapeHTML(
+            text
+        ) {
+
+            return String(text)
+                .replaceAll(
+                    "&",
+                    "&amp;"
+                )
+                .replaceAll(
+                    "<",
+                    "&lt;"
+                )
+                .replaceAll(
+                    ">",
+                    "&gt;"
+                )
+                .replaceAll(
+                    '"',
+                    "&quot;"
+                )
+                .replaceAll(
+                    "'",
+                    "&#039;"
+                );
 
         }
 
