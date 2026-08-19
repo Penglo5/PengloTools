@@ -51,6 +51,10 @@ nav button{
     font-weight:bold;
 }
 
+nav button:hover{
+    filter:brightness(1.15);
+}
+
 .container{
     max-width:1100px;
     margin:auto;
@@ -67,6 +71,10 @@ nav button{
     font-size:16px;
     outline:none;
     margin-bottom:25px;
+}
+
+.search:focus{
+    border-color:#de7ff0;
 }
 
 .cards{
@@ -103,7 +111,8 @@ nav button{
     line-height:1.5;
 }
 
-button,.button{
+button,
+.button{
     background:#ff8800;
     color:white;
     border:none;
@@ -116,17 +125,21 @@ button,.button{
     margin-top:5px;
 }
 
-button:hover,.button:hover{
+button:hover,
+.button:hover{
     filter:brightness(1.12);
 }
 
-.red-back{
+/* RED BACK BUTTONS - ONLY DROPDOWN BOXES */
+
+.back-button{
     background:#d90000 !important;
     border:2px solid #ff4444 !important;
+    color:white;
     margin-bottom:15px;
 }
 
-.red-back:hover{
+.back-button:hover{
     background:#ff2222 !important;
 }
 
@@ -141,6 +154,10 @@ textarea{
     padding:12px;
     font-family:monospace;
     outline:none;
+}
+
+textarea:focus{
+    border-color:#de7ff0;
 }
 
 .output{
@@ -202,8 +219,14 @@ input[type="color"]{
     margin:15px 0;
 }
 
+.dll-drop:hover{
+    border-color:#de7ff0;
+    background:#090844;
+}
+
 .dll-drop.dragover{
     border-color:#de7ff0;
+    transform:scale(1.01);
 }
 
 .dll-file-input{
@@ -234,6 +257,7 @@ input[type="color"]{
     overflow:auto;
     white-space:pre-wrap;
     font-family:monospace;
+    color:#d7dce5;
 }
 
 .section-box{
@@ -273,9 +297,23 @@ footer{
 }
 
 @media(max-width:600px){
-    header h1{font-size:30px}
-    .container{padding:20px 12px}
-    .cards{grid-template-columns:1fr}
+
+    header h1{
+        font-size:30px;
+    }
+
+    .container{
+        padding:20px 12px;
+    }
+
+    .cards{
+        grid-template-columns:1fr;
+    }
+
+    nav button{
+        flex:1;
+        min-width:100px;
+    }
 }
 </style>
 </head>
@@ -289,7 +327,7 @@ footer{
 </header>
 
 <nav>
-    <button onclick="goHome()">🏠 Home</button>
+    <button onclick="scrollToBox('home')">🏠 Home</button>
     <button onclick="scrollToBox('toolsBox')">🔧 Tools</button>
     <button onclick="scrollToBox('filesBox')">📁 Files</button>
     <button onclick="scrollToBox('dllBox')">📦 DLL Reader</button>
@@ -315,46 +353,80 @@ footer{
 <div class="cards">
 
 <div class="card featured searchable">
-    <h3>🐧 Penglo Tools</h3>
-    <p>Welcome to Penglo Tools!</p>
-    <p>Everything on the website is available below.</p>
-</div>
+
+<h3>🐧 Penglo Tools</h3>
+
+<p>
+Welcome to Penglo Tools!
+</p>
+
+<p>
+Everything on the website is available below.
+</p>
 
 </div>
 
-<!-- TOOLS -->
+</div>
+
+<!-- TOOLS MAIN BOX -->
 
 <div id="toolsBox" class="section-box">
 
 <div class="tool-box searchable">
-
-<button class="red-back" onclick="goHome()">← Back</button>
 
 <h2>🔧 Tools</h2>
 
 <div class="cards">
 
 <div class="card">
+
 <h3>📝 Text Converter</h3>
-<p>Convert text to uppercase or lowercase.</p>
-<button onclick="openTool('text')">Open</button>
+
+<p>
+Convert text to uppercase or lowercase.
+</p>
+
+<button onclick="openTool('text')">
+Open
+</button>
+
 </div>
 
 <div class="card">
+
 <h3>📦 JSON Formatter</h3>
-<p>Format JSON so it is easier to read.</p>
-<button onclick="openTool('json')">Open</button>
+
+<p>
+Format JSON so it is easier to read.
+</p>
+
+<button onclick="openTool('json')">
+Open
+</button>
+
 </div>
 
 <div class="card">
+
 <h3>🔢 UUID Generator</h3>
-<p>Generate a random UUID.</p>
-<button onclick="generateUUID()">Generate</button>
+
+<p>
+Generate a random UUID.
+</p>
+
+<button onclick="generateUUID()">
+Generate
+</button>
+
 </div>
 
 <div class="card">
+
 <h3>🎨 Color Picker</h3>
-<p>Pick a color and copy its HEX code.</p>
+
+<p>
+Pick a color and copy its HEX code.
+</p>
 
 <input
     id="colorPicker"
@@ -363,16 +435,31 @@ footer{
     onchange="updateColor()"
 >
 
-<p id="colorValue">#FF8800</p>
+<p id="colorValue">
+#FF8800
+</p>
 
-<button onclick="copyColor()">Copy Color</button>
+<button onclick="copyColor()">
+Copy Color
+</button>
+
 </div>
 
 </div>
 
-<div id="textTool" class="tool-box hidden">
+<!-- TEXT DROPDOWN -->
 
-<button class="red-back" onclick="closeTool('textTool')">← Back</button>
+<div
+    id="textTool"
+    class="tool-box hidden"
+>
+
+<button
+    class="back-button"
+    onclick="closeTool('textTool')"
+>
+← Back
+</button>
 
 <h3>📝 Text Converter</h3>
 
@@ -383,15 +470,33 @@ footer{
 
 <br>
 
-<button onclick="upperText()">UPPERCASE</button>
-<button onclick="lowerText()">lowercase</button>
-<button onclick="copyText()">Copy</button>
+<button onclick="upperText()">
+UPPERCASE
+</button>
+
+<button onclick="lowerText()">
+lowercase
+</button>
+
+<button onclick="copyText()">
+Copy
+</button>
 
 </div>
 
-<div id="jsonTool" class="tool-box hidden">
+<!-- JSON DROPDOWN -->
 
-<button class="red-back" onclick="closeTool('jsonTool')">← Back</button>
+<div
+    id="jsonTool"
+    class="tool-box hidden"
+>
+
+<button
+    class="back-button"
+    onclick="closeTool('jsonTool')"
+>
+← Back
+</button>
 
 <h3>📦 JSON Formatter</h3>
 
@@ -402,123 +507,214 @@ footer{
 
 <br>
 
-<button onclick="formatJSON()">Format JSON</button>
+<button onclick="formatJSON()">
+Format JSON
+</button>
 
-<div id="jsonOutput" class="output"></div>
+<div
+    id="jsonOutput"
+    class="output"
+></div>
 
 </div>
 
 </div>
+
 </div>
 
-<!-- FILES -->
+<!-- FILES MAIN BOX -->
 
 <div id="filesBox" class="section-box">
 
-<div class="tool-box">
-
-<button class="red-back" onclick="goHome()">← Back</button>
+<div class="tool-box searchable">
 
 <h2>📁 Files</h2>
 
-<div class="file-section searchable">
+<!-- GAME FILES DROPDOWN -->
+
+<div class="file-section">
 
 <h3>🎮 Game Files</h3>
 
-<p>Game-related files, mods and configurations.</p>
+<p>
+Game-related files, mods and configurations.
+</p>
 
 <button onclick="toggleFiles('gameFiles')">
 View Files
 </button>
 
-<div id="gameFiles" class="file-list">
+<div
+    id="gameFiles"
+    class="file-list"
+>
+
+<button
+    class="back-button"
+    onclick="toggleFiles('gameFiles')"
+>
+← Back
+</button>
 
 <div class="file-item">
-<strong>📄 Add your game files here</strong>
+
+<strong>
+📄 Add your game files here
+</strong>
+
 <br>
-<span>Put your download links here.</span>
-</div>
+
+<span>
+Put your download links here.
+</span>
 
 </div>
 
 </div>
 
-<div class="file-section searchable">
+</div>
+
+<!-- TOOLS FILES DROPDOWN -->
+
+<div class="file-section">
 
 <h3>🛠️ Tools</h3>
 
-<p>Utilities, DLLs and useful downloads.</p>
+<p>
+Utilities, DLLs and useful downloads.
+</p>
 
 <button onclick="toggleFiles('toolFiles')">
 View Files
 </button>
 
-<div id="toolFiles" class="file-list">
+<div
+    id="toolFiles"
+    class="file-list"
+>
+
+<button
+    class="back-button"
+    onclick="toggleFiles('toolFiles')"
+>
+← Back
+</button>
 
 <div class="file-item">
-<strong>📦 Add your tools here</strong>
+
+<strong>
+📦 Add your tools here
+</strong>
+
 <br>
-<span>Put your download links here.</span>
-</div>
+
+<span>
+Put your download links here.
+</span>
 
 </div>
 
 </div>
 
-<div class="file-section searchable">
+</div>
+
+<!-- PROJECTS DROPDOWN -->
+
+<div class="file-section">
 
 <h3>📦 Projects</h3>
 
-<p>Project files and experiments.</p>
+<p>
+Project files and experiments.
+</p>
 
 <button onclick="toggleFiles('projectFiles')">
 View Files
 </button>
 
-<div id="projectFiles" class="file-list">
+<div
+    id="projectFiles"
+    class="file-list"
+>
+
+<button
+    class="back-button"
+    onclick="toggleFiles('projectFiles')"
+>
+← Back
+</button>
 
 <div class="file-item">
-<strong>📁 Add your projects here</strong>
+
+<strong>
+📁 Add your projects here
+</strong>
+
 <br>
-<span>Put your download links here.</span>
-</div>
+
+<span>
+Put your download links here.
+</span>
 
 </div>
 
 </div>
 
-<div class="file-section searchable">
+</div>
+
+<!-- ASSETS DROPDOWN -->
+
+<div class="file-section">
 
 <h3>🎨 Assets</h3>
 
-<p>Images, icons and other assets.</p>
+<p>
+Images, icons and other assets.
+</p>
 
 <button onclick="toggleFiles('assetFiles')">
 View Files
 </button>
 
-<div id="assetFiles" class="file-list">
+<div
+    id="assetFiles"
+    class="file-list"
+>
+
+<button
+    class="back-button"
+    onclick="toggleFiles('assetFiles')"
+>
+← Back
+</button>
 
 <div class="file-item">
-<strong>🖼️ Add your assets here</strong>
+
+<strong>
+🖼️ Add your assets here
+</strong>
+
 <br>
-<span>Put your download links here.</span>
-</div>
+
+<span>
+Put your download links here.
+</span>
 
 </div>
 
 </div>
 
 </div>
+
 </div>
 
-<!-- DLL -->
+</div>
+
+<!-- DLL MAIN BOX -->
 
 <div id="dllBox" class="section-box">
 
-<div class="tool-box">
-
-<button class="red-back" onclick="goHome()">← Back</button>
+<div class="tool-box searchable">
 
 <h2>📦 DLL Reader</h2>
 
@@ -526,42 +722,59 @@ View Files
 Select a .NET DLL to inspect it locally in your browser.
 </p>
 
-<label id="dllDrop" class="dll-drop" for="dllInput">
+<label
+    id="dllDrop"
+    class="dll-drop"
+    for="dllInput"
+>
 
-<strong>📁 Choose DLL</strong>
+<strong>
+📁 Choose DLL
+</strong>
 
 <br>
 
-<span>or drag and drop a .dll here</span>
+<span>
+or drag and drop a .dll here
+</span>
 
 </label>
 
 <input
-id="dllInput"
-class="dll-file-input"
-type="file"
-accept=".dll"
+    id="dllInput"
+    class="dll-file-input"
+    type="file"
+    accept=".dll"
 >
 
-<div id="dllInfo" class="output">
+<div
+    id="dllInfo"
+    class="output"
+>
 No DLL selected.
 </div>
 
 <input
-id="dllSearch"
-class="search"
-type="text"
-placeholder="🔍 Search DLL strings..."
-oninput="searchDLL()"
+    id="dllSearch"
+    class="search"
+    type="text"
+    placeholder="🔍 Search DLL strings..."
+    oninput="searchDLL()"
 >
 
-<div id="dllStrings" class="output dll-strings">
+<div
+    id="dllStrings"
+    class="output dll-strings"
+>
 DLL strings will appear here.
 </div>
 
-<h3>ℹ️ Reader information</h3>
+<h3>
+ℹ️ Reader information
+</h3>
 
 <div class="code">
+
 This browser version can currently read:
 
 • PE/DLL signature
@@ -575,32 +788,40 @@ It processes the DLL locally.
 Full C# decompilation requires
 a .NET/WASM decompiler and cannot
 be achieved using ordinary JavaScript alone.
+
 </div>
 
 </div>
+
 </div>
 
-<!-- LINKS -->
+<!-- LINKS MAIN BOX -->
 
 <div id="linksBox" class="section-box">
 
-<div class="tool-box">
+<div class="tool-box searchable">
 
-<button class="red-back" onclick="goHome()">← Back</button>
-
-<h2>🔗 My Other Links</h2>
+<h2>
+🔗 My Other Links
+</h2>
 
 <div class="cards">
 
 <div class="card">
-<h3>🐙 GitHub</h3>
-<p>My GitHub account.</p>
+
+<h3>
+🐙 GitHub
+</h3>
+
+<p>
+My GitHub account.
+</p>
 
 <a
-class="button"
-href="https://github.com/Penglo5"
-target="_blank"
-rel="noopener noreferrer"
+    class="button"
+    href="https://github.com/Penglo5"
+    target="_blank"
+    rel="noopener noreferrer"
 >
 Visit
 </a>
@@ -608,14 +829,20 @@ Visit
 </div>
 
 <div class="card">
-<h3>▶️ YouTube</h3>
-<p>My YouTube channel.</p>
+
+<h3>
+▶️ YouTube
+</h3>
+
+<p>
+My YouTube channel.
+</p>
 
 <a
-class="button"
-href="https://www.youtube.com/@Penglo5"
-target="_blank"
-rel="noopener noreferrer"
+    class="button"
+    href="https://www.youtube.com/@Penglo5"
+    target="_blank"
+    rel="noopener noreferrer"
 >
 Visit
 </a>
@@ -623,14 +850,20 @@ Visit
 </div>
 
 <div class="card">
-<h3>♪ TikTok</h3>
-<p>My TikTok account.</p>
+
+<h3>
+♪ TikTok
+</h3>
+
+<p>
+My TikTok account.
+</p>
 
 <a
-class="button"
-href="https://www.tiktok.com/@penglo97"
-target="_blank"
-rel="noopener noreferrer"
+    class="button"
+    href="https://www.tiktok.com/@penglo97"
+    target="_blank"
+    rel="noopener noreferrer"
 >
 Visit
 </a>
@@ -638,7 +871,9 @@ Visit
 </div>
 
 </div>
+
 </div>
+
 </div>
 
 </section>
@@ -646,31 +881,39 @@ Visit
 </div>
 
 <footer>
+
 🐧 Penglo Tools
+
 <br>
-<small>Made by Penglo</small>
+
+<small>
+Made by Penglo
+</small>
+
 </footer>
 
-<div id="toast" class="toast">Copied!</div>
+<div
+    id="toast"
+    class="toast"
+>
+Copied!
+</div>
 
 <script>
 
-function goHome(){
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-}
-
 function scrollToBox(id){
-    document.getElementById(id).scrollIntoView({
-        behavior:"smooth"
-    });
+
+    document
+        .getElementById(id)
+        .scrollIntoView({
+            behavior:"smooth"
+        });
 }
 
 function siteSearch(){
 
-    const search=document
+    const search=
+        document
         .getElementById("siteSearch")
         .value
         .toLowerCase();
@@ -690,9 +933,11 @@ function siteSearch(){
 }
 
 function toggleFiles(id){
+
     document
         .getElementById(id)
         .classList.toggle("open");
+
 }
 
 function openTool(tool){
@@ -708,32 +953,35 @@ function openTool(tool){
     document
         .getElementById(tool+"Tool")
         .classList.remove("hidden");
+
 }
 
 function closeTool(id){
+
     document
         .getElementById(id)
         .classList.add("hidden");
+
 }
 
 function upperText(){
-    document
-        .getElementById("textInput")
-        .value=
-        document
-        .getElementById("textInput")
-        .value
-        .toUpperCase();
+
+    const input=
+        document.getElementById("textInput");
+
+    input.value=
+        input.value.toUpperCase();
+
 }
 
 function lowerText(){
-    document
-        .getElementById("textInput")
-        .value=
-        document
-        .getElementById("textInput")
-        .value
-        .toLowerCase();
+
+    const input=
+        document.getElementById("textInput");
+
+    input.value=
+        input.value.toLowerCase();
+
 }
 
 function copyText(){
@@ -745,6 +993,7 @@ function copyText(){
     );
 
     showToast("Text copied!");
+
 }
 
 function formatJSON(){
@@ -760,35 +1009,51 @@ function formatJSON(){
         .getElementById("jsonOutput");
 
     if(!input){
+
         output.textContent=
             "Paste JSON here first.";
+
         return;
     }
 
     try{
 
-        const json=JSON.parse(input);
+        const json=
+            JSON.parse(input);
 
         output.textContent=
-            JSON.stringify(json,null,4);
+            JSON.stringify(
+                json,
+                null,
+                4
+            );
 
-        showToast("JSON formatted!");
+        showToast(
+            "JSON formatted!"
+        );
 
-    }catch(error){
+    }
+    catch(error){
 
         output.textContent=
             "❌ Invalid JSON:\n"+
             error.message;
+
     }
+
 }
 
 function generateUUID(){
 
-    const uuid=crypto.randomUUID();
+    const uuid=
+        crypto.randomUUID();
 
     copyToClipboard(uuid);
 
-    showToast("UUID copied!");
+    showToast(
+        "UUID copied!"
+    );
+
 }
 
 function updateColor(){
@@ -802,6 +1067,7 @@ function updateColor(){
         .getElementById("colorValue")
         .textContent=
         color.toUpperCase();
+
 }
 
 function copyColor(){
@@ -813,20 +1079,27 @@ function copyColor(){
 
     copyToClipboard(color);
 
-    showToast("Color copied!");
+    showToast(
+        "Color copied!"
+    );
+
 }
 
 let dllStringList=[];
 
 document
-.getElementById("dllInput")
-.addEventListener("change",event=>{
+    .getElementById("dllInput")
+    .addEventListener(
+        "change",
+        event=>{
 
-    const file=
-        event.target.files[0];
+            const file=
+                event.target.files[0];
 
-    readDLL(file);
-});
+            readDLL(file);
+
+        }
+    );
 
 async function readDLL(file){
 
@@ -837,7 +1110,9 @@ async function readDLL(file){
         .getElementById("dllInfo");
 
     info.textContent=
-        "⏳ Reading "+file.name+"...";
+        "⏳ Reading "+
+        file.name+
+        "...";
 
     try{
 
@@ -868,7 +1143,9 @@ async function readDLL(file){
 
                 isDotNet=true;
                 break;
+
             }
+
         }
 
         dllStringList=
@@ -902,16 +1179,23 @@ ${dllStringList.length}
 
 `;
 
-        renderDLLStrings(dllStringList);
+        renderDLLStrings(
+            dllStringList
+        );
 
-        showToast("DLL loaded!");
+        showToast(
+            "DLL loaded!"
+        );
 
-    }catch(error){
+    }
+    catch(error){
 
         info.textContent=
             "❌ Could not read DLL: "+
             error.message;
+
     }
+
 }
 
 function extractStrings(bytes){
@@ -925,7 +1209,8 @@ function extractStrings(bytes){
         i++
     ){
 
-        const value=bytes[i];
+        const value=
+            bytes[i];
 
         if(
             value>=32 &&
@@ -933,23 +1218,43 @@ function extractStrings(bytes){
         ){
 
             current+=
-                String.fromCharCode(value);
+                String.fromCharCode(
+                    value
+                );
 
-        }else{
+        }
+        else{
 
-            if(current.length>=4){
-                strings.push(current);
+            if(
+                current.length>=4
+            ){
+
+                strings.push(
+                    current
+                );
+
             }
 
             current="";
+
         }
+
     }
 
-    if(current.length>=4){
-        strings.push(current);
+    if(
+        current.length>=4
+    ){
+
+        strings.push(
+            current
+        );
+
     }
 
-    return [...new Set(strings)];
+    return[
+        ...new Set(strings)
+    ];
+
 }
 
 function searchDLL(){
@@ -961,10 +1266,11 @@ function searchDLL(){
         .toLowerCase();
 
     const results=
-        dllStringList.filter(string=>
-            string
-            .toLowerCase()
-            .includes(search)
+        dllStringList.filter(
+            string=>
+                string
+                .toLowerCase()
+                .includes(search)
         );
 
     renderDLLStrings(
@@ -972,6 +1278,7 @@ function searchDLL(){
         ? results
         : dllStringList
     );
+
 }
 
 function renderDLLStrings(strings){
@@ -980,28 +1287,41 @@ function renderDLLStrings(strings){
         document
         .getElementById("dllStrings");
 
-    if(strings.length===0){
+    if(
+        strings.length===0
+    ){
 
         output.textContent=
             "No readable strings found.";
 
         return;
+
     }
 
     output.innerHTML=
         strings
-        .map(string=>`
-            <div class="dll-string">
-                ${escapeHTML(string)}
-            </div>
-        `)
+        .map(
+            string=>`
+
+<div class="dll-string">
+${escapeHTML(string)}
+</div>
+
+`
+        )
         .join("");
+
 }
 
 function formatBytes(bytes){
 
-    if(bytes===0)
+    if(
+        bytes===0
+    ){
+
         return "0 Bytes";
+
+    }
 
     const units=[
         "Bytes",
@@ -1019,76 +1339,93 @@ function formatBytes(bytes){
     return parseFloat(
         (
             bytes/
-            Math.pow(1024,index)
+            Math.pow(
+                1024,
+                index
+            )
         ).toFixed(2)
     )+
     " "+
     units[index];
+
 }
 
 const dllDrop=
-    document.getElementById("dllDrop");
-
-dllDrop.addEventListener(
-"dragover",
-event=>{
-
-    event.preventDefault();
-
-    dllDrop.classList.add(
-        "dragover"
-    );
-});
-
-dllDrop.addEventListener(
-"dragleave",
-()=>{
-
-    dllDrop.classList.remove(
-        "dragover"
-    );
-});
-
-dllDrop.addEventListener(
-"drop",
-event=>{
-
-    event.preventDefault();
-
-    dllDrop.classList.remove(
-        "dragover"
+    document.getElementById(
+        "dllDrop"
     );
 
-    const file=
-        event
-        .dataTransfer
-        .files[0];
+dllDrop.addEventListener(
+    "dragover",
+    event=>{
 
-    if(
-        file &&
-        file.name
-        .toLowerCase()
-        .endsWith(".dll")
-    ){
+        event.preventDefault();
 
-        readDLL(file);
-
-    }else{
-
-        showToast(
-            "Please drop a .DLL file!"
+        dllDrop.classList.add(
+            "dragover"
         );
+
     }
-});
+);
+
+dllDrop.addEventListener(
+    "dragleave",
+    ()=>{
+
+        dllDrop.classList.remove(
+            "dragover"
+        );
+
+    }
+);
+
+dllDrop.addEventListener(
+    "drop",
+    event=>{
+
+        event.preventDefault();
+
+        dllDrop.classList.remove(
+            "dragover"
+        );
+
+        const file=
+            event
+            .dataTransfer
+            .files[0];
+
+        if(
+            file &&
+            file.name
+            .toLowerCase()
+            .endsWith(".dll")
+        ){
+
+            readDLL(file);
+
+        }
+        else{
+
+            showToast(
+                "Please drop a .DLL file!"
+            );
+
+        }
+
+    }
+);
 
 function copyToClipboard(text){
 
-    if(navigator.clipboard){
+    if(
+        navigator.clipboard
+    ){
 
         navigator.clipboard
-        .writeText(text);
+            .writeText(text);
 
         return;
+
     }
 
     const textarea=
@@ -1104,9 +1441,12 @@ function copyToClipboard(text){
 
     textarea.select();
 
-    document.execCommand("copy");
+    document.execCommand(
+        "copy"
+    );
 
     textarea.remove();
+
 }
 
 function showToast(message){
@@ -1116,23 +1456,51 @@ function showToast(message){
             "toast"
         );
 
-    toast.textContent=message;
+    toast.textContent=
+        message;
 
-    toast.style.display="block";
+    toast.style.display=
+        "block";
 
-    setTimeout(()=>{
-        toast.style.display="none";
-    },2000);
+    setTimeout(
+        ()=>{
+            toast.style.display=
+                "none";
+        },
+        2000
+    );
+
 }
 
 function escapeHTML(text){
 
     return String(text)
-        .replaceAll("&","&amp;")
-        .replaceAll("<","&lt;")
-        .replaceAll(">","&gt;")
-        .replaceAll('"',"&quot;")
-        .replaceAll("'","&#039;");
+
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
+
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
+
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
+
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
+
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
+
 }
 
 </script>
