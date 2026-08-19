@@ -2,22 +2,12 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
-    <meta
-        name="viewport"
-        content="width=device-width, initial-scale=1.0"
-    >
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Penglo Tools 🐧</title>
 
-
     <style>
-
-        /* =========================
-           MAIN PAGE
-        ========================= */
 
         * {
             box-sizing: border-box;
@@ -30,20 +20,17 @@
             color: white;
         }
 
-
-        /* =========================
-           HEADER
-        ========================= */
+        /* HEADER */
 
         header {
             background: #121722;
             border-bottom: 1px solid #252c38;
-            padding: 30px 20px;
+            padding: 28px 20px;
             text-align: center;
         }
 
         .logo {
-            font-size: 45px;
+            font-size: 44px;
         }
 
         header h1 {
@@ -55,10 +42,7 @@
             color: #9ca6b5;
         }
 
-
-        /* =========================
-           NAVIGATION
-        ========================= */
+        /* NAVIGATION */
 
         nav {
             background: #10141d;
@@ -81,13 +65,10 @@
         }
 
         nav button:hover {
-            background: #3814d0;
+            filter: brightness(1.15);
         }
 
-
-        /* =========================
-           CONTAINER
-        ========================= */
+        /* MAIN */
 
         .container {
             max-width: 1100px;
@@ -95,31 +76,25 @@
             padding: 30px 20px;
         }
 
-
-        /* =========================
-           SEARCH
-        ========================= */
+        /* SEARCH */
 
         .search {
             width: 100%;
-            padding: 16px;
+            padding: 15px;
             border-radius: 10px;
             border: 1px solid #303847;
             background: #151a23;
             color: white;
             font-size: 16px;
             outline: none;
-            margin-bottom: 30px;
+            margin-bottom: 25px;
         }
 
         .search:focus {
             border-color: #de7ff0;
         }
 
-
-        /* =========================
-           SECTIONS
-        ========================= */
+        /* SECTIONS */
 
         .section {
             margin-bottom: 45px;
@@ -129,19 +104,19 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 15px;
-            gap: 10px;
         }
 
+        .hidden {
+            display: none !important;
+        }
 
-        /* =========================
-           CARDS
-        ========================= */
+        /* CARDS */
 
         .cards {
             display: grid;
             grid-template-columns:
                 repeat(auto-fit, minmax(230px, 1fr));
+
             gap: 16px;
         }
 
@@ -154,50 +129,41 @@
         }
 
         .card:hover {
-            transform: translateY(-4px);
+            transform: translateY(-3px);
             border-color: #de7ff0;
-        }
-
-        .card h3 {
-            margin-top: 0;
-        }
-
-        .card p {
-            color: #c0c5d0;
-            font-size: 14px;
-            line-height: 1.5;
         }
 
         .featured {
             border-color: #ff8800;
         }
 
+        .card p {
+            color: #c0c5d0;
+            line-height: 1.5;
+        }
 
-        /* =========================
-           BUTTONS
-        ========================= */
+        /* BUTTONS */
 
+        button,
         .button {
-            display: inline-block;
             background: #ff8800;
             color: white;
             border: none;
             border-radius: 7px;
-            padding: 9px 14px;
+            padding: 10px 15px;
             cursor: pointer;
-            text-decoration: none;
-            margin-top: 8px;
             font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 5px;
         }
 
+        button:hover,
         .button:hover {
-            background: #ff991f;
+            filter: brightness(1.12);
         }
 
-
-        /* =========================
-           BADGES
-        ========================= */
+        /* BADGE */
 
         .badge {
             background: #252d3b;
@@ -205,13 +171,9 @@
             padding: 5px 9px;
             border-radius: 20px;
             font-size: 12px;
-            white-space: nowrap;
         }
 
-
-        /* =========================
-           TOOL BOX
-        ========================= */
+        /* TOOL BOX */
 
         .tool-box {
             background: #090844;
@@ -223,13 +185,17 @@
 
         textarea {
             width: 100%;
-            min-height: 130px;
+            min-height: 140px;
             resize: vertical;
+
             background: #10102f;
             color: white;
+
             border: 1px solid #303847;
             border-radius: 8px;
+
             padding: 12px;
+
             font-family: monospace;
             outline: none;
         }
@@ -238,10 +204,28 @@
             border-color: #de7ff0;
         }
 
+        /* OUTPUT */
 
-        /* =========================
-           COLOR PICKER
-        ========================= */
+        .output {
+            white-space: pre-wrap;
+            word-break: break-word;
+
+            background: #05052b;
+
+            border: 1px solid #272f3c;
+
+            border-radius: 8px;
+
+            padding: 12px;
+
+            margin-top: 10px;
+
+            color: #cbd3df;
+
+            font-family: monospace;
+        }
+
+        /* COLOR */
 
         input[type="color"] {
             width: 70px;
@@ -251,27 +235,7 @@
             cursor: pointer;
         }
 
-
-        /* =========================
-           OUTPUT
-        ========================= */
-
-        .output {
-            white-space: pre-wrap;
-            word-break: break-word;
-            background: #05052b;
-            border: 1px solid #272f3c;
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 10px;
-            color: #cbd3df;
-            font-family: monospace;
-        }
-
-
-        /* =========================
-           FILE SECTIONS
-        ========================= */
+        /* FILE SECTIONS */
 
         .file-section {
             background: #090844;
@@ -279,33 +243,23 @@
             border-radius: 12px;
             padding: 20px;
             margin-bottom: 16px;
-            transition: 0.2s;
         }
 
         .file-section:hover {
             border-color: #de7ff0;
         }
 
-        .file-section h3 {
-            margin-top: 0;
-        }
-
         .file-section p {
             color: #c0c5d0;
         }
 
-        .file-section-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 10px;
-            flex-wrap: wrap;
-        }
-
         .file-list {
             display: none;
+
             margin-top: 15px;
+
             border-top: 1px solid #272f3c;
+
             padding-top: 15px;
         }
 
@@ -315,15 +269,14 @@
 
         .file-item {
             background: #05052b;
-            border: 1px solid #272f3c;
-            border-radius: 8px;
-            padding: 12px;
-            margin-top: 10px;
-        }
 
-        .file-item strong {
-            display: block;
-            margin-bottom: 5px;
+            border: 1px solid #272f3c;
+
+            border-radius: 8px;
+
+            padding: 12px;
+
+            margin-top: 10px;
         }
 
         .file-item span {
@@ -331,19 +284,25 @@
             font-size: 13px;
         }
 
-
-        /* =========================
-           DLL READER
-        ========================= */
+        /* DLL READER */
 
         .dll-drop {
+            display: block;
+
             border: 2px dashed #ff8800;
+
             border-radius: 10px;
-            padding: 30px 15px;
+
+            padding: 30px;
+
             text-align: center;
-            margin: 15px 0;
+
             background: #05052b;
+
             cursor: pointer;
+
+            margin: 15px 0;
+
             transition: 0.2s;
         }
 
@@ -361,24 +320,16 @@
             display: none;
         }
 
-        .dll-info {
-            line-height: 1.8;
-            font-family: monospace;
-        }
-
-        .dll-search {
-            margin-top: 15px;
-            margin-bottom: 10px;
-        }
-
         .dll-strings {
             max-height: 500px;
             overflow: auto;
         }
 
         .dll-string {
-            padding: 5px 7px;
+            padding: 6px;
+
             border-bottom: 1px solid #171b27;
+
             word-break: break-all;
         }
 
@@ -387,58 +338,67 @@
             color: #ff8800;
         }
 
+        /* CODE INFO */
 
-        /* =========================
-           HIDDEN
-        ========================= */
+        .code {
+            background: #05052b;
 
-        .hidden {
-            display: none !important;
+            border: 1px solid #272f3c;
+
+            border-radius: 8px;
+
+            padding: 14px;
+
+            overflow: auto;
+
+            white-space: pre-wrap;
+
+            font-family: monospace;
+
+            color: #d7dce5;
         }
 
-
-        /* =========================
-           FOOTER
-        ========================= */
+        /* FOOTER */
 
         footer {
             text-align: center;
+
             color: #687384;
+
             border-top: 1px solid #252c38;
+
             padding: 30px;
+
             margin-top: 40px;
         }
 
-
-        /* =========================
-           TOAST
-        ========================= */
+        /* TOAST */
 
         .toast {
             position: fixed;
+
             bottom: 20px;
             right: 20px;
+
             background: #090844;
+
             border: 1px solid #ff8800;
+
             padding: 12px 18px;
+
             border-radius: 8px;
+
             display: none;
+
             z-index: 9999;
         }
 
-
-        /* =========================
-           MOBILE
-        ========================= */
+        /* MOBILE */
 
         @media (max-width: 600px) {
 
             header h1 {
                 font-size: 30px;
-            }
-
-            .logo {
-                font-size: 38px;
             }
 
             .container {
@@ -464,1358 +424,1253 @@
 <body>
 
 
-    <!-- =========================
-         HEADER
-    ========================= -->
+<!-- HEADER -->
 
-    <header>
+<header>
 
-        <div class="logo">
-            🐧
-        </div>
+    <div class="logo">
+        🐧
+    </div>
 
-        <h1>
-            Penglo Tools
-        </h1>
+    <h1>
+        Penglo Tools
+    </h1>
 
-        <p>
-            My website used for things.
-        </p>
+    <p>
+        My website used for things.
+    </p>
 
-    </header>
+</header>
 
 
-    <!-- =========================
-         NAVIGATION
-    ========================= -->
+<!-- NAVIGATION -->
 
-    <nav>
+<nav>
 
-        <button onclick="showAll()">
-            🏠 Home
-        </button>
+    <button onclick="showSection('home')">
+        🏠 Home
+    </button>
 
-        <button onclick="showCategory('tools')">
-            🔧 Tools
-        </button>
+    <button onclick="showSection('tools')">
+        🔧 Tools
+    </button>
 
-        <button onclick="showCategory('files')">
-            📁 Files
-        </button>
+    <button onclick="showSection('files')">
+        📁 Files
+    </button>
 
-        <button onclick="showCategory('dllReader')">
-            📦 DLL Reader
-        </button>
+    <button onclick="showSection('dllReader')">
+        📦 DLL Reader
+    </button>
 
-        <button onclick="showCategory('links')">
-            🔗 My Other Links
-        </button>
+    <button onclick="showSection('links')">
+        🔗 My Other Links
+    </button>
 
-    </nav>
+</nav>
 
 
-    <div class="container">
+<div class="container">
 
 
-        <!-- =========================
-             SEARCH
-        ========================= -->
+<!-- SEARCH -->
 
-        <input
-            id="search"
-            class="search"
-            type="text"
-            placeholder="🔍 Search Penglo Tools..."
-            oninput="searchItems()"
-        >
+<input
+    id="siteSearch"
+    class="search"
+    type="text"
+    placeholder="🔍 Search Penglo Tools..."
+    oninput="siteSearch()"
+>
 
 
-        <!-- =========================
-             FEATURED
-        ========================= -->
+<!-- HOME -->
 
-        <section
-            id="home"
-            class="section category"
-        >
+<section
+    id="home"
+    class="section"
+>
 
-            <div class="section-title">
+    <div class="section-title">
 
-                <h2>
-                    ⭐ Featured
-                </h2>
-
-            </div>
-
-
-            <div class="cards">
-
-                <div class="card featured searchable">
-
-                    <h3>
-                        🐧 Welcome to Penglo Tools
-                    </h3>
-
-                    <p>
-                        My website used for things.
-                    </p>
-
-                </div>
-
-
-                <div class="card featured searchable">
-
-                    <h3>
-                        🔧 Tools
-                    </h3>
-
-                    <p>
-                        Useful browser-based tools.
-                    </p>
-
-                    <button
-                        class="button"
-                        onclick="showCategory('tools')"
-                    >
-                        View Tools
-                    </button>
-
-                </div>
-
-
-                <div class="card featured searchable">
-
-                    <h3>
-                        📦 DLL Reader
-                    </h3>
-
-                    <p>
-                       kind of broken
-                    </p>
-
-                    <button
-                        class="button"
-                        onclick="showCategory('dllReader')"
-                    >
-                        Open DLL Reader
-                    </button>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             TOOLS
-        ========================= -->
-
-        <section
-            id="tools"
-            class="section category hidden"
-        >
-
-            <div class="section-title">
-
-                <h2>
-                    🔧 Tools
-                </h2>
-
-                <span class="badge">
-                    4 tools
-                </span>
-
-            </div>
-
-
-            <div class="cards">
-
-
-                <!-- TEXT -->
-
-                <div class="card searchable">
-
-                    <h3>
-                        📝 Text Converter
-                    </h3>
-
-                    <p>
-                        Convert text to uppercase
-                        or lowercase.
-                    </p>
-
-                    <button
-                        class="button"
-                        onclick="showTool('text')"
-                    >
-                        Open
-                    </button>
-
-                </div>
-
-
-                <!-- JSON -->
-
-                <div class="card searchable">
-
-                    <h3>
-                        📦 JSON Formatter
-                    </h3>
-
-                    <p>
-                        Format JSON so it is
-                        easier to read.
-                    </p>
-
-                    <button
-                        class="button"
-                        onclick="showTool('json')"
-                    >
-                        Open
-                    </button>
-
-                </div>
-
-
-                <!-- UUID -->
-
-                <div class="card searchable">
-
-                    <h3>
-                        🔢 UUID Generator
-                    </h3>
-
-                    <p>
-                        Generate a random UUID.
-                    </p>
-
-                    <button
-                        class="button"
-                        onclick="generateUUID()"
-                    >
-                        Generate
-                    </button>
-
-                </div>
-
-
-                <!-- COLOR -->
-
-                <div class="card searchable">
-
-                    <h3>
-                        🎨 Color Picker
-                    </h3>
-
-                    <p>
-                        Pick a color and copy
-                        its HEX code.
-                    </p>
-
-                    <input
-                        type="color"
-                        id="colorPicker"
-                        value="#ff8800"
-                        onchange="updateColor()"
-                    >
-
-                    <p id="colorValue">
-                        #FF8800
-                    </p>
-
-                    <button
-                        class="button"
-                        onclick="copyColor()"
-                    >
-                        Copy Color
-                    </button>
-
-                </div>
-
-            </div>
-
-
-            <!-- TEXT CONVERTER -->
-
-            <div
-                id="textTool"
-                class="tool-box hidden"
-            >
-
-                <h3>
-                    📝 Text Converter
-                </h3>
-
-                <textarea
-                    id="textInput"
-                    placeholder="Type or paste text here..."
-                ></textarea>
-
-                <br>
-
-                <button
-                    class="button"
-                    onclick="upperText()"
-                >
-                    UPPERCASE
-                </button>
-
-                <button
-                    class="button"
-                    onclick="lowerText()"
-                >
-                    lowercase
-                </button>
-
-                <button
-                    class="button"
-                    onclick="copyText()"
-                >
-                    Copy
-                </button>
-
-            </div>
-
-
-            <!-- JSON FORMATTER -->
-
-            <div
-                id="jsonTool"
-                class="tool-box hidden"
-            >
-
-                <h3>
-                    📦 JSON Formatter
-                </h3>
-
-                <textarea
-                    id="jsonInput"
-                    placeholder="Paste JSON here..."
-                ></textarea>
-
-                <button
-                    class="button"
-                    onclick="formatJSON()"
-                >
-                    Format JSON
-                </button>
-
-                <div
-                    id="jsonOutput"
-                    class="output"
-                ></div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             FILES
-        ========================= -->
-
-        <section
-            id="files"
-            class="section category hidden"
-        >
-
-            <div class="section-title">
-
-                <h2>
-                    📁 Files
-                </h2>
-
-                <span class="badge">
-                    4 sections
-                </span>
-
-            </div>
-
-
-            <!-- GAME FILES -->
-
-            <div class="file-section searchable">
-
-                <div class="file-section-header">
-
-                    <div>
-
-                        <h3>
-                            🎮 Game Files
-                        </h3>
-
-                        <p>
-                            Game-related files,
-                            mods and configurations.
-                        </p>
-
-                    </div>
-
-                    <button
-                        class="button"
-                        onclick="toggleFiles('gameFiles')"
-                    >
-                        View Files
-                    </button>
-
-                </div>
-
-
-                <div
-                    id="gameFiles"
-                    class="file-list"
-                >
-
-                    <div class="file-item">
-
-                        <strong>
-                            📄 Example Game File
-                        </strong>
-
-                        <span>
-                            Add your game files here.
-                        </span>
-
-                        <br>
-
-                        <button
-                            class="button"
-                            onclick="showToast('Add your file link!')"
-                        >
-                            Download
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- TOOLS FILES -->
-
-            <div class="file-section searchable">
-
-                <div class="file-section-header">
-
-                    <div>
-
-                        <h3>
-                            🛠️ Tools
-                        </h3>
-
-                        <p>
-                            Utilities, DLLs and
-                            other useful downloads.
-                        </p>
-
-                    </div>
-
-                    <button
-                        class="button"
-                        onclick="toggleFiles('toolFiles')"
-                    >
-                        View Files
-                    </button>
-
-                </div>
-
-
-                <div
-                    id="toolFiles"
-                    class="file-list"
-                >
-
-                    <div class="file-item">
-
-                        <strong>
-                            📦 Example Tool
-                        </strong>
-
-                        <span>
-                            Add useful tools here.
-                        </span>
-
-                        <br>
-
-                        <button
-                            class="button"
-                            onclick="showToast('Add your file link!')"
-                        >
-                            Download
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- PROJECTS -->
-
-            <div class="file-section searchable">
-
-                <div class="file-section-header">
-
-                    <div>
-
-                        <h3>
-                            📦 Projects
-                        </h3>
-
-                        <p>
-                            Project files, old versions
-                            and experiments.
-                        </p>
-
-                    </div>
-
-                    <button
-                        class="button"
-                        onclick="toggleFiles('projectFiles')"
-                    >
-                        View Files
-                    </button>
-
-                </div>
-
-
-                <div
-                    id="projectFiles"
-                    class="file-list"
-                >
-
-                    <div class="file-item">
-
-                        <strong>
-                            📁 Example Project
-                        </strong>
-
-                        <span>
-                            Add your project files here.
-                        </span>
-
-                        <br>
-
-                        <button
-                            class="button"
-                            onclick="showToast('Add your file link!')"
-                        >
-                            Download
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-
-            <!-- ASSETS -->
-
-            <div class="file-section searchable">
-
-                <div class="file-section-header">
-
-                    <div>
-
-                        <h3>
-                            🎨 Assets
-                        </h3>
-
-                        <p>
-                            Images, icons, wallpapers
-                            and other assets.
-                        </p>
-
-                    </div>
-
-                    <button
-                        class="button"
-                        onclick="toggleFiles('assetFiles')"
-                    >
-                        View Files
-                    </button>
-
-                </div>
-
-
-                <div
-                    id="assetFiles"
-                    class="file-list"
-                >
-
-                    <div class="file-item">
-
-                        <strong>
-                            🖼️ Example Asset
-                        </strong>
-
-                        <span>
-                            Add images and other assets here.
-                        </span>
-
-                        <br>
-
-                        <button
-                            class="button"
-                            onclick="showToast('Add your file link!')"
-                        >
-                            Download
-                        </button>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             DLL READER
-        ========================= -->
-
-        <section
-            id="dllReader"
-            class="section category hidden"
-        >
-
-            <div class="section-title">
-
-                <h2>
-                    📦 DLL Reader
-                </h2>
-
-                <span class="badge">
-                    .DLL
-                </span>
-
-            </div>
-
-
-            <div class="tool-box">
-
-                <h3>
-                    🔍 Read a DLL
-                </h3>
-
-                <p>
-                    Select a .NET DLL to inspect
-                    readable information locally.
-                </p>
-
-
-                <!-- DROP AREA -->
-
-                <label
-                    id="dllDrop"
-                    class="dll-drop"
-                    for="dllInput"
-                >
-
-                    <strong>
-                        📁 Choose DLL
-                    </strong>
-
-                    <br>
-
-                    <span>
-                        or drag and drop a .dll here
-                    </span>
-
-                </label>
-
-
-                <input
-                    id="dllInput"
-                    class="dll-file-input"
-                    type="file"
-                    accept=".dll"
-                >
-
-
-                <!-- DLL INFO -->
-
-                <div
-                    id="dllInfo"
-                    class="output dll-info"
-                >
-                    No DLL selected.
-                </div>
-
-
-                <!-- SEARCH -->
-
-                <input
-                    id="dllSearch"
-                    class="search dll-search"
-                    type="text"
-                    placeholder="🔍 Search DLL strings..."
-                    oninput="searchDLL()"
-                >
-
-
-                <!-- STRINGS -->
-
-                <div
-                    id="dllStrings"
-                    class="output dll-strings"
-                >
-                    DLL strings will appear here.
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =========================
-             LINKS
-        ========================= -->
-
-        <section
-            id="links"
-            class="section category hidden"
-        >
-
-            <div class="section-title">
-
-                <h2>
-                    🔗 My Other Links
-                </h2>
-
-                <span class="badge">
-                    3 links
-                </span>
-
-            </div>
-
-
-            <div class="cards">
-
-
-                <!-- GITHUB -->
-
-                <div class="card searchable">
-
-                    <h3>
-                        🐙 GitHub
-                    </h3>
-
-                    <p>
-                        My GitHub account.
-                    </p>
-
-                    <a
-                        class="button"
-                        href="https://github.com/Penglo5"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Visit
-                    </a>
-
-                </div>
-
-
-                <!-- YOUTUBE -->
-
-                <div class="card searchable">
-
-                    <h3>
-                        ▶️ YouTube
-                    </h3>
-
-                    <p>
-                        My YouTube channel.
-                    </p>
-
-                    <a
-                        class="button"
-                        href="https://www.youtube.com/@Penglo5"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Visit
-                    </a>
-
-                </div>
-
-
-                <!-- TIKTOK -->
-
-                <div class="card searchable">
-
-                    <h3>
-                        ♪ TikTok
-                    </h3>
-
-                    <p>
-                        My TikTok account.
-                    </p>
-
-                    <a
-                        class="button"
-                        href="https://www.tiktok.com/@penglo97"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                    >
-                        Visit
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
+        <h2>
+            ⭐ Featured
+        </h2>
 
     </div>
 
 
-    <!-- =========================
-         FOOTER
-    ========================= -->
+    <div class="cards">
 
-    <footer>
 
-        🐧 Penglo Tools
+        <div class="card featured searchable">
+
+            <h3>
+                🐧 Penglo Tools
+            </h3>
+
+            <p>
+                My website used for things.
+            </p>
+
+        </div>
+
+
+        <div class="card featured searchable">
+
+            <h3>
+                📦 DLL Reader
+            </h3>
+
+            <p>
+                Inspect a .NET DLL locally
+                and search readable information.
+            </p>
+
+            <button
+                onclick="showSection('dllReader')"
+            >
+                Open
+            </button>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+<!-- TOOLS -->
+
+<section
+    id="tools"
+    class="section hidden"
+>
+
+    <div class="section-title">
+
+        <h2>
+            🔧 Tools
+        </h2>
+
+        <span class="badge">
+            4 tools
+        </span>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <!-- TEXT -->
+
+        <div class="card searchable">
+
+            <h3>
+                📝 Text Converter
+            </h3>
+
+            <p>
+                Convert text to uppercase
+                or lowercase.
+            </p>
+
+            <button
+                onclick="openTool('text')"
+            >
+                Open
+            </button>
+
+        </div>
+
+
+        <!-- JSON -->
+
+        <div class="card searchable">
+
+            <h3>
+                📦 JSON Formatter
+            </h3>
+
+            <p>
+                Format JSON so it is
+                easier to read.
+            </p>
+
+            <button
+                onclick="openTool('json')"
+            >
+                Open
+            </button>
+
+        </div>
+
+
+        <!-- UUID -->
+
+        <div class="card searchable">
+
+            <h3>
+                🔢 UUID Generator
+            </h3>
+
+            <p>
+                Generate a random UUID.
+            </p>
+
+            <button
+                onclick="generateUUID()"
+            >
+                Generate
+            </button>
+
+        </div>
+
+
+        <!-- COLOR -->
+
+        <div class="card searchable">
+
+            <h3>
+                🎨 Color Picker
+            </h3>
+
+            <p>
+                Pick a color and copy
+                its HEX code.
+            </p>
+
+            <input
+                id="colorPicker"
+                type="color"
+                value="#ff8800"
+                onchange="updateColor()"
+            >
+
+            <p id="colorValue">
+                #FF8800
+            </p>
+
+            <button
+                onclick="copyColor()"
+            >
+                Copy Color
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <!-- TEXT TOOL -->
+
+    <div
+        id="textTool"
+        class="tool-box hidden"
+    >
+
+        <h3>
+            📝 Text Converter
+        </h3>
+
+        <textarea
+            id="textInput"
+            placeholder="Type or paste text here..."
+        ></textarea>
 
         <br>
 
-        <small>
-            Made by Penglo
-        </small>
+        <button
+            onclick="upperText()"
+        >
+            UPPERCASE
+        </button>
 
-    </footer>
+        <button
+            onclick="lowerText()"
+        >
+            lowercase
+        </button>
 
+        <button
+            onclick="copyText()"
+        >
+            Copy
+        </button>
 
-    <!-- =========================
-         TOAST
-    ========================= -->
-
-    <div
-        id="toast"
-        class="toast"
-    >
-        Copied!
     </div>
 
 
-    <script>
+    <!-- JSON TOOL -->
 
-        /* =========================
-           NAVIGATION
-        ========================= */
+    <div
+        id="jsonTool"
+        class="tool-box hidden"
+    >
 
-        function showAll() {
+        <h3>
+            📦 JSON Formatter
+        </h3>
 
-            document
-                .querySelectorAll(".category")
-                .forEach(section => {
+        <textarea
+            id="jsonInput"
+            placeholder="Paste JSON here..."
+        ></textarea>
 
-                    section.classList.remove(
-                        "hidden"
-                    );
+        <br>
 
-                });
+        <button
+            onclick="formatJSON()"
+        >
+            Format JSON
+        </button>
 
-            document.getElementById(
-                "search"
-            ).value = "";
+        <div
+            id="jsonOutput"
+            class="output"
+        ></div>
 
-            hideTools();
-        }
+    </div>
 
-
-        function showCategory(category) {
-
-            document
-                .querySelectorAll(".category")
-                .forEach(section => {
-
-                    section.classList.add(
-                        "hidden"
-                    );
-
-                });
-
-            document
-                .getElementById(category)
-                .classList.remove(
-                    "hidden"
-                );
-
-            hideTools();
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-
-        }
+</section>
 
 
-        /* =========================
-           SEARCH
-        ========================= */
+<!-- FILES -->
 
-        function searchItems() {
+<section
+    id="files"
+    class="section hidden"
+>
 
-            const search =
-                document
-                    .getElementById("search")
-                    .value
+    <div class="section-title">
+
+        <h2>
+            📁 Files
+        </h2>
+
+        <span class="badge">
+            4 sections
+        </span>
+
+    </div>
+
+
+    <div class="file-section searchable">
+
+        <h3>
+            🎮 Game Files
+        </h3>
+
+        <p>
+            Game-related files,
+            mods and configurations.
+        </p>
+
+        <button
+            onclick="toggleFiles('gameFiles')"
+        >
+            View Files
+        </button>
+
+        <div
+            id="gameFiles"
+            class="file-list"
+        >
+
+            <div class="file-item">
+
+                <strong>
+                    📄 Add your game files here
+                </strong>
+
+                <br>
+
+                <span>
+                    Put your download links here.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="file-section searchable">
+
+        <h3>
+            🛠️ Tools
+        </h3>
+
+        <p>
+            Utilities, DLLs and
+            useful downloads.
+        </p>
+
+        <button
+            onclick="toggleFiles('toolFiles')"
+        >
+            View Files
+        </button>
+
+        <div
+            id="toolFiles"
+            class="file-list"
+        >
+
+            <div class="file-item">
+
+                <strong>
+                    📦 Add your tools here
+                </strong>
+
+                <br>
+
+                <span>
+                    Put your download links here.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="file-section searchable">
+
+        <h3>
+            📦 Projects
+        </h3>
+
+        <p>
+            Project files and experiments.
+        </p>
+
+        <button
+            onclick="toggleFiles('projectFiles')"
+        >
+            View Files
+        </button>
+
+        <div
+            id="projectFiles"
+            class="file-list"
+        >
+
+            <div class="file-item">
+
+                <strong>
+                    📁 Add your projects here
+                </strong>
+
+                <br>
+
+                <span>
+                    Put your download links here.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <div class="file-section searchable">
+
+        <h3>
+            🎨 Assets
+        </h3>
+
+        <p>
+            Images, icons and other assets.
+        </p>
+
+        <button
+            onclick="toggleFiles('assetFiles')"
+        >
+            View Files
+        </button>
+
+        <div
+            id="assetFiles"
+            class="file-list"
+        >
+
+            <div class="file-item">
+
+                <strong>
+                    🖼️ Add your assets here
+                </strong>
+
+                <br>
+
+                <span>
+                    Put your download links here.
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- DLL READER -->
+
+<section
+    id="dllReader"
+    class="section hidden"
+>
+
+    <div class="section-title">
+
+        <h2>
+            📦 DLL Reader
+        </h2>
+
+        <span class="badge">
+            .DLL
+        </span>
+
+    </div>
+
+
+    <div class="tool-box">
+
+        <h3>
+            🔍 Read a DLL
+        </h3>
+
+        <p>
+            Select a .NET DLL to inspect it
+            locally in your browser.
+        </p>
+
+
+        <!-- DROP AREA -->
+
+        <label
+            id="dllDrop"
+            class="dll-drop"
+            for="dllInput"
+        >
+
+            <strong>
+                📁 Choose DLL
+            </strong>
+
+            <br>
+
+            <span>
+                or drag and drop a .dll here
+            </span>
+
+        </label>
+
+
+        <input
+            id="dllInput"
+            class="dll-file-input"
+            type="file"
+            accept=".dll"
+        >
+
+
+        <!-- INFO -->
+
+        <div
+            id="dllInfo"
+            class="output"
+        >
+            No DLL selected.
+        </div>
+
+
+        <!-- SEARCH -->
+
+        <input
+            id="dllSearch"
+            class="search"
+            type="text"
+            placeholder="🔍 Search DLL strings..."
+            oninput="searchDLL()"
+        >
+
+
+        <!-- STRINGS -->
+
+        <div
+            id="dllStrings"
+            class="output dll-strings"
+        >
+            DLL strings will appear here.
+        </div>
+
+
+        <h3>
+            ℹ️ Reader information
+        </h3>
+
+        <div class="code">
+
+This browser version can currently read:
+
+• PE/DLL signature
+• File size
+• .NET metadata signature
+• Readable ASCII strings
+• Searchable strings
+
+It processes the DLL locally.
+
+Full C# decompilation requires
+a .NET/WASM decompiler and cannot
+be achieved using ordinary JavaScript alone.
+
+        </div>
+
+    </div>
+
+</section>
+
+
+<!-- LINKS -->
+
+<section
+    id="links"
+    class="section hidden"
+>
+
+    <div class="section-title">
+
+        <h2>
+            🔗 My Other Links
+        </h2>
+
+        <span class="badge">
+            3 links
+        </span>
+
+    </div>
+
+
+    <div class="cards">
+
+
+        <div class="card searchable">
+
+            <h3>
+                🐙 GitHub
+            </h3>
+
+            <p>
+                My GitHub account.
+            </p>
+
+            <a
+                class="button"
+                href="https://github.com/Penglo5"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Visit
+            </a>
+
+        </div>
+
+
+        <div class="card searchable">
+
+            <h3>
+                ▶️ YouTube
+            </h3>
+
+            <p>
+                My YouTube channel.
+            </p>
+
+            <a
+                class="button"
+                href="https://www.youtube.com/@Penglo5"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Visit
+            </a>
+
+        </div>
+
+
+        <div class="card searchable">
+
+            <h3>
+                ♪ TikTok
+            </h3>
+
+            <p>
+                My TikTok account.
+            </p>
+
+            <a
+                class="button"
+                href="https://www.tiktok.com/@penglo97"
+                target="_blank"
+                rel="noopener noreferrer"
+            >
+                Visit
+            </a>
+
+        </div>
+
+
+    </div>
+
+</section>
+
+
+</div>
+
+
+<!-- FOOTER -->
+
+<footer>
+
+    🐧 Penglo Tools
+
+    <br>
+
+    <small>
+        Made by Penglo
+    </small>
+
+</footer>
+
+
+<!-- TOAST -->
+
+<div
+    id="toast"
+    class="toast"
+>
+    Copied!
+</div>
+
+
+<script>
+
+
+/* =========================
+   NAVIGATION
+========================= */
+
+function showSection(id) {
+
+    document
+        .querySelectorAll(".section")
+        .forEach(section => {
+
+            section.classList.add(
+                "hidden"
+            );
+
+        });
+
+
+    document
+        .getElementById(id)
+        .classList.remove(
+            "hidden"
+        );
+
+
+    window.scrollTo({
+        top: 0,
+        behavior: "smooth"
+    });
+
+}
+
+
+/* =========================
+   SEARCH
+========================= */
+
+function siteSearch() {
+
+    const search =
+        document
+            .getElementById(
+                "siteSearch"
+            )
+            .value
+            .toLowerCase();
+
+
+    document
+        .querySelectorAll(
+            ".searchable"
+        )
+        .forEach(item => {
+
+            const text =
+                item.textContent
                     .toLowerCase();
 
-            document
-                .querySelectorAll(".searchable")
-                .forEach(item => {
 
-                    const text =
-                        item.textContent
-                            .toLowerCase();
+            item.style.display =
+                text.includes(search)
+                    ? ""
+                    : "none";
 
-                    item.style.display =
-                        text.includes(search)
-                            ? ""
-                            : "none";
+        });
 
-                });
+}
 
-        }
 
+/* =========================
+   FILE SECTIONS
+========================= */
 
-        /* =========================
-           FILE SECTIONS
-        ========================= */
+function toggleFiles(id) {
 
-        function toggleFiles(id) {
+    document
+        .getElementById(id)
+        .classList.toggle(
+            "open"
+        );
 
-            const section =
-                document.getElementById(id);
+}
 
-            section.classList.toggle(
-                "open"
-            );
 
-        }
+/* =========================
+   TOOLS
+========================= */
 
+function openTool(tool) {
 
-        /* =========================
-           TOOLS
-        ========================= */
+    document
+        .getElementById(
+            "textTool"
+        )
+        .classList.add(
+            "hidden"
+        );
 
-        function hideTools() {
 
-            document
-                .getElementById("textTool")
-                .classList.add("hidden");
+    document
+        .getElementById(
+            "jsonTool"
+        )
+        .classList.add(
+            "hidden"
+        );
 
-            document
-                .getElementById("jsonTool")
-                .classList.add("hidden");
 
-        }
+    document
+        .getElementById(
+            tool + "Tool"
+        )
+        .classList.remove(
+            "hidden"
+        );
 
+}
 
-        function showTool(tool) {
 
-            hideTools();
+/* =========================
+   TEXT
+========================= */
 
-            if (tool === "text") {
+function upperText() {
 
-                document
-                    .getElementById("textTool")
-                    .classList.remove(
-                        "hidden"
-                    );
+    const input =
+        document.getElementById(
+            "textInput"
+        );
 
-            }
 
-            if (tool === "json") {
+    input.value =
+        input.value.toUpperCase();
 
-                document
-                    .getElementById("jsonTool")
-                    .classList.remove(
-                        "hidden"
-                    );
+}
 
-            }
 
-        }
+function lowerText() {
 
+    const input =
+        document.getElementById(
+            "textInput"
+        );
 
-        /* =========================
-           TEXT CONVERTER
-        ========================= */
 
-        function upperText() {
+    input.value =
+        input.value.toLowerCase();
 
-            const input =
-                document.getElementById(
-                    "textInput"
-                );
+}
 
-            input.value =
-                input.value.toUpperCase();
 
-        }
+function copyText() {
 
+    const input =
+        document.getElementById(
+            "textInput"
+        );
 
-        function lowerText() {
 
-            const input =
-                document.getElementById(
-                    "textInput"
-                );
+    copyToClipboard(
+        input.value
+    );
 
-            input.value =
-                input.value.toLowerCase();
 
-        }
+    showToast(
+        "Text copied!"
+    );
 
+}
 
-        function copyText() {
 
-            const input =
-                document.getElementById(
-                    "textInput"
-                );
+/* =========================
+   JSON
+========================= */
 
-            copyToClipboard(
-                input.value
-            );
+function formatJSON() {
 
-            showToast(
-                "Text copied!"
-            );
-
-        }
-
-
-        /* =========================
-           JSON FORMATTER
-        ========================= */
-
-        function formatJSON() {
-
-            const input =
-                document.getElementById(
-                    "jsonInput"
-                ).value.trim();
-
-            const output =
-                document.getElementById(
-                    "jsonOutput"
-                );
-
-            if (!input) {
-
-                output.textContent =
-                    "Paste JSON here first.";
-
-                return;
-            }
-
-            try {
-
-                const json =
-                    JSON.parse(input);
-
-                output.textContent =
-                    JSON.stringify(
-                        json,
-                        null,
-                        4
-                    );
-
-                showToast(
-                    "JSON formatted!"
-                );
-
-            }
-
-            catch (error) {
-
-                output.textContent =
-                    "❌ Invalid JSON:\n" +
-                    error.message;
-
-            }
-
-        }
-
-
-        /* =========================
-           UUID
-        ========================= */
-
-        function generateUUID() {
-
-            const uuid =
-                crypto.randomUUID();
-
-            copyToClipboard(
-                uuid
-            );
-
-            showToast(
-                "UUID copied!"
-            );
-
-        }
-
-
-        /* =========================
-           COLOR PICKER
-        ========================= */
-
-        function updateColor() {
-
-            const color =
-                document.getElementById(
-                    "colorPicker"
-                ).value;
-
-            document.getElementById(
-                "colorValue"
-            ).textContent =
-                color.toUpperCase();
-
-        }
-
-
-        function copyColor() {
-
-            const color =
-                document.getElementById(
-                    "colorPicker"
-                ).value;
-
-            copyToClipboard(
-                color
-            );
-
-            showToast(
-                "Copied " +
-                color.toUpperCase() +
-                "!"
-            );
-
-        }
-
-
-        /* =========================
-           DLL READER
-        ========================= */
-
-        let dllStringList = [];
-
-
+    const input =
         document
-            .getElementById("dllInput")
-            .addEventListener(
-                "change",
-                readDLL
+            .getElementById(
+                "jsonInput"
+            )
+            .value
+            .trim();
+
+
+    const output =
+        document.getElementById(
+            "jsonOutput"
+        );
+
+
+    if (!input) {
+
+        output.textContent =
+            "Paste JSON here first.";
+
+        return;
+
+    }
+
+
+    try {
+
+        const json =
+            JSON.parse(
+                input
             );
 
 
-        async function readDLL(event) {
+        output.textContent =
+            JSON.stringify(
+                json,
+                null,
+                4
+            );
+
+
+        showToast(
+            "JSON formatted!"
+        );
+
+    }
+
+    catch (error) {
+
+        output.textContent =
+            "❌ Invalid JSON:\n" +
+            error.message;
+
+    }
+
+}
+
+
+/* =========================
+   UUID
+========================= */
+
+function generateUUID() {
+
+    const uuid =
+        crypto.randomUUID();
+
+
+    copyToClipboard(
+        uuid
+    );
+
+
+    showToast(
+        "UUID copied!"
+    );
+
+}
+
+
+/* =========================
+   COLOR
+========================= */
+
+function updateColor() {
+
+    const color =
+        document
+            .getElementById(
+                "colorPicker"
+            )
+            .value;
+
+
+    document
+        .getElementById(
+            "colorValue"
+        )
+        .textContent =
+        color.toUpperCase();
+
+}
+
+
+function copyColor() {
+
+    const color =
+        document
+            .getElementById(
+                "colorPicker"
+            )
+            .value;
+
+
+    copyToClipboard(
+        color
+    );
+
+
+    showToast(
+        "Color copied!"
+    );
+
+}
+
+
+/* =========================
+   DLL READER
+========================= */
+
+let dllStringList = [];
+
+
+document
+    .getElementById(
+        "dllInput"
+    )
+    .addEventListener(
+        "change",
+        event => {
 
             const file =
-                event.target.files[0];
-
-            if (!file)
-                return;
+                event.target
+                    .files[0];
 
 
-            const info =
-                document.getElementById(
-                    "dllInfo"
-                );
+            readDLL(
+                file
+            );
 
-            const output =
-                document.getElementById(
-                    "dllStrings"
-                );
+        }
+    );
 
 
-            info.textContent =
-                "⏳ Reading " +
-                file.name +
-                "...";
+async function readDLL(file) {
+
+    if (!file)
+        return;
 
 
-            try {
-
-                const buffer =
-                    await file.arrayBuffer();
-
-                const bytes =
-                    new Uint8Array(
-                        buffer
-                    );
+    const info =
+        document.getElementById(
+            "dllInfo"
+        );
 
 
-                /* -------------------------
-                   BASIC FILE INFO
-                ------------------------- */
-
-                const size =
-                    bytes.length;
+    info.textContent =
+        "⏳ Reading " +
+        file.name +
+        "...";
 
 
-                const isPE =
-                    bytes[0] === 0x4D &&
-                    bytes[1] === 0x5A;
+    try {
+
+        const buffer =
+            await file.arrayBuffer();
 
 
-                /*
-                 * BSJB is the signature
-                 * used by .NET metadata.
-                 */
-
-                let isDotNet = false;
+        const bytes =
+            new Uint8Array(
+                buffer
+            );
 
 
-                for (
-                    let i = 0;
-                    i < bytes.length - 4;
-                    i++
-                ) {
+        /* DLL / PE CHECK */
 
-                    if (
-                        bytes[i] === 0x42 &&
-                        bytes[i + 1] === 0x53 &&
-                        bytes[i + 2] === 0x4A &&
-                        bytes[i + 3] === 0x42
-                    ) {
-
-                        isDotNet = true;
-
-                        break;
-
-                    }
-
-                }
+        const isPE =
+            bytes[0] === 0x4D &&
+            bytes[1] === 0x5A;
 
 
-                info.innerHTML = `
+        /* .NET CHECK */
 
-                    <strong>
-                        📦 ${escapeHTML(file.name)}
-                    </strong>
-
-                    <br>
-
-                    Size:
-                    ${formatBytes(size)}
-
-                    <br>
-
-                    PE/DLL:
-                    ${isPE ? "✅ Yes" : "❌ No"}
-
-                    <br>
-
-                    .NET Assembly:
-                    ${isDotNet
-                        ? "✅ Detected"
-                        : "❌ Not detected"}
-
-                `;
+        let isDotNet =
+            false;
 
 
-                /* -------------------------
-                   EXTRACT STRINGS
-                ------------------------- */
+        for (
+            let i = 0;
+            i < bytes.length - 4;
+            i++
+        ) {
 
-                dllStringList =
-                    extractStrings(
-                        bytes
-                    );
+            if (
 
+                bytes[i] === 0x42 &&
 
-                renderDLLStrings(
-                    dllStringList
-                );
+                bytes[i + 1] === 0x53 &&
 
+                bytes[i + 2] === 0x4A &&
 
-                showToast(
-                    "DLL loaded!"
-                );
+                bytes[i + 3] === 0x42
 
+            ) {
 
-            }
+                isDotNet =
+                    true;
 
-            catch (error) {
-
-                info.textContent =
-                    "❌ Could not read DLL.";
-
-                output.textContent =
-                    error.message;
+                break;
 
             }
 
         }
 
 
-        /* =========================
-           DLL STRING EXTRACTION
-        ========================= */
+        /* STRINGS */
 
-        function extractStrings(bytes) {
-
-            const strings = [];
-
-            let current = "";
+        dllStringList =
+            extractStrings(
+                bytes
+            );
 
 
-            for (
-                let i = 0;
-                i < bytes.length;
-                i++
-            ) {
+        info.innerHTML = `
 
-                const value =
-                    bytes[i];
+            <strong>
+                📦 ${escapeHTML(file.name)}
+            </strong>
 
+            <br>
 
-                if (
-                    value >= 32 &&
-                    value <= 126
-                ) {
+            Size:
+            ${formatBytes(
+                bytes.length
+            )}
 
-                    current +=
-                        String.fromCharCode(
-                            value
-                        );
+            <br>
 
-                }
-
-                else {
-
-                    if (
-                        current.length >= 4
-                    ) {
-
-                        strings.push(
-                            current
-                        );
-
-                    }
-
-                    current = "";
-
-                }
-
+            PE/DLL:
+            ${
+                isPE
+                    ? "✅ Yes"
+                    : "❌ No"
             }
 
+            <br>
+
+            .NET Assembly:
+            ${
+                isDotNet
+                    ? "✅ Detected"
+                    : "❌ Not detected"
+            }
+
+            <br>
+
+            Readable strings:
+            ${dllStringList.length}
+
+        `;
+
+
+        renderDLLStrings(
+            dllStringList
+        );
+
+
+        showToast(
+            "DLL loaded!"
+        );
+
+    }
+
+    catch (error) {
+
+        info.textContent =
+            "❌ Could not read DLL: " +
+            error.message;
+
+    }
+
+}
+
+
+/* =========================
+   STRING EXTRACTION
+========================= */
+
+function extractStrings(
+    bytes
+) {
+
+    const strings = [];
+
+    let current = "";
+
+
+    for (
+        let i = 0;
+        i < bytes.length;
+        i++
+    ) {
+
+        const value =
+            bytes[i];
+
+
+        if (
+            value >= 32 &&
+            value <= 126
+        ) {
+
+            current +=
+                String.fromCharCode(
+                    value
+                );
+
+        }
+
+        else {
 
             if (
                 current.length >= 4
@@ -1828,319 +1683,381 @@
             }
 
 
-            return [
-                ...new Set(strings)
-            ];
+            current = "";
 
         }
 
-
-        /* =========================
-           DLL SEARCH
-        ========================= */
-
-        function searchDLL() {
-
-            const search =
-                document
-                    .getElementById(
-                        "dllSearch"
-                    )
-                    .value
-                    .toLowerCase();
+    }
 
 
-            const results =
-                dllStringList.filter(
-                    value =>
-                        value
-                            .toLowerCase()
-                            .includes(
-                                search
-                            )
-                );
+    if (
+        current.length >= 4
+    ) {
+
+        strings.push(
+            current
+        );
+
+    }
 
 
-            renderDLLStrings(
-                search
-                    ? results
-                    : dllStringList
-            );
-
-        }
-
-
-        /* =========================
-           DLL STRING DISPLAY
-        ========================= */
-
-        function renderDLLStrings(
+    return [
+        ...new Set(
             strings
-        ) {
+        )
+    ];
 
-            const output =
-                document.getElementById(
-                    "dllStrings"
-                );
+}
 
 
-            if (!strings.length) {
+/* =========================
+   DLL SEARCH
+========================= */
 
-                output.textContent =
-                    "No readable strings found.";
+function searchDLL() {
 
-                return;
+    const search =
+        document
+            .getElementById(
+                "dllSearch"
+            )
+            .value
+            .toLowerCase();
 
-            }
 
-
-            output.innerHTML =
-                strings
-                    .map(
-                        string => `
-                            <div class="dll-string">
-                                ${escapeHTML(string)}
-                            </div>
-                        `
+    const results =
+        dllStringList.filter(
+            string =>
+                string
+                    .toLowerCase()
+                    .includes(
+                        search
                     )
-                    .join("");
-
-        }
-
-
-        /* =========================
-           FILE SIZE
-        ========================= */
-
-        function formatBytes(bytes) {
-
-            if (bytes === 0)
-                return "0 Bytes";
-
-
-            const units = [
-                "Bytes",
-                "KB",
-                "MB",
-                "GB"
-            ];
-
-
-            const index =
-                Math.floor(
-                    Math.log(bytes) /
-                    Math.log(1024)
-                );
-
-
-            return (
-                parseFloat(
-                    (
-                        bytes /
-                        Math.pow(
-                            1024,
-                            index
-                        )
-                    ).toFixed(2)
-                ) +
-                " " +
-                units[index]
-            );
-
-        }
-
-
-        /* =========================
-           DRAG & DROP
-        ========================= */
-
-        const dllDrop =
-            document.getElementById(
-                "dllDrop"
-            );
-
-
-        dllDrop.addEventListener(
-            "dragover",
-            event => {
-
-                event.preventDefault();
-
-                dllDrop.classList.add(
-                    "dragover"
-                );
-
-            }
         );
 
 
-        dllDrop.addEventListener(
-            "dragleave",
-            () => {
+    renderDLLStrings(
+        search
+            ? results
+            : dllStringList
+    );
 
-                dllDrop.classList.remove(
-                    "dragover"
-                );
+}
 
-            }
+
+/* =========================
+   DISPLAY DLL STRINGS
+========================= */
+
+function renderDLLStrings(
+    strings
+) {
+
+    const output =
+        document.getElementById(
+            "dllStrings"
         );
 
 
-        dllDrop.addEventListener(
-            "drop",
-            event => {
+    if (
+        strings.length === 0
+    ) {
 
-                event.preventDefault();
+        output.textContent =
+            "No readable strings found.";
 
-                dllDrop.classList.remove(
-                    "dragover"
-                );
+        return;
 
-
-                const file =
-                    event.dataTransfer
-                        .files[0];
+    }
 
 
-                if (
-                    file &&
-                    file.name
-                        .toLowerCase()
-                        .endsWith(".dll")
-                ) {
+    output.innerHTML =
+        strings
+            .map(
+                string => `
 
-                    readDLL({
-                        target: {
-                            files: [file]
+                    <div
+                        class="dll-string"
+                    >
+                        ${
+                            escapeHTML(
+                                string
+                            )
                         }
-                    });
+                    </div>
 
-                }
+                `
+            )
+            .join("");
 
-                else {
+}
 
-                    showToast(
-                        "Please drop a .DLL file!"
-                    );
 
-                }
+/* =========================
+   FILE SIZE
+========================= */
 
-            }
+function formatBytes(
+    bytes
+) {
+
+    if (
+        bytes === 0
+    ) {
+
+        return "0 Bytes";
+
+    }
+
+
+    const units = [
+        "Bytes",
+        "KB",
+        "MB",
+        "GB"
+    ];
+
+
+    const index =
+        Math.floor(
+            Math.log(bytes) /
+            Math.log(1024)
         );
 
 
-        /* =========================
-           CLIPBOARD
-        ========================= */
+    return (
 
-        function copyToClipboard(
-            text
+        parseFloat(
+
+            (
+
+                bytes /
+                Math.pow(
+                    1024,
+                    index
+                )
+
+            ).toFixed(2)
+
+        )
+
+        +
+
+        " "
+
+        +
+
+        units[index]
+
+    );
+
+}
+
+
+/* =========================
+   DRAG & DROP
+========================= */
+
+const dllDrop =
+    document.getElementById(
+        "dllDrop"
+    );
+
+
+dllDrop.addEventListener(
+    "dragover",
+    event => {
+
+        event.preventDefault();
+
+        dllDrop.classList.add(
+            "dragover"
+        );
+
+    }
+);
+
+
+dllDrop.addEventListener(
+    "dragleave",
+    () => {
+
+        dllDrop.classList.remove(
+            "dragover"
+        );
+
+    }
+);
+
+
+dllDrop.addEventListener(
+    "drop",
+    event => {
+
+        event.preventDefault();
+
+
+        dllDrop.classList.remove(
+            "dragover"
+        );
+
+
+        const file =
+            event
+                .dataTransfer
+                .files[0];
+
+
+        if (
+            file &&
+            file.name
+                .toLowerCase()
+                .endsWith(
+                    ".dll"
+                )
         ) {
 
-            if (
-                navigator.clipboard &&
-                navigator.clipboard.writeText
-            ) {
-
-                navigator.clipboard
-                    .writeText(text);
-
-                return;
-
-            }
-
-
-            const textarea =
-                document.createElement(
-                    "textarea"
-                );
-
-            textarea.value =
-                text;
-
-            document.body.appendChild(
-                textarea
+            readDLL(
+                file
             );
-
-            textarea.select();
-
-            document.execCommand(
-                "copy"
-            );
-
-            textarea.remove();
 
         }
 
+        else {
 
-        /* =========================
-           TOAST
-        ========================= */
+            showToast(
+                "Please drop a .DLL file!"
+            );
 
-        function showToast(
-            message
-        ) {
+        }
 
-            const toast =
-                document.getElementById(
-                    "toast"
-                );
+    }
+);
 
 
-            toast.textContent =
-                message;
+/* =========================
+   CLIPBOARD
+========================= */
 
+function copyToClipboard(
+    text
+) {
+
+    if (
+        navigator.clipboard
+    ) {
+
+        navigator.clipboard
+            .writeText(
+                text
+            );
+
+        return;
+
+    }
+
+
+    const textarea =
+        document.createElement(
+            "textarea"
+        );
+
+
+    textarea.value =
+        text;
+
+
+    document.body.appendChild(
+        textarea
+    );
+
+
+    textarea.select();
+
+
+    document.execCommand(
+        "copy"
+    );
+
+
+    textarea.remove();
+
+}
+
+
+/* =========================
+   TOAST
+========================= */
+
+function showToast(
+    message
+) {
+
+    const toast =
+        document.getElementById(
+            "toast"
+        );
+
+
+    toast.textContent =
+        message;
+
+
+    toast.style.display =
+        "block";
+
+
+    setTimeout(
+        () => {
 
             toast.style.display =
-                "block";
+                "none";
+
+        },
+        2000
+    );
+
+}
 
 
-            setTimeout(
-                () => {
+/* =========================
+   HTML SAFETY
+========================= */
 
-                    toast.style.display =
-                        "none";
+function escapeHTML(
+    text
+) {
 
-                },
-                2000
-            );
+    return String(text)
 
-        }
+        .replaceAll(
+            "&",
+            "&amp;"
+        )
 
+        .replaceAll(
+            "<",
+            "&lt;"
+        )
 
-        /* =========================
-           HTML SAFETY
-        ========================= */
+        .replaceAll(
+            ">",
+            "&gt;"
+        )
 
-        function escapeHTML(
-            text
-        ) {
+        .replaceAll(
+            '"',
+            "&quot;"
+        )
 
-            return String(text)
-                .replaceAll(
-                    "&",
-                    "&amp;"
-                )
-                .replaceAll(
-                    "<",
-                    "&lt;"
-                )
-                .replaceAll(
-                    ">",
-                    "&gt;"
-                )
-                .replaceAll(
-                    '"',
-                    "&quot;"
-                )
-                .replaceAll(
-                    "'",
-                    "&#039;"
-                );
+        .replaceAll(
+            "'",
+            "&#039;"
+        );
 
-        }
+}
 
-    </script>
+</script>
 
 </body>
 
