@@ -1,308 +1,381 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+Gorilla Tag
+                </h3>
 
-    <title>Penglo Tools 🐧</title>
+                <p>
+                    Official Gorilla Tag website.
+                </p>
 
-    <style>
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
+                <a
+                    class="button"
+                    href="https://www.gorillatagvr.com/"
+                    target="_blank"
+                >
+                    Visit
+                </a>
 
-        body {
-            font-family: Arial, sans-serif;
-            background: #0f1117;
-            color: white;
-            min-height: 100vh;
-        }
-
-        header {
-            background: #171a23;
-            padding: 25px;
-            text-align: center;
-            border-bottom: 1px solid #292d38;
-        }
-
-        header h1 {
-            font-size: 36px;
-        }
-
-        header p {
-            color: #9da3b0;
-            margin-top: 8px;
-        }
-
-        nav {
-            display: flex;
-            justify-content: center;
-            gap: 10px;
-            padding: 15px;
-            background: #141720;
-        }
-
-        nav button {
-            background: #242936;
-            color: white;
-            border: none;
-            padding: 10px 18px;
-            border-radius: 8px;
-            cursor: pointer;
-            font-size: 15px;
-        }
-
-        nav button:hover {
-            background: #343a4a;
-        }
-
-        .container {
-            max-width: 1000px;
-            margin: auto;
-            padding: 30px 20px;
-        }
-
-        .search {
-            width: 100%;
-            padding: 15px;
-            background: #1b1f29;
-            border: 1px solid #303644;
-            border-radius: 10px;
-            color: white;
-            font-size: 16px;
-            margin-bottom: 30px;
-            outline: none;
-        }
-
-        .search:focus {
-            border-color: #6d8cff;
-        }
-
-        .section {
-            margin-bottom: 40px;
-        }
-
-        .section h2 {
-            margin-bottom: 15px;
-        }
-
-        .cards {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-            gap: 15px;
-        }
-
-        .card {
-            background: #191d26;
-            border: 1px solid #2b303c;
-            border-radius: 12px;
-            padding: 20px;
-            transition: 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            border-color: #59647a;
-        }
-
-        .card h3 {
-            margin-bottom: 8px;
-        }
-
-        .card p {
-            color: #9da3b0;
-            font-size: 14px;
-            margin-bottom: 15px;
-        }
-
-        .card a {
-            display: inline-block;
-            text-decoration: none;
-            background: #586ee8;
-            color: white;
-            padding: 9px 14px;
-            border-radius: 7px;
-        }
-
-        .card a:hover {
-            background: #6d82ff;
-        }
-
-        footer {
-            text-align: center;
-            padding: 30px;
-            color: #707786;
-            border-top: 1px solid #292d38;
-        }
-
-        .hidden {
-            display: none;
-        }
-    </style>
-</head>
-
-<body>
-
-<header>
-    <h1>🐧 Penglo Tools</h1>
-    <p>Your collection of useful tools, files and links.</p>
-</header>
-
-<nav>
-    <button onclick="showSection('all')">Home</button>
-    <button onclick="showSection('tools')">🔧 Tools</button>
-    <button onclick="showSection('files')">📁 Files</button>
-    <button onclick="showSection('links')">🔗 Links</button>
-</nav>
-
-<div class="container">
-
-    <input
-        type="text"
-        id="search"
-        class="search"
-        placeholder="Search Penglo Tools..."
-        onkeyup="searchItems()"
-    >
-
-    <!-- TOOLS -->
-
-    <section id="tools" class="section">
-        <h2>🔧 Tools</h2>
-
-        <div class="cards">
-
-            <div class="card item">
-                <h3>📝 Text Converter</h3>
-                <p>Convert text to different formats.</p>
-                <a href="#">Open</a>
-            </div>
-
-            <div class="card item">
-                <h3>🔢 UUID Generator</h3>
-                <p>Generate random UUIDs.</p>
-                <a href="#">Open</a>
-            </div>
-
-            <div class="card item">
-                <h3>🎨 Color Picker</h3>
-                <p>Pick and copy colors.</p>
-                <a href="#">Open</a>
-            </div>
-
-            <div class="card item">
-                <h3>📦 JSON Formatter</h3>
-                <p>Format and organize JSON.</p>
-                <a href="#">Open</a>
             </div>
 
         </div>
-    </section>
 
-
-    <!-- FILES -->
-
-    <section id="files" class="section">
-        <h2>📁 Files</h2>
-
-        <div class="cards">
-
-            <div class="card item">
-                <h3>📄 Example File</h3>
-                <p>A file hosted in the Penglo Tools repository.</p>
-                <a href="#" download>Download</a>
-            </div>
-
-        </div>
-    </section>
-
-
-    <!-- LINKS -->
-
-    <section id="links" class="section">
-        <h2>🔗 Links</h2>
-
-        <div class="cards">
-
-            <div class="card item">
-                <h3>🐙 GitHub</h3>
-                <p>Visit my GitHub profile.</p>
-                <a href="https://github.com/" target="_blank">Visit</a>
-            </div>
-
-            <div class="card item">
-                <h3>▶️ YouTube</h3>
-                <p>Visit YouTube.</p>
-                <a href="https://youtube.com/" target="_blank">Visit</a>
-            </div>
-
-        </div>
     </section>
 
 </div>
 
+
 <footer>
-    🐧 Penglo Tools • Made by Penglo
+
+    🐧 Penglo Tools
+
+    <br>
+
+    <small>
+        Made by Penglo
+    </small>
+
 </footer>
+
+
+<div
+    id="toast"
+    class="toast"
+>
+    Copied!
+</div>
 
 
 <script>
 
-    function showSection(section) {
 
-        const tools = document.getElementById("tools");
-        const files = document.getElementById("files");
-        const links = document.getElementById("links");
+/* -------------------------
+   NAVIGATION
+------------------------- */
 
-        if (section === "all") {
-            tools.classList.remove("hidden");
-            files.classList.remove("hidden");
-            links.classList.remove("hidden");
-        }
 
-        if (section === "tools") {
-            tools.classList.remove("hidden");
-            files.classList.add("hidden");
-            links.classList.add("hidden");
-        }
+function showAll() {
 
-        if (section === "files") {
-            tools.classList.add("hidden");
-            files.classList.remove("hidden");
-            links.classList.add("hidden");
-        }
+    document
+        .querySelectorAll(".category")
+        .forEach(section => {
 
-        if (section === "links") {
-            tools.classList.add("hidden");
-            files.classList.add("hidden");
-            links.classList.remove("hidden");
-        }
+            section.classList.remove("hidden");
+
+        });
+
+
+    document
+        .getElementById("search")
+        .value = "";
+
+
+    hideTools();
+
+}
+
+
+function showCategory(category) {
+
+    document
+        .querySelectorAll(".category")
+        .forEach(section => {
+
+            section.classList.add("hidden");
+
+        });
+
+
+    const selected =
+        document.getElementById(category);
+
+
+    if (selected) {
+
+        selected.classList.remove("hidden");
+
     }
 
 
-    function searchItems() {
+    hideTools();
 
-        const search = document
+}
+
+
+/* -------------------------
+   SEARCH
+------------------------- */
+
+
+function searchItems() {
+
+    const search =
+        document
             .getElementById("search")
             .value
             .toLowerCase();
 
-        const items = document.querySelectorAll(".item");
 
-        items.forEach(item => {
+    document
+        .querySelectorAll(".searchable")
+        .forEach(item => {
 
-            const text = item.innerText.toLowerCase();
+            const text =
+                item.innerText.toLowerCase();
+
 
             if (text.includes(search)) {
-                item.style.display = "block";
+
+                item.style.display = "";
+
             } else {
+
                 item.style.display = "none";
+
             }
 
         });
+
+}
+
+
+/* -------------------------
+   TOOL WINDOWS
+------------------------- */
+
+
+function hideTools() {
+
+    document
+        .getElementById("textTool")
+        .classList.add("hidden");
+
+
+    document
+        .getElementById("jsonTool")
+        .classList.add("hidden");
+
+}
+
+
+function showTool(tool) {
+
+    hideTools();
+
+
+    if (tool === "text") {
+
+        document
+            .getElementById("textTool")
+            .classList.remove("hidden");
+
     }
+
+
+    if (tool === "json") {
+
+        document
+            .getElementById("jsonTool")
+            .classList.remove("hidden");
+
+    }
+
+}
+
+
+/* -------------------------
+   TEXT TOOL
+------------------------- */
+
+
+function upperText() {
+
+    const input =
+        document.getElementById("textInput");
+
+
+    input.value =
+        input.value.toUpperCase();
+
+}
+
+
+function lowerText() {
+
+    const input =
+        document.getElementById("textInput");
+
+
+    input.value =
+        input.value.toLowerCase();
+
+}
+
+
+function copyText() {
+
+    const text =
+        document
+            .getElementById("textInput")
+            .value;
+
+
+    navigator.clipboard.writeText(text);
+
+
+    showToast("Text copied!");
+
+}
+
+
+/* -------------------------
+   JSON FORMATTER
+------------------------- */
+
+
+function formatJSON() {
+
+    const input =
+        document
+            .getElementById("jsonInput")
+            .value;
+
+
+    const output =
+        document
+            .getElementById("jsonOutput");
+
+
+    try {
+
+        const parsed =
+            JSON.parse(input);
+
+
+        output.textContent =
+            JSON.stringify(
+                parsed,
+                null,
+                4
+            );
+
+    }
+
+
+    catch (error) {
+
+        output.textContent =
+            "❌ Invalid JSON:\n" +
+            error.message;
+
+    }
+
+}
+
+
+/* -------------------------
+   UUID GENERATOR
+------------------------- */
+
+
+function generateUUID() {
+
+    const uuid =
+        crypto.randomUUID();
+
+
+    navigator.clipboard.writeText(uuid);
+
+
+    showToast(uuid);
+
+}
+
+
+/* -------------------------
+   COLOR PICKER
+------------------------- */
+
+
+function updateColor() {
+
+    const color =
+        document
+            .getElementById("colorPicker")
+            .value;
+
+
+    document
+        .getElementById("colorValue")
+        .textContent =
+            color.toUpperCase();
+
+}
+
+
+function copyColor() {
+
+    const color =
+        document
+            .getElementById("colorPicker")
+            .value;
+
+
+    const text =
+        document.createElement("textarea");
+
+
+    text.value = color;
+
+
+    document
+        .body
+        .appendChild(text);
+
+
+    text.select();
+
+
+    document.execCommand("copy");
+
+
+    document
+        .body
+        .removeChild(text);
+
+
+    showToast(
+        "Copied " + color + "!"
+    );
+
+}
+
+
+/* -------------------------
+   TOAST MESSAGE
+------------------------- */
+
+
+function showToast(message) {
+
+    const toast =
+        document
+            .getElementById("toast");
+
+
+    toast.textContent =
+        message;
+
+
+    toast.style.display =
+        "block";
+
+
+    setTimeout(() => {
+
+        toast.style.display =
+            "none";
+
+    }, 2000);
+
+}
 
 </script>
 
