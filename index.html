@@ -2,13 +2,10 @@
 <html lang="en">
 
 <head>
-
     <meta charset="UTF-8">
-
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Penglo Tools 🐧</title>
-
 
     <style>
 
@@ -197,26 +194,18 @@
             background: #ff991f;
         }
 
-        .secondary {
-            background: #242b38;
-        }
-
-        .secondary:hover {
-            background: #303949;
-        }
-
 
         /* -------------------------
            BADGES
         ------------------------- */
 
         .badge {
-    background: #252d3b;
-    color: #9ca6b5;
-    padding: 5px 9px;
-    border-radius: 20px;
-    font-size: 12px;
-}
+            background: #252d3b;
+            color: #9ca6b5;
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
 
 
         /* -------------------------
@@ -275,6 +264,69 @@
             padding: 12px;
             margin-top: 10px;
             color: #cbd3df;
+        }
+
+
+        /* -------------------------
+           FILE SECTIONS
+        ------------------------- */
+
+        .file-section {
+            background: #090844;
+            border: 1px solid #272f3c;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 16px;
+            transition: 0.2s;
+        }
+
+        .file-section:hover {
+            border-color: #de7ff0;
+        }
+
+        .file-section h3 {
+            margin-top: 0;
+        }
+
+        .file-section p {
+            color: #c0c5d0;
+        }
+
+        .file-section-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+
+        .file-list {
+            display: none;
+            margin-top: 15px;
+            border-top: 1px solid #272f3c;
+            padding-top: 15px;
+        }
+
+        .file-list.open {
+            display: block;
+        }
+
+        .file-item {
+            background: #05052b;
+            border: 1px solid #272f3c;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 10px;
+        }
+
+        .file-item strong {
+            display: block;
+            margin-bottom: 5px;
+        }
+
+        .file-item span {
+            color: #9ca6b5;
+            font-size: 13px;
         }
 
 
@@ -434,8 +486,7 @@
                     </h3>
 
                     <p>
-                        Your personal collection of
-                        tools, files and links.
+                        My website used for things.
                     </p>
 
                 </div>
@@ -490,8 +541,6 @@
             <div class="cards">
 
 
-                <!-- TEXT CONVERTER -->
-
                 <div class="card searchable">
 
                     <h3>
@@ -512,8 +561,6 @@
 
                 </div>
 
-
-                <!-- JSON FORMATTER -->
 
                 <div class="card searchable">
 
@@ -536,8 +583,6 @@
                 </div>
 
 
-                <!-- UUID -->
-
                 <div class="card searchable">
 
                     <h3>
@@ -557,8 +602,6 @@
 
                 </div>
 
-
-                <!-- COLOR -->
 
                 <div class="card searchable">
 
@@ -594,7 +637,7 @@
             </div>
 
 
-            <!-- TEXT TOOL -->
+            <!-- TEXT CONVERTER -->
 
             <div
                 id="textTool"
@@ -636,7 +679,7 @@
             </div>
 
 
-            <!-- JSON TOOL -->
+            <!-- JSON FORMATTER -->
 
             <div
                 id="jsonTool"
@@ -684,20 +727,259 @@
                     📁 Files
                 </h2>
 
-                <span
-                    id="fileCount"
-                    class="badge"
-                >
-                    0 files
+                <span class="badge">
+                    4 sections
                 </span>
 
             </div>
 
 
+            <!-- GAME FILES -->
+
             <div
-                id="fileList"
-                class="cards"
-            ></div>
+                class="file-section searchable"
+            >
+
+                <div class="file-section-header">
+
+                    <div>
+
+                        <h3>
+                            🎮 Game Files
+                        </h3>
+
+                        <p>
+                            Game-related files,
+                            mods and configurations.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="button"
+                        onclick="toggleFiles('gameFiles')"
+                    >
+                        View Files
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="gameFiles"
+                    class="file-list"
+                >
+
+                    <div class="file-item">
+
+                        <strong>
+                            📄 Example Game File
+                        </strong>
+
+                        <span>
+                            Add your game files here.
+                        </span>
+
+                        <br>
+
+                        <button
+                            class="button"
+                            onclick="showToast('Add your file link!')"
+                        >
+                            Download
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- TOOLS -->
+
+            <div
+                class="file-section searchable"
+            >
+
+                <div class="file-section-header">
+
+                    <div>
+
+                        <h3>
+                            🛠️ Tools
+                        </h3>
+
+                        <p>
+                            Utilities, DLLs and
+                            other useful downloads.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="button"
+                        onclick="toggleFiles('toolFiles')"
+                    >
+                        View Files
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="toolFiles"
+                    class="file-list"
+                >
+
+                    <div class="file-item">
+
+                        <strong>
+                            📦 Example Tool
+                        </strong>
+
+                        <span>
+                            Add useful tools here.
+                        </span>
+
+                        <br>
+
+                        <button
+                            class="button"
+                            onclick="showToast('Add your file link!')"
+                        >
+                            Download
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- PROJECTS -->
+
+            <div
+                class="file-section searchable"
+            >
+
+                <div class="file-section-header">
+
+                    <div>
+
+                        <h3>
+                            📦 Projects
+                        </h3>
+
+                        <p>
+                            Project files, old versions
+                            and experiments.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="button"
+                        onclick="toggleFiles('projectFiles')"
+                    >
+                        View Files
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="projectFiles"
+                    class="file-list"
+                >
+
+                    <div class="file-item">
+
+                        <strong>
+                            📁 Example Project
+                        </strong>
+
+                        <span>
+                            Add your project files here.
+                        </span>
+
+                        <br>
+
+                        <button
+                            class="button"
+                            onclick="showToast('Add your file link!')"
+                        >
+                            Download
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- ASSETS -->
+
+            <div
+                class="file-section searchable"
+            >
+
+                <div class="file-section-header">
+
+                    <div>
+
+                        <h3>
+                            🎨 Assets
+                        </h3>
+
+                        <p>
+                            Images, icons, wallpapers
+                            and other assets.
+                        </p>
+
+                    </div>
+
+                    <button
+                        class="button"
+                        onclick="toggleFiles('assetFiles')"
+                    >
+                        View Files
+                    </button>
+
+                </div>
+
+
+                <div
+                    id="assetFiles"
+                    class="file-list"
+                >
+
+                    <div class="file-item">
+
+                        <strong>
+                            🖼️ Example Asset
+                        </strong>
+
+                        <span>
+                            Add images and other assets here.
+                        </span>
+
+                        <br>
+
+                        <button
+                            class="button"
+                            onclick="showToast('Add your file link!')"
+                        >
+                            Download
+                        </button>
+
+                    </div>
+
+                </div>
+
+            </div>
 
         </section>
 
@@ -727,8 +1009,6 @@
             <div class="cards">
 
 
-                <!-- GITHUB -->
-
                 <div class="card searchable">
 
                     <h3>
@@ -751,8 +1031,6 @@
                 </div>
 
 
-                <!-- YOUTUBE -->
-
                 <div class="card searchable">
 
                     <h3>
@@ -774,8 +1052,6 @@
 
                 </div>
 
-
-                <!-- TIKTOK -->
 
                 <div class="card searchable">
 
@@ -838,107 +1114,8 @@
 
 
         /* -------------------------
-           FILES
-        ------------------------- */
-
-
-        const files = [];
-
-
-        function loadFiles() {
-
-            const list =
-                document.getElementById("fileList");
-
-            const count =
-                document.getElementById("fileCount");
-
-
-            list.innerHTML = "";
-
-
-            if (files.length === 0) {
-
-                list.innerHTML = `
-
-                    <div class="card searchable">
-
-                        <h3>
-                            📂 No files yet
-                        </h3>
-
-                        <p>
-                            Add files to your
-                            GitHub repository
-                            and list them here.
-                        </p>
-
-                    </div>
-
-                `;
-
-            }
-
-
-            files.forEach(item => {
-
-                const card =
-                    document.createElement("div");
-
-
-                card.className =
-                    "card searchable";
-
-
-                card.innerHTML = `
-
-                    <h3>
-                        📄 ${item.name}
-                    </h3>
-
-                    <p>
-                        ${item.description}
-                    </p>
-
-                    <span class="badge">
-                        ${item.type}
-                    </span>
-
-                    <br>
-
-                    <a
-                        class="button"
-                        href="${item.file}"
-                        download
-                    >
-                        Download
-                    </a>
-
-                    <button
-                        class="button"
-                        onclick="copyFileLink('${item.file}')"
-                    >
-                        Copy Link
-                    </button>
-
-                `;
-
-
-                list.appendChild(card);
-
-            });
-
-
-            count.textContent =
-                files.length + " files";
-
-        }
-
-
-        /* -------------------------
            NAVIGATION
         ------------------------- */
-
 
         function showAll() {
 
@@ -952,11 +1129,9 @@
 
                 });
 
-
             document.getElementById(
                 "search"
             ).value = "";
-
 
             hideTools();
 
@@ -975,13 +1150,11 @@
 
                 });
 
-
             document
                 .getElementById(category)
                 .classList.remove(
                     "hidden"
                 );
-
 
             hideTools();
 
@@ -992,7 +1165,6 @@
            SEARCH
         ------------------------- */
 
-
         function searchItems() {
 
             const search =
@@ -1001,7 +1173,6 @@
                     .value
                     .toLowerCase();
 
-
             document
                 .querySelectorAll(".searchable")
                 .forEach(item => {
@@ -1009,7 +1180,6 @@
                     const text =
                         item.textContent
                             .toLowerCase();
-
 
                     item.style.display =
                         text.includes(search)
@@ -1022,16 +1192,28 @@
 
 
         /* -------------------------
-           TOOLS
+           FILE SECTIONS
         ------------------------- */
 
+        function toggleFiles(id) {
+
+            const section =
+                document.getElementById(id);
+
+            section.classList.toggle("open");
+
+        }
+
+
+        /* -------------------------
+           TOOLS
+        ------------------------- */
 
         function hideTools() {
 
             document
                 .getElementById("textTool")
                 .classList.add("hidden");
-
 
             document
                 .getElementById("jsonTool")
@@ -1044,25 +1226,19 @@
 
             hideTools();
 
-
             if (tool === "text") {
 
                 document
                     .getElementById("textTool")
-                    .classList.remove(
-                        "hidden"
-                    );
+                    .classList.remove("hidden");
 
             }
-
 
             if (tool === "json") {
 
                 document
                     .getElementById("jsonTool")
-                    .classList.remove(
-                        "hidden"
-                    );
+                    .classList.remove("hidden");
 
             }
 
@@ -1073,14 +1249,12 @@
            TEXT CONVERTER
         ------------------------- */
 
-
         function upperText() {
 
             const input =
                 document.getElementById(
                     "textInput"
                 );
-
 
             input.value =
                 input.value.toUpperCase();
@@ -1095,7 +1269,6 @@
                     "textInput"
                 );
 
-
             input.value =
                 input.value.toLowerCase();
 
@@ -1109,11 +1282,9 @@
                     "textInput"
                 );
 
-
             copyTextToClipboard(
                 input.value
             );
-
 
             showToast(
                 "Text copied!"
@@ -1126,7 +1297,6 @@
            JSON FORMATTER
         ------------------------- */
 
-
         function formatJSON() {
 
             const input =
@@ -1134,12 +1304,10 @@
                     "jsonInput"
                 ).value.trim();
 
-
             const output =
                 document.getElementById(
                     "jsonOutput"
                 );
-
 
             if (!input) {
 
@@ -1150,12 +1318,10 @@
 
             }
 
-
             try {
 
                 const json =
                     JSON.parse(input);
-
 
                 output.textContent =
                     JSON.stringify(
@@ -1163,7 +1329,6 @@
                         null,
                         4
                     );
-
 
                 showToast(
                     "JSON formatted!"
@@ -1183,20 +1348,17 @@
 
 
         /* -------------------------
-           UUID
+           UUID GENERATOR
         ------------------------- */
-
 
         function generateUUID() {
 
             const uuid =
                 crypto.randomUUID();
 
-
             copyTextToClipboard(
                 uuid
             );
-
 
             showToast(
                 "UUID copied!"
@@ -1209,14 +1371,12 @@
            COLOR PICKER
         ------------------------- */
 
-
         function updateColor() {
 
             const color =
                 document.getElementById(
                     "colorPicker"
                 ).value;
-
 
             document.getElementById(
                 "colorValue"
@@ -1233,11 +1393,9 @@
                     "colorPicker"
                 ).value;
 
-
             copyTextToClipboard(
                 color
             );
-
 
             showToast(
                 "Copied " +
@@ -1249,68 +1407,42 @@
 
 
         /* -------------------------
-           FILE LINKS
-        ------------------------- */
-
-
-        function copyFileLink(file) {
-
-            const url =
-                new URL(
-                    file,
-                    window.location.href
-                ).href;
-
-
-            copyTextToClipboard(
-                url
-            );
-
-
-            showToast(
-                "File link copied!"
-            );
-
-        }
-
-
-        /* -------------------------
            CLIPBOARD
         ------------------------- */
 
-
         function copyTextToClipboard(text) {
 
-            navigator.clipboard
-                .writeText(text)
-                .catch(() => {
+            if (
+                navigator.clipboard &&
+                navigator.clipboard.writeText
+            ) {
 
-                    const textarea =
-                        document.createElement(
-                            "textarea"
-                        );
+                navigator.clipboard
+                    .writeText(text);
 
+                return;
 
-                    textarea.value =
-                        text;
+            }
 
+            const textarea =
+                document.createElement(
+                    "textarea"
+                );
 
-                    document.body.appendChild(
-                        textarea
-                    );
+            textarea.value =
+                text;
 
+            document.body.appendChild(
+                textarea
+            );
 
-                    textarea.select();
+            textarea.select();
 
+            document.execCommand(
+                "copy"
+            );
 
-                    document.execCommand(
-                        "copy"
-                    );
-
-
-                    textarea.remove();
-
-                });
+            textarea.remove();
 
         }
 
@@ -1319,7 +1451,6 @@
            TOAST
         ------------------------- */
 
-
         function showToast(message) {
 
             const toast =
@@ -1327,14 +1458,11 @@
                     "toast"
                 );
 
-
             toast.textContent =
                 message;
 
-
             toast.style.display =
                 "block";
-
 
             setTimeout(() => {
 
@@ -1345,16 +1473,7 @@
 
         }
 
-
-        /* -------------------------
-           START
-        ------------------------- */
-
-
-        loadFiles();
-
     </script>
-
 
 </body>
 
