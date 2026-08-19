@@ -51,8 +51,6 @@ nav button{
     font-weight:bold;
 }
 
-nav button:hover{filter:brightness(1.15)}
-
 .container{
     max-width:1100px;
     margin:auto;
@@ -71,29 +69,22 @@ nav button:hover{filter:brightness(1.15)}
     margin-bottom:25px;
 }
 
-.search:focus{border-color:#de7ff0}
-
-.section{margin-bottom:45px}
-
-.section-title{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-}
-
-.hidden{display:none!important}
-
 .cards{
     display:grid;
     grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
     gap:16px;
 }
 
-.card{
+.card,
+.tool-box,
+.file-section{
     background:#090844;
     border:1px solid #272f3c;
     border-radius:12px;
     padding:20px;
+}
+
+.card{
     transition:.2s;
 }
 
@@ -102,9 +93,12 @@ nav button:hover{filter:brightness(1.15)}
     border-color:#de7ff0;
 }
 
-.featured{border-color:#ff8800}
+.featured{
+    border-color:#ff8800;
+}
 
-.card p{
+.card p,
+.file-section p{
     color:#c0c5d0;
     line-height:1.5;
 }
@@ -122,22 +116,18 @@ button,.button{
     margin-top:5px;
 }
 
-button:hover,.button:hover{filter:brightness(1.12)}
-
-.badge{
-    background:#252d3b;
-    color:#9ca6b5;
-    padding:5px 9px;
-    border-radius:20px;
-    font-size:12px;
+button:hover,.button:hover{
+    filter:brightness(1.12);
 }
 
-.tool-box{
-    background:#090844;
-    border:1px solid #de7ff0;
-    border-radius:12px;
-    padding:20px;
-    margin-top:15px;
+.red-back{
+    background:#d90000 !important;
+    border:2px solid #ff4444 !important;
+    margin-bottom:15px;
+}
+
+.red-back:hover{
+    background:#ff2222 !important;
 }
 
 textarea{
@@ -152,8 +142,6 @@ textarea{
     font-family:monospace;
     outline:none;
 }
-
-textarea:focus{border-color:#de7ff0}
 
 .output{
     white-space:pre-wrap;
@@ -176,16 +164,8 @@ input[type="color"]{
 }
 
 .file-section{
-    background:#090844;
-    border:1px solid #272f3c;
-    border-radius:12px;
-    padding:20px;
     margin-bottom:16px;
 }
-
-.file-section:hover{border-color:#de7ff0}
-
-.file-section p{color:#c0c5d0}
 
 .file-list{
     display:none;
@@ -194,7 +174,9 @@ input[type="color"]{
     padding-top:15px;
 }
 
-.file-list.open{display:block}
+.file-list.open{
+    display:block;
+}
 
 .file-item{
     background:#05052b;
@@ -218,20 +200,15 @@ input[type="color"]{
     background:#05052b;
     cursor:pointer;
     margin:15px 0;
-    transition:.2s;
-}
-
-.dll-drop:hover{
-    border-color:#de7ff0;
-    background:#090844;
 }
 
 .dll-drop.dragover{
     border-color:#de7ff0;
-    transform:scale(1.01);
 }
 
-.dll-file-input{display:none}
+.dll-file-input{
+    display:none;
+}
 
 .dll-strings{
     max-height:500px;
@@ -257,15 +234,22 @@ input[type="color"]{
     overflow:auto;
     white-space:pre-wrap;
     font-family:monospace;
-    color:#d7dce5;
 }
 
-footer{
-    text-align:center;
-    color:#687384;
-    border-top:1px solid #252c38;
-    padding:30px;
-    margin-top:40px;
+.section-box{
+    margin-top:30px;
+}
+
+.hidden{
+    display:none !important;
+}
+
+.badge{
+    background:#252d3b;
+    color:#9ca6b5;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
 }
 
 .toast{
@@ -280,14 +264,18 @@ footer{
     z-index:9999;
 }
 
+footer{
+    text-align:center;
+    color:#687384;
+    border-top:1px solid #252c38;
+    padding:30px;
+    margin-top:40px;
+}
+
 @media(max-width:600px){
     header h1{font-size:30px}
     .container{padding:20px 12px}
     .cards{grid-template-columns:1fr}
-    nav button{
-        flex:1;
-        min-width:100px;
-    }
 }
 </style>
 </head>
@@ -301,11 +289,11 @@ footer{
 </header>
 
 <nav>
-    <button onclick="showSection('home')">🏠 Home</button>
-    <button onclick="showSection('tools')">🔧 Tools</button>
-    <button onclick="showSection('files')">📁 Files</button>
-    <button onclick="showSection('dllReader')">📦 DLL Reader</button>
-    <button onclick="showSection('links')">🔗 My Other Links</button>
+    <button onclick="goHome()">🏠 Home</button>
+    <button onclick="scrollToBox('toolsBox')">🔧 Tools</button>
+    <button onclick="scrollToBox('filesBox')">📁 Files</button>
+    <button onclick="scrollToBox('dllBox')">📦 DLL Reader</button>
+    <button onclick="scrollToBox('linksBox')">🔗 My Other Links</button>
 </nav>
 
 <div class="container">
@@ -318,220 +306,262 @@ footer{
     oninput="siteSearch()"
 >
 
-<section id="home" class="section">
-    <div class="section-title">
-        <h2>⭐ Featured</h2>
-    </div>
+<!-- HOME -->
 
-    <div class="cards">
+<section id="home">
 
-        <div class="card featured searchable">
-            <h3>🐧 Penglo Tools</h3>
-            <p>My website used for things.</p>
-        </div>
+<h2>⭐ Everything</h2>
 
-        <div class="card featured searchable">
-            <h3>📦 DLL Reader</h3>
-            <p>Inspect a .NET DLL locally and search readable information.</p>
-            <button onclick="showSection('dllReader')">Open</button>
-        </div>
+<div class="cards">
 
-    </div>
-</section>
+<div class="card featured searchable">
+    <h3>🐧 Penglo Tools</h3>
+    <p>Welcome to Penglo Tools!</p>
+    <p>Everything on the website is available below.</p>
+</div>
 
-<section id="tools" class="section hidden">
+</div>
 
-    <div class="section-title">
-        <h2>🔧 Tools</h2>
-        <span class="badge">4 tools</span>
-    </div>
+<!-- TOOLS -->
 
-    <div class="cards">
+<div id="toolsBox" class="section-box">
 
-        <div class="card searchable">
-            <h3>📝 Text Converter</h3>
-            <p>Convert text to uppercase or lowercase.</p>
-            <button onclick="openTool('text')">Open</button>
-        </div>
+<div class="tool-box searchable">
 
-        <div class="card searchable">
-            <h3>📦 JSON Formatter</h3>
-            <p>Format JSON so it is easier to read.</p>
-            <button onclick="openTool('json')">Open</button>
-        </div>
+<button class="red-back" onclick="goHome()">← Back</button>
 
-        <div class="card searchable">
-            <h3>🔢 UUID Generator</h3>
-            <p>Generate a random UUID.</p>
-            <button onclick="generateUUID()">Generate</button>
-        </div>
+<h2>🔧 Tools</h2>
 
-        <div class="card searchable">
-            <h3>🎨 Color Picker</h3>
-            <p>Pick a color and copy its HEX code.</p>
+<div class="cards">
 
-            <input
-                id="colorPicker"
-                type="color"
-                value="#ff8800"
-                onchange="updateColor()"
-            >
+<div class="card">
+<h3>📝 Text Converter</h3>
+<p>Convert text to uppercase or lowercase.</p>
+<button onclick="openTool('text')">Open</button>
+</div>
 
-            <p id="colorValue">#FF8800</p>
+<div class="card">
+<h3>📦 JSON Formatter</h3>
+<p>Format JSON so it is easier to read.</p>
+<button onclick="openTool('json')">Open</button>
+</div>
 
-            <button onclick="copyColor()">Copy Color</button>
-        </div>
+<div class="card">
+<h3>🔢 UUID Generator</h3>
+<p>Generate a random UUID.</p>
+<button onclick="generateUUID()">Generate</button>
+</div>
 
-    </div>
+<div class="card">
+<h3>🎨 Color Picker</h3>
+<p>Pick a color and copy its HEX code.</p>
 
-    <div id="textTool" class="tool-box hidden">
-        <h3>📝 Text Converter</h3>
+<input
+    id="colorPicker"
+    type="color"
+    value="#ff8800"
+    onchange="updateColor()"
+>
 
-        <textarea
-            id="textInput"
-            placeholder="Type or paste text here..."
-        ></textarea>
+<p id="colorValue">#FF8800</p>
 
-        <br>
+<button onclick="copyColor()">Copy Color</button>
+</div>
 
-        <button onclick="upperText()">UPPERCASE</button>
-        <button onclick="lowerText()">lowercase</button>
-        <button onclick="copyText()">Copy</button>
-    </div>
+</div>
 
-    <div id="jsonTool" class="tool-box hidden">
-        <h3>📦 JSON Formatter</h3>
+<div id="textTool" class="tool-box hidden">
 
-        <textarea
-            id="jsonInput"
-            placeholder="Paste JSON here..."
-        ></textarea>
+<button class="red-back" onclick="closeTool('textTool')">← Back</button>
 
-        <br>
+<h3>📝 Text Converter</h3>
 
-        <button onclick="formatJSON()">Format JSON</button>
+<textarea
+    id="textInput"
+    placeholder="Type or paste text here..."
+></textarea>
 
-        <div id="jsonOutput" class="output"></div>
-    </div>
+<br>
 
-</section>
+<button onclick="upperText()">UPPERCASE</button>
+<button onclick="lowerText()">lowercase</button>
+<button onclick="copyText()">Copy</button>
 
-<section id="files" class="section hidden">
+</div>
 
-    <div class="section-title">
-        <h2>📁 Files</h2>
-        <span class="badge">4 sections</span>
-    </div>
+<div id="jsonTool" class="tool-box hidden">
 
-    <div class="file-section searchable">
-        <h3>🎮 Game Files</h3>
-        <p>Game-related files, mods and configurations.</p>
+<button class="red-back" onclick="closeTool('jsonTool')">← Back</button>
 
-        <button onclick="toggleFiles('gameFiles')">View Files</button>
+<h3>📦 JSON Formatter</h3>
 
-        <div id="gameFiles" class="file-list">
-            <div class="file-item">
-                <strong>📄 Add your game files here</strong>
-                <br>
-                <span>Put your download links here.</span>
-            </div>
-        </div>
-    </div>
+<textarea
+    id="jsonInput"
+    placeholder="Paste JSON here..."
+></textarea>
 
-    <div class="file-section searchable">
-        <h3>🛠️ Tools</h3>
-        <p>Utilities, DLLs and useful downloads.</p>
+<br>
 
-        <button onclick="toggleFiles('toolFiles')">View Files</button>
+<button onclick="formatJSON()">Format JSON</button>
 
-        <div id="toolFiles" class="file-list">
-            <div class="file-item">
-                <strong>📦 Add your tools here</strong>
-                <br>
-                <span>Put your download links here.</span>
-            </div>
-        </div>
-    </div>
+<div id="jsonOutput" class="output"></div>
 
-    <div class="file-section searchable">
-        <h3>📦 Projects</h3>
-        <p>Project files and experiments.</p>
+</div>
 
-        <button onclick="toggleFiles('projectFiles')">View Files</button>
+</div>
+</div>
 
-        <div id="projectFiles" class="file-list">
-            <div class="file-item">
-                <strong>📁 Add your projects here</strong>
-                <br>
-                <span>Put your download links here.</span>
-            </div>
-        </div>
-    </div>
+<!-- FILES -->
 
-    <div class="file-section searchable">
-        <h3>🎨 Assets</h3>
-        <p>Images, icons and other assets.</p>
+<div id="filesBox" class="section-box">
 
-        <button onclick="toggleFiles('assetFiles')">View Files</button>
+<div class="tool-box">
 
-        <div id="assetFiles" class="file-list">
-            <div class="file-item">
-                <strong>🖼️ Add your assets here</strong>
-                <br>
-                <span>Put your download links here.</span>
-            </div>
-        </div>
-    </div>
+<button class="red-back" onclick="goHome()">← Back</button>
 
-</section>
+<h2>📁 Files</h2>
 
-<section id="dllReader" class="section hidden">
+<div class="file-section searchable">
 
-    <div class="section-title">
-        <h2>📦 DLL Reader</h2>
-        <span class="badge">.DLL</span>
-    </div>
+<h3>🎮 Game Files</h3>
 
-    <div class="tool-box">
+<p>Game-related files, mods and configurations.</p>
 
-        <h3>🔍 Read a DLL</h3>
+<button onclick="toggleFiles('gameFiles')">
+View Files
+</button>
 
-        <p>
-            Select a .NET DLL to inspect it locally in your browser.
-        </p>
+<div id="gameFiles" class="file-list">
 
-        <label id="dllDrop" class="dll-drop" for="dllInput">
-            <strong>📁 Choose DLL</strong>
-            <br>
-            <span>or drag and drop a .dll here</span>
-        </label>
+<div class="file-item">
+<strong>📄 Add your game files here</strong>
+<br>
+<span>Put your download links here.</span>
+</div>
 
-        <input
-            id="dllInput"
-            class="dll-file-input"
-            type="file"
-            accept=".dll"
-        >
+</div>
 
-        <div id="dllInfo" class="output">
-            No DLL selected.
-        </div>
+</div>
 
-        <input
-            id="dllSearch"
-            class="search"
-            type="text"
-            placeholder="🔍 Search DLL strings..."
-            oninput="searchDLL()"
-        >
+<div class="file-section searchable">
 
-        <div id="dllStrings" class="output dll-strings">
-            DLL strings will appear here.
-        </div>
+<h3>🛠️ Tools</h3>
 
-        <h3>ℹ️ Reader information</h3>
+<p>Utilities, DLLs and useful downloads.</p>
 
-        <div class="code">
+<button onclick="toggleFiles('toolFiles')">
+View Files
+</button>
+
+<div id="toolFiles" class="file-list">
+
+<div class="file-item">
+<strong>📦 Add your tools here</strong>
+<br>
+<span>Put your download links here.</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="file-section searchable">
+
+<h3>📦 Projects</h3>
+
+<p>Project files and experiments.</p>
+
+<button onclick="toggleFiles('projectFiles')">
+View Files
+</button>
+
+<div id="projectFiles" class="file-list">
+
+<div class="file-item">
+<strong>📁 Add your projects here</strong>
+<br>
+<span>Put your download links here.</span>
+</div>
+
+</div>
+
+</div>
+
+<div class="file-section searchable">
+
+<h3>🎨 Assets</h3>
+
+<p>Images, icons and other assets.</p>
+
+<button onclick="toggleFiles('assetFiles')">
+View Files
+</button>
+
+<div id="assetFiles" class="file-list">
+
+<div class="file-item">
+<strong>🖼️ Add your assets here</strong>
+<br>
+<span>Put your download links here.</span>
+</div>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+<!-- DLL -->
+
+<div id="dllBox" class="section-box">
+
+<div class="tool-box">
+
+<button class="red-back" onclick="goHome()">← Back</button>
+
+<h2>📦 DLL Reader</h2>
+
+<p>
+Select a .NET DLL to inspect it locally in your browser.
+</p>
+
+<label id="dllDrop" class="dll-drop" for="dllInput">
+
+<strong>📁 Choose DLL</strong>
+
+<br>
+
+<span>or drag and drop a .dll here</span>
+
+</label>
+
+<input
+id="dllInput"
+class="dll-file-input"
+type="file"
+accept=".dll"
+>
+
+<div id="dllInfo" class="output">
+No DLL selected.
+</div>
+
+<input
+id="dllSearch"
+class="search"
+type="text"
+placeholder="🔍 Search DLL strings..."
+oninput="searchDLL()"
+>
+
+<div id="dllStrings" class="output dll-strings">
+DLL strings will appear here.
+</div>
+
+<h3>ℹ️ Reader information</h3>
+
+<div class="code">
 This browser version can currently read:
 
 • PE/DLL signature
@@ -545,199 +575,277 @@ It processes the DLL locally.
 Full C# decompilation requires
 a .NET/WASM decompiler and cannot
 be achieved using ordinary JavaScript alone.
-        </div>
+</div>
 
-    </div>
-</section>
+</div>
+</div>
 
-<section id="links" class="section hidden">
+<!-- LINKS -->
 
-    <div class="section-title">
-        <h2>🔗 My Other Links</h2>
-        <span class="badge">3 links</span>
-    </div>
+<div id="linksBox" class="section-box">
 
-    <div class="cards">
+<div class="tool-box">
 
-        <div class="card searchable">
-            <h3>🐙 GitHub</h3>
-            <p>My GitHub account.</p>
+<button class="red-back" onclick="goHome()">← Back</button>
 
-            <a
-                class="button"
-                href="https://github.com/Penglo5"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Visit</a>
-        </div>
+<h2>🔗 My Other Links</h2>
 
-        <div class="card searchable">
-            <h3>▶️ YouTube</h3>
-            <p>My YouTube channel.</p>
+<div class="cards">
 
-            <a
-                class="button"
-                href="https://www.youtube.com/@Penglo5"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Visit</a>
-        </div>
+<div class="card">
+<h3>🐙 GitHub</h3>
+<p>My GitHub account.</p>
 
-        <div class="card searchable">
-            <h3>♪ TikTok</h3>
-            <p>My TikTok account.</p>
+<a
+class="button"
+href="https://github.com/Penglo5"
+target="_blank"
+rel="noopener noreferrer"
+>
+Visit
+</a>
 
-            <a
-                class="button"
-                href="https://www.tiktok.com/@penglo97"
-                target="_blank"
-                rel="noopener noreferrer"
-            >Visit</a>
-        </div>
+</div>
 
-    </div>
+<div class="card">
+<h3>▶️ YouTube</h3>
+<p>My YouTube channel.</p>
+
+<a
+class="button"
+href="https://www.youtube.com/@Penglo5"
+target="_blank"
+rel="noopener noreferrer"
+>
+Visit
+</a>
+
+</div>
+
+<div class="card">
+<h3>♪ TikTok</h3>
+<p>My TikTok account.</p>
+
+<a
+class="button"
+href="https://www.tiktok.com/@penglo97"
+target="_blank"
+rel="noopener noreferrer"
+>
+Visit
+</a>
+
+</div>
+
+</div>
+</div>
+</div>
+
 </section>
 
 </div>
 
 <footer>
-    🐧 Penglo Tools
-    <br>
-    <small>Made by Penglo</small>
+🐧 Penglo Tools
+<br>
+<small>Made by Penglo</small>
 </footer>
 
 <div id="toast" class="toast">Copied!</div>
 
 <script>
 
-function showSection(id){
-    document.querySelectorAll(".section").forEach(section=>{
-        section.classList.add("hidden");
-    });
-
-    document.getElementById(id).classList.remove("hidden");
-
+function goHome(){
     window.scrollTo({
         top:0,
         behavior:"smooth"
     });
 }
 
+function scrollToBox(id){
+    document.getElementById(id).scrollIntoView({
+        behavior:"smooth"
+    });
+}
+
 function siteSearch(){
+
     const search=document
         .getElementById("siteSearch")
         .value
         .toLowerCase();
 
-    document.querySelectorAll(".searchable").forEach(item=>{
-        const text=item.textContent.toLowerCase();
+    document
+        .querySelectorAll(".searchable")
+        .forEach(item=>{
 
-        item.style.display=
-            text.includes(search) ? "" : "none";
-    });
+            item.style.display=
+                item.textContent
+                .toLowerCase()
+                .includes(search)
+                ? ""
+                : "none";
+
+        });
 }
 
 function toggleFiles(id){
-    document.getElementById(id).classList.toggle("open");
+    document
+        .getElementById(id)
+        .classList.toggle("open");
 }
 
 function openTool(tool){
-    document.getElementById("textTool").classList.add("hidden");
-    document.getElementById("jsonTool").classList.add("hidden");
 
-    document.getElementById(tool+"Tool").classList.remove("hidden");
+    document
+        .getElementById("textTool")
+        .classList.add("hidden");
+
+    document
+        .getElementById("jsonTool")
+        .classList.add("hidden");
+
+    document
+        .getElementById(tool+"Tool")
+        .classList.remove("hidden");
+}
+
+function closeTool(id){
+    document
+        .getElementById(id)
+        .classList.add("hidden");
 }
 
 function upperText(){
-    const input=document.getElementById("textInput");
-    input.value=input.value.toUpperCase();
+    document
+        .getElementById("textInput")
+        .value=
+        document
+        .getElementById("textInput")
+        .value
+        .toUpperCase();
 }
 
 function lowerText(){
-    const input=document.getElementById("textInput");
-    input.value=input.value.toLowerCase();
+    document
+        .getElementById("textInput")
+        .value=
+        document
+        .getElementById("textInput")
+        .value
+        .toLowerCase();
 }
 
 function copyText(){
-    const input=document.getElementById("textInput");
 
-    copyToClipboard(input.value);
+    copyToClipboard(
+        document
+        .getElementById("textInput")
+        .value
+    );
+
     showToast("Text copied!");
 }
 
 function formatJSON(){
-    const input=document
+
+    const input=
+        document
         .getElementById("jsonInput")
         .value
         .trim();
 
-    const output=document.getElementById("jsonOutput");
+    const output=
+        document
+        .getElementById("jsonOutput");
 
     if(!input){
-        output.textContent="Paste JSON here first.";
+        output.textContent=
+            "Paste JSON here first.";
         return;
     }
 
     try{
+
         const json=JSON.parse(input);
 
         output.textContent=
             JSON.stringify(json,null,4);
 
         showToast("JSON formatted!");
-    }
-    catch(error){
+
+    }catch(error){
+
         output.textContent=
-            "❌ Invalid JSON:\n"+error.message;
+            "❌ Invalid JSON:\n"+
+            error.message;
     }
 }
 
 function generateUUID(){
+
     const uuid=crypto.randomUUID();
 
     copyToClipboard(uuid);
+
     showToast("UUID copied!");
 }
 
 function updateColor(){
-    const color=document
+
+    const color=
+        document
         .getElementById("colorPicker")
         .value;
 
-    document.getElementById("colorValue")
-        .textContent=color.toUpperCase();
+    document
+        .getElementById("colorValue")
+        .textContent=
+        color.toUpperCase();
 }
 
 function copyColor(){
-    const color=document
+
+    const color=
+        document
         .getElementById("colorPicker")
         .value;
 
     copyToClipboard(color);
+
     showToast("Color copied!");
 }
 
 let dllStringList=[];
 
-document.getElementById("dllInput")
-    .addEventListener("change",event=>{
-        const file=event.target.files[0];
-        readDLL(file);
-    });
+document
+.getElementById("dllInput")
+.addEventListener("change",event=>{
+
+    const file=
+        event.target.files[0];
+
+    readDLL(file);
+});
 
 async function readDLL(file){
 
     if(!file)return;
 
-    const info=document.getElementById("dllInfo");
+    const info=
+        document
+        .getElementById("dllInfo");
 
     info.textContent=
         "⏳ Reading "+file.name+"...";
 
     try{
 
-        const buffer=await file.arrayBuffer();
-        const bytes=new Uint8Array(buffer);
+        const buffer=
+            await file.arrayBuffer();
+
+        const bytes=
+            new Uint8Array(buffer);
 
         const isPE=
             bytes[0]===0x4D &&
@@ -745,7 +853,11 @@ async function readDLL(file){
 
         let isDotNet=false;
 
-        for(let i=0;i<bytes.length-4;i++){
+        for(
+            let i=0;
+            i<bytes.length-4;
+            i++
+        ){
 
             if(
                 bytes[i]===0x42 &&
@@ -753,33 +865,52 @@ async function readDLL(file){
                 bytes[i+2]===0x4A &&
                 bytes[i+3]===0x42
             ){
+
                 isDotNet=true;
                 break;
             }
         }
 
-        dllStringList=extractStrings(bytes);
+        dllStringList=
+            extractStrings(bytes);
 
         info.innerHTML=`
-            <strong>📦 ${escapeHTML(file.name)}</strong>
-            <br>
-            Size: ${formatBytes(bytes.length)}
-            <br>
-            PE/DLL: ${isPE ? "✅ Yes" : "❌ No"}
-            <br>
-            .NET Assembly: ${isDotNet ? "✅ Detected" : "❌ Not detected"}
-            <br>
-            Readable strings: ${dllStringList.length}
-        `;
+
+<strong>
+📦 ${escapeHTML(file.name)}
+</strong>
+
+<br>
+
+Size:
+${formatBytes(bytes.length)}
+
+<br>
+
+PE/DLL:
+${isPE ? "✅ Yes":"❌ No"}
+
+<br>
+
+.NET Assembly:
+${isDotNet ? "✅ Detected":"❌ Not detected"}
+
+<br>
+
+Readable strings:
+${dllStringList.length}
+
+`;
 
         renderDLLStrings(dllStringList);
+
         showToast("DLL loaded!");
 
-    }
-    catch(error){
+    }catch(error){
 
         info.textContent=
-            "❌ Could not read DLL: "+error.message;
+            "❌ Could not read DLL: "+
+            error.message;
     }
 }
 
@@ -788,14 +919,23 @@ function extractStrings(bytes){
     const strings=[];
     let current="";
 
-    for(let i=0;i<bytes.length;i++){
+    for(
+        let i=0;
+        i<bytes.length;
+        i++
+    ){
 
         const value=bytes[i];
 
-        if(value>=32 && value<=126){
-            current+=String.fromCharCode(value);
-        }
-        else{
+        if(
+            value>=32 &&
+            value<=126
+        ){
+
+            current+=
+                String.fromCharCode(value);
+
+        }else{
 
             if(current.length>=4){
                 strings.push(current);
@@ -814,40 +954,54 @@ function extractStrings(bytes){
 
 function searchDLL(){
 
-    const search=document
+    const search=
+        document
         .getElementById("dllSearch")
         .value
         .toLowerCase();
 
-    const results=dllStringList.filter(string=>
-        string.toLowerCase().includes(search)
-    );
+    const results=
+        dllStringList.filter(string=>
+            string
+            .toLowerCase()
+            .includes(search)
+        );
 
     renderDLLStrings(
-        search ? results : dllStringList
+        search
+        ? results
+        : dllStringList
     );
 }
 
 function renderDLLStrings(strings){
 
-    const output=document.getElementById("dllStrings");
+    const output=
+        document
+        .getElementById("dllStrings");
 
     if(strings.length===0){
+
         output.textContent=
             "No readable strings found.";
+
         return;
     }
 
-    output.innerHTML=strings.map(string=>`
-        <div class="dll-string">
-            ${escapeHTML(string)}
-        </div>
-    `).join("");
+    output.innerHTML=
+        strings
+        .map(string=>`
+            <div class="dll-string">
+                ${escapeHTML(string)}
+            </div>
+        `)
+        .join("");
 }
 
 function formatBytes(bytes){
 
-    if(bytes===0)return "0 Bytes";
+    if(bytes===0)
+        return "0 Bytes";
 
     const units=[
         "Bytes",
@@ -856,57 +1010,97 @@ function formatBytes(bytes){
         "GB"
     ];
 
-    const index=Math.floor(
-        Math.log(bytes)/Math.log(1024)
-    );
+    const index=
+        Math.floor(
+            Math.log(bytes)/
+            Math.log(1024)
+        );
 
     return parseFloat(
-        (bytes/Math.pow(1024,index)).toFixed(2)
-    )+" "+units[index];
+        (
+            bytes/
+            Math.pow(1024,index)
+        ).toFixed(2)
+    )+
+    " "+
+    units[index];
 }
 
-const dllDrop=document.getElementById("dllDrop");
+const dllDrop=
+    document.getElementById("dllDrop");
 
-dllDrop.addEventListener("dragover",event=>{
-    event.preventDefault();
-    dllDrop.classList.add("dragover");
-});
-
-dllDrop.addEventListener("dragleave",()=>{
-    dllDrop.classList.remove("dragover");
-});
-
-dllDrop.addEventListener("drop",event=>{
+dllDrop.addEventListener(
+"dragover",
+event=>{
 
     event.preventDefault();
 
-    dllDrop.classList.remove("dragover");
+    dllDrop.classList.add(
+        "dragover"
+    );
+});
 
-    const file=event.dataTransfer.files[0];
+dllDrop.addEventListener(
+"dragleave",
+()=>{
+
+    dllDrop.classList.remove(
+        "dragover"
+    );
+});
+
+dllDrop.addEventListener(
+"drop",
+event=>{
+
+    event.preventDefault();
+
+    dllDrop.classList.remove(
+        "dragover"
+    );
+
+    const file=
+        event
+        .dataTransfer
+        .files[0];
 
     if(
         file &&
-        file.name.toLowerCase().endsWith(".dll")
+        file.name
+        .toLowerCase()
+        .endsWith(".dll")
     ){
+
         readDLL(file);
-    }
-    else{
-        showToast("Please drop a .DLL file!");
+
+    }else{
+
+        showToast(
+            "Please drop a .DLL file!"
+        );
     }
 });
 
 function copyToClipboard(text){
 
     if(navigator.clipboard){
-        navigator.clipboard.writeText(text);
+
+        navigator.clipboard
+        .writeText(text);
+
         return;
     }
 
-    const textarea=document.createElement("textarea");
+    const textarea=
+        document.createElement(
+            "textarea"
+        );
 
     textarea.value=text;
 
-    document.body.appendChild(textarea);
+    document.body.appendChild(
+        textarea
+    );
 
     textarea.select();
 
@@ -917,9 +1111,13 @@ function copyToClipboard(text){
 
 function showToast(message){
 
-    const toast=document.getElementById("toast");
+    const toast=
+        document.getElementById(
+            "toast"
+        );
 
     toast.textContent=message;
+
     toast.style.display="block";
 
     setTimeout(()=>{
@@ -936,9 +1134,6 @@ function escapeHTML(text){
         .replaceAll('"',"&quot;")
         .replaceAll("'","&#039;");
 }
-
-/* Everything starts closed */
-showSection("home");
 
 </script>
 
