@@ -1,479 +1,314 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <title>Penglo Tools 🐧</title>
-
-    <style>
-
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #0b0e13;
-            color: white;
-        }
-
-        /* HEADER */
-
-        header {
-            background: #121722;
-            border-bottom: 1px solid #252c38;
-            padding: 28px 20px;
-            text-align: center;
-        }
-
-        .logo {
-            font-size: 44px;
-        }
-
-        header h1 {
-            margin: 5px 0;
-            font-size: 38px;
-        }
-
-        header p {
-            color: #9ca6b5;
-        }
-
-        /* NAVIGATION */
-
-        nav {
-            background: #10141d;
-            border-bottom: 1px solid #252c38;
-            padding: 12px;
-            display: flex;
-            justify-content: center;
-            gap: 8px;
-            flex-wrap: wrap;
-        }
-
-        nav button {
-            background: #2800b0;
-            color: white;
-            border: 2px solid #ff8800;
-            border-radius: 8px;
-            padding: 10px 16px;
-            cursor: pointer;
-            font-weight: bold;
-        }
-
-        nav button:hover {
-            filter: brightness(1.15);
-        }
-
-        /* MAIN */
-
-        .container {
-            max-width: 1100px;
-            margin: auto;
-            padding: 30px 20px;
-        }
-
-        /* SEARCH */
-
-        .search {
-            width: 100%;
-            padding: 15px;
-            border-radius: 10px;
-            border: 1px solid #303847;
-            background: #151a23;
-            color: white;
-            font-size: 16px;
-            outline: none;
-            margin-bottom: 25px;
-        }
-
-        .search:focus {
-            border-color: #de7ff0;
-        }
-
-        /* SECTIONS */
-
-        .section {
-            margin-bottom: 45px;
-        }
-
-        .section-title {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        /* CARDS */
-
-        .cards {
-            display: grid;
-            grid-template-columns:
-                repeat(auto-fit, minmax(230px, 1fr));
-
-            gap: 16px;
-        }
-
-        .card {
-            background: #090844;
-            border: 1px solid #272f3c;
-            border-radius: 12px;
-            padding: 20px;
-            transition: 0.2s;
-        }
-
-        .card:hover {
-            transform: translateY(-3px);
-            border-color: #de7ff0;
-        }
-
-        .featured {
-            border-color: #ff8800;
-        }
-
-        .card p {
-            color: #c0c5d0;
-            line-height: 1.5;
-        }
-
-        /* BUTTONS */
-
-        button,
-        .button {
-            background: #ff8800;
-            color: white;
-            border: none;
-            border-radius: 7px;
-            padding: 10px 15px;
-            cursor: pointer;
-            font-weight: bold;
-            text-decoration: none;
-            display: inline-block;
-            margin-top: 5px;
-        }
-
-        button:hover,
-        .button:hover {
-            filter: brightness(1.12);
-        }
-
-        /* BADGE */
-
-        .badge {
-            background: #252d3b;
-            color: #9ca6b5;
-            padding: 5px 9px;
-            border-radius: 20px;
-            font-size: 12px;
-        }
-
-        /* TOOL BOX */
-
-        .tool-box {
-            background: #090844;
-            border: 1px solid #de7ff0;
-            border-radius: 12px;
-            padding: 20px;
-            margin-top: 15px;
-        }
-
-        textarea {
-            width: 100%;
-            min-height: 140px;
-            resize: vertical;
-
-            background: #10102f;
-            color: white;
-
-            border: 1px solid #303847;
-            border-radius: 8px;
-
-            padding: 12px;
-
-            font-family: monospace;
-            outline: none;
-        }
-
-        textarea:focus {
-            border-color: #de7ff0;
-        }
-
-        /* OUTPUT */
-
-        .output {
-            white-space: pre-wrap;
-            word-break: break-word;
-
-            background: #05052b;
-
-            border: 1px solid #272f3c;
-
-            border-radius: 8px;
-
-            padding: 12px;
-
-            margin-top: 10px;
-
-            color: #cbd3df;
-
-            font-family: monospace;
-        }
-
-        /* COLOR */
-
-        input[type="color"] {
-            width: 70px;
-            height: 40px;
-            border: none;
-            background: transparent;
-            cursor: pointer;
-        }
-
-        /* FILE SECTIONS */
-
-        .file-section {
-            background: #090844;
-            border: 1px solid #272f3c;
-            border-radius: 12px;
-            padding: 20px;
-            margin-bottom: 16px;
-        }
-
-        .file-section:hover {
-            border-color: #de7ff0;
-        }
-
-        .file-section p {
-            color: #c0c5d0;
-        }
-
-        .file-list {
-            display: none;
-
-            margin-top: 15px;
-
-            border-top: 1px solid #272f3c;
-
-            padding-top: 15px;
-        }
-
-        .file-list.open {
-            display: block;
-        }
-
-        .file-item {
-            background: #05052b;
-
-            border: 1px solid #272f3c;
-
-            border-radius: 8px;
-
-            padding: 12px;
-
-            margin-top: 10px;
-        }
-
-        .file-item span {
-            color: #9ca6b5;
-            font-size: 13px;
-        }
-
-        /* DLL READER */
-
-        .dll-drop {
-            display: block;
-
-            border: 2px dashed #ff8800;
-
-            border-radius: 10px;
-
-            padding: 30px;
-
-            text-align: center;
-
-            background: #05052b;
-
-            cursor: pointer;
-
-            margin: 15px 0;
-
-            transition: 0.2s;
-        }
-
-        .dll-drop:hover {
-            border-color: #de7ff0;
-            background: #090844;
-        }
-
-        .dll-drop.dragover {
-            border-color: #de7ff0;
-            transform: scale(1.01);
-        }
-
-        .dll-file-input {
-            display: none;
-        }
-
-        .dll-strings {
-            max-height: 500px;
-            overflow: auto;
-        }
-
-        .dll-string {
-            padding: 6px;
-
-            border-bottom: 1px solid #171b27;
-
-            word-break: break-all;
-        }
-
-        .dll-string:hover {
-            background: #090844;
-            color: #ff8800;
-        }
-
-        /* CODE INFO */
-
-        .code {
-            background: #05052b;
-
-            border: 1px solid #272f3c;
-
-            border-radius: 8px;
-
-            padding: 14px;
-
-            overflow: auto;
-
-            white-space: pre-wrap;
-
-            font-family: monospace;
-
-            color: #d7dce5;
-        }
-
-        /* FOOTER */
-
-        footer {
-            text-align: center;
-
-            color: #687384;
-
-            border-top: 1px solid #252c38;
-
-            padding: 30px;
-
-            margin-top: 40px;
-        }
-
-        /* TOAST */
-
-        .toast {
-            position: fixed;
-
-            bottom: 20px;
-            right: 20px;
-
-            background: #090844;
-
-            border: 1px solid #ff8800;
-
-            padding: 12px 18px;
-
-            border-radius: 8px;
-
-            display: none;
-
-            z-index: 9999;
-        }
-
-        /* MOBILE */
-
-        @media (max-width: 600px) {
-
-            header h1 {
-                font-size: 30px;
-            }
-
-            .container {
-                padding: 20px 12px;
-            }
-
-            .cards {
-                grid-template-columns: 1fr;
-            }
-
-            nav button {
-                flex: 1;
-                min-width: 100px;
-            }
-
-        }
-
-    </style>
-
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Penglo Tools 🐧</title>
+
+<style>
+*{box-sizing:border-box}
+
+body{
+    margin:0;
+    font-family:Arial,sans-serif;
+    background:#0b0e13;
+    color:white;
+}
+
+header{
+    background:#121722;
+    border-bottom:1px solid #252c38;
+    padding:28px 20px;
+    text-align:center;
+}
+
+.logo{font-size:44px}
+
+header h1{
+    margin:5px 0;
+    font-size:38px;
+}
+
+header p{color:#9ca6b5}
+
+nav{
+    background:#10141d;
+    border-bottom:1px solid #252c38;
+    padding:12px;
+    display:flex;
+    justify-content:center;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+nav button{
+    background:#2800b0;
+    color:white;
+    border:2px solid #ff8800;
+    border-radius:8px;
+    padding:10px 16px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+nav button:hover{filter:brightness(1.15)}
+
+.container{
+    max-width:1100px;
+    margin:auto;
+    padding:30px 20px;
+}
+
+.search{
+    width:100%;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #303847;
+    background:#151a23;
+    color:white;
+    font-size:16px;
+    outline:none;
+    margin-bottom:25px;
+}
+
+.search:focus{border-color:#de7ff0}
+
+.section{margin-bottom:45px}
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.hidden{display:none!important}
+
+.cards{
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(230px,1fr));
+    gap:16px;
+}
+
+.card{
+    background:#090844;
+    border:1px solid #272f3c;
+    border-radius:12px;
+    padding:20px;
+    transition:.2s;
+}
+
+.card:hover{
+    transform:translateY(-3px);
+    border-color:#de7ff0;
+}
+
+.featured{border-color:#ff8800}
+
+.card p{
+    color:#c0c5d0;
+    line-height:1.5;
+}
+
+button,.button{
+    background:#ff8800;
+    color:white;
+    border:none;
+    border-radius:7px;
+    padding:10px 15px;
+    cursor:pointer;
+    font-weight:bold;
+    text-decoration:none;
+    display:inline-block;
+    margin-top:5px;
+}
+
+button:hover,.button:hover{filter:brightness(1.12)}
+
+.badge{
+    background:#252d3b;
+    color:#9ca6b5;
+    padding:5px 9px;
+    border-radius:20px;
+    font-size:12px;
+}
+
+.tool-box{
+    background:#090844;
+    border:1px solid #de7ff0;
+    border-radius:12px;
+    padding:20px;
+    margin-top:15px;
+}
+
+textarea{
+    width:100%;
+    min-height:140px;
+    resize:vertical;
+    background:#10102f;
+    color:white;
+    border:1px solid #303847;
+    border-radius:8px;
+    padding:12px;
+    font-family:monospace;
+    outline:none;
+}
+
+textarea:focus{border-color:#de7ff0}
+
+.output{
+    white-space:pre-wrap;
+    word-break:break-word;
+    background:#05052b;
+    border:1px solid #272f3c;
+    border-radius:8px;
+    padding:12px;
+    margin-top:10px;
+    color:#cbd3df;
+    font-family:monospace;
+}
+
+input[type="color"]{
+    width:70px;
+    height:40px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+}
+
+.file-section{
+    background:#090844;
+    border:1px solid #272f3c;
+    border-radius:12px;
+    padding:20px;
+    margin-bottom:16px;
+}
+
+.file-section:hover{border-color:#de7ff0}
+
+.file-section p{color:#c0c5d0}
+
+.file-list{
+    display:none;
+    margin-top:15px;
+    border-top:1px solid #272f3c;
+    padding-top:15px;
+}
+
+.file-list.open{display:block}
+
+.file-item{
+    background:#05052b;
+    border:1px solid #272f3c;
+    border-radius:8px;
+    padding:12px;
+    margin-top:10px;
+}
+
+.file-item span{
+    color:#9ca6b5;
+    font-size:13px;
+}
+
+.dll-drop{
+    display:block;
+    border:2px dashed #ff8800;
+    border-radius:10px;
+    padding:30px;
+    text-align:center;
+    background:#05052b;
+    cursor:pointer;
+    margin:15px 0;
+    transition:.2s;
+}
+
+.dll-drop:hover{
+    border-color:#de7ff0;
+    background:#090844;
+}
+
+.dll-drop.dragover{
+    border-color:#de7ff0;
+    transform:scale(1.01);
+}
+
+.dll-file-input{display:none}
+
+.dll-strings{
+    max-height:500px;
+    overflow:auto;
+}
+
+.dll-string{
+    padding:6px;
+    border-bottom:1px solid #171b27;
+    word-break:break-all;
+}
+
+.dll-string:hover{
+    background:#090844;
+    color:#ff8800;
+}
+
+.code{
+    background:#05052b;
+    border:1px solid #272f3c;
+    border-radius:8px;
+    padding:14px;
+    overflow:auto;
+    white-space:pre-wrap;
+    font-family:monospace;
+    color:#d7dce5;
+}
+
+footer{
+    text-align:center;
+    color:#687384;
+    border-top:1px solid #252c38;
+    padding:30px;
+    margin-top:40px;
+}
+
+.toast{
+    position:fixed;
+    bottom:20px;
+    right:20px;
+    background:#090844;
+    border:1px solid #ff8800;
+    padding:12px 18px;
+    border-radius:8px;
+    display:none;
+    z-index:9999;
+}
+
+@media(max-width:600px){
+    header h1{font-size:30px}
+    .container{padding:20px 12px}
+    .cards{grid-template-columns:1fr}
+    nav button{
+        flex:1;
+        min-width:100px;
+    }
+}
+</style>
 </head>
-
 
 <body>
 
-
-<!-- HEADER -->
-
 <header>
-
-    <div class="logo">
-        🐧
-    </div>
-
-    <h1>
-        Penglo Tools
-    </h1>
-
-    <p>
-        My website used for things.
-    </p>
-
+    <div class="logo">🐧</div>
+    <h1>Penglo Tools</h1>
+    <p>My website used for things.</p>
 </header>
 
-
-<!-- NAVIGATION -->
-
 <nav>
-
-    <button onclick="showSection('home')">
-        🏠 Home
-    </button>
-
-    <button onclick="showSection('tools')">
-        🔧 Tools
-    </button>
-
-    <button onclick="showSection('files')">
-        📁 Files
-    </button>
-
-    <button onclick="showSection('dllReader')">
-        📦 DLL Reader
-    </button>
-
-    <button onclick="showSection('links')">
-        🔗 My Other Links
-    </button>
-
+    <button onclick="showSection('home')">🏠 Home</button>
+    <button onclick="showSection('tools')">🔧 Tools</button>
+    <button onclick="showSection('files')">📁 Files</button>
+    <button onclick="showSection('dllReader')">📦 DLL Reader</button>
+    <button onclick="showSection('links')">🔗 My Other Links</button>
 </nav>
 
-
 <div class="container">
-
-
-<!-- SEARCH -->
 
 <input
     id="siteSearch"
@@ -483,164 +318,57 @@
     oninput="siteSearch()"
 >
 
-
-<!-- HOME -->
-
-<section
-    id="home"
-    class="section"
->
-
+<section id="home" class="section">
     <div class="section-title">
-
-        <h2>
-            ⭐ Featured
-        </h2>
-
+        <h2>⭐ Featured</h2>
     </div>
-
 
     <div class="cards">
 
-
         <div class="card featured searchable">
-
-            <h3>
-                🐧 Penglo Tools
-            </h3>
-
-            <p>
-                My website used for things.
-            </p>
-
+            <h3>🐧 Penglo Tools</h3>
+            <p>My website used for things.</p>
         </div>
 
-
         <div class="card featured searchable">
-
-            <h3>
-                📦 DLL Reader
-            </h3>
-
-            <p>
-                Inspect a .NET DLL locally
-                and search readable information.
-            </p>
-
-            <button
-                onclick="showSection('dllReader')"
-            >
-                Open
-            </button>
-
+            <h3>📦 DLL Reader</h3>
+            <p>Inspect a .NET DLL locally and search readable information.</p>
+            <button onclick="showSection('dllReader')">Open</button>
         </div>
-
 
     </div>
-
 </section>
 
-
-<!-- TOOLS -->
-
-<section
-    id="tools"
-    class="section hidden"
->
+<section id="tools" class="section hidden">
 
     <div class="section-title">
-
-        <h2>
-            🔧 Tools
-        </h2>
-
-        <span class="badge">
-            4 tools
-        </span>
-
+        <h2>🔧 Tools</h2>
+        <span class="badge">4 tools</span>
     </div>
-
 
     <div class="cards">
 
-
-        <!-- TEXT -->
-
         <div class="card searchable">
-
-            <h3>
-                📝 Text Converter
-            </h3>
-
-            <p>
-                Convert text to uppercase
-                or lowercase.
-            </p>
-
-            <button
-                onclick="openTool('text')"
-            >
-                Open
-            </button>
-
+            <h3>📝 Text Converter</h3>
+            <p>Convert text to uppercase or lowercase.</p>
+            <button onclick="openTool('text')">Open</button>
         </div>
 
-
-        <!-- JSON -->
-
         <div class="card searchable">
-
-            <h3>
-                📦 JSON Formatter
-            </h3>
-
-            <p>
-                Format JSON so it is
-                easier to read.
-            </p>
-
-            <button
-                onclick="openTool('json')"
-            >
-                Open
-            </button>
-
+            <h3>📦 JSON Formatter</h3>
+            <p>Format JSON so it is easier to read.</p>
+            <button onclick="openTool('json')">Open</button>
         </div>
 
-
-        <!-- UUID -->
-
         <div class="card searchable">
-
-            <h3>
-                🔢 UUID Generator
-            </h3>
-
-            <p>
-                Generate a random UUID.
-            </p>
-
-            <button
-                onclick="generateUUID()"
-            >
-                Generate
-            </button>
-
+            <h3>🔢 UUID Generator</h3>
+            <p>Generate a random UUID.</p>
+            <button onclick="generateUUID()">Generate</button>
         </div>
 
-
-        <!-- COLOR -->
-
         <div class="card searchable">
-
-            <h3>
-                🎨 Color Picker
-            </h3>
-
-            <p>
-                Pick a color and copy
-                its HEX code.
-            </p>
+            <h3>🎨 Color Picker</h3>
+            <p>Pick a color and copy its HEX code.</p>
 
             <input
                 id="colorPicker"
@@ -649,31 +377,15 @@
                 onchange="updateColor()"
             >
 
-            <p id="colorValue">
-                #FF8800
-            </p>
+            <p id="colorValue">#FF8800</p>
 
-            <button
-                onclick="copyColor()"
-            >
-                Copy Color
-            </button>
-
+            <button onclick="copyColor()">Copy Color</button>
         </div>
 
     </div>
 
-
-    <!-- TEXT TOOL -->
-
-    <div
-        id="textTool"
-        class="tool-box hidden"
-    >
-
-        <h3>
-            📝 Text Converter
-        </h3>
+    <div id="textTool" class="tool-box hidden">
+        <h3>📝 Text Converter</h3>
 
         <textarea
             id="textInput"
@@ -682,37 +394,13 @@
 
         <br>
 
-        <button
-            onclick="upperText()"
-        >
-            UPPERCASE
-        </button>
-
-        <button
-            onclick="lowerText()"
-        >
-            lowercase
-        </button>
-
-        <button
-            onclick="copyText()"
-        >
-            Copy
-        </button>
-
+        <button onclick="upperText()">UPPERCASE</button>
+        <button onclick="lowerText()">lowercase</button>
+        <button onclick="copyText()">Copy</button>
     </div>
 
-
-    <!-- JSON TOOL -->
-
-    <div
-        id="jsonTool"
-        class="tool-box hidden"
-    >
-
-        <h3>
-            📦 JSON Formatter
-        </h3>
+    <div id="jsonTool" class="tool-box hidden">
+        <h3>📦 JSON Formatter</h3>
 
         <textarea
             id="jsonInput"
@@ -721,258 +409,102 @@
 
         <br>
 
-        <button
-            onclick="formatJSON()"
-        >
-            Format JSON
-        </button>
+        <button onclick="formatJSON()">Format JSON</button>
 
-        <div
-            id="jsonOutput"
-            class="output"
-        ></div>
-
+        <div id="jsonOutput" class="output"></div>
     </div>
 
 </section>
 
-
-<!-- FILES -->
-
-<section
-    id="files"
-    class="section hidden"
->
+<section id="files" class="section hidden">
 
     <div class="section-title">
-
-        <h2>
-            📁 Files
-        </h2>
-
-        <span class="badge">
-            4 sections
-        </span>
-
+        <h2>📁 Files</h2>
+        <span class="badge">4 sections</span>
     </div>
 
-
     <div class="file-section searchable">
+        <h3>🎮 Game Files</h3>
+        <p>Game-related files, mods and configurations.</p>
 
-        <h3>
-            🎮 Game Files
-        </h3>
+        <button onclick="toggleFiles('gameFiles')">View Files</button>
 
-        <p>
-            Game-related files,
-            mods and configurations.
-        </p>
-
-        <button
-            onclick="toggleFiles('gameFiles')"
-        >
-            View Files
-        </button>
-
-        <div
-            id="gameFiles"
-            class="file-list"
-        >
-
+        <div id="gameFiles" class="file-list">
             <div class="file-item">
-
-                <strong>
-                    📄 Add your game files here
-                </strong>
-
+                <strong>📄 Add your game files here</strong>
                 <br>
-
-                <span>
-                    Put your download links here.
-                </span>
-
+                <span>Put your download links here.</span>
             </div>
-
         </div>
-
     </div>
 
-
     <div class="file-section searchable">
+        <h3>🛠️ Tools</h3>
+        <p>Utilities, DLLs and useful downloads.</p>
 
-        <h3>
-            🛠️ Tools
-        </h3>
+        <button onclick="toggleFiles('toolFiles')">View Files</button>
 
-        <p>
-            Utilities, DLLs and
-            useful downloads.
-        </p>
-
-        <button
-            onclick="toggleFiles('toolFiles')"
-        >
-            View Files
-        </button>
-
-        <div
-            id="toolFiles"
-            class="file-list"
-        >
-
+        <div id="toolFiles" class="file-list">
             <div class="file-item">
-
-                <strong>
-                    📦 Add your tools here
-                </strong>
-
+                <strong>📦 Add your tools here</strong>
                 <br>
-
-                <span>
-                    Put your download links here.
-                </span>
-
+                <span>Put your download links here.</span>
             </div>
-
         </div>
-
     </div>
 
-
     <div class="file-section searchable">
+        <h3>📦 Projects</h3>
+        <p>Project files and experiments.</p>
 
-        <h3>
-            📦 Projects
-        </h3>
+        <button onclick="toggleFiles('projectFiles')">View Files</button>
 
-        <p>
-            Project files and experiments.
-        </p>
-
-        <button
-            onclick="toggleFiles('projectFiles')"
-        >
-            View Files
-        </button>
-
-        <div
-            id="projectFiles"
-            class="file-list"
-        >
-
+        <div id="projectFiles" class="file-list">
             <div class="file-item">
-
-                <strong>
-                    📁 Add your projects here
-                </strong>
-
+                <strong>📁 Add your projects here</strong>
                 <br>
-
-                <span>
-                    Put your download links here.
-                </span>
-
+                <span>Put your download links here.</span>
             </div>
-
         </div>
-
     </div>
 
-
     <div class="file-section searchable">
+        <h3>🎨 Assets</h3>
+        <p>Images, icons and other assets.</p>
 
-        <h3>
-            🎨 Assets
-        </h3>
+        <button onclick="toggleFiles('assetFiles')">View Files</button>
 
-        <p>
-            Images, icons and other assets.
-        </p>
-
-        <button
-            onclick="toggleFiles('assetFiles')"
-        >
-            View Files
-        </button>
-
-        <div
-            id="assetFiles"
-            class="file-list"
-        >
-
+        <div id="assetFiles" class="file-list">
             <div class="file-item">
-
-                <strong>
-                    🖼️ Add your assets here
-                </strong>
-
+                <strong>🖼️ Add your assets here</strong>
                 <br>
-
-                <span>
-                    Put your download links here.
-                </span>
-
+                <span>Put your download links here.</span>
             </div>
-
         </div>
-
     </div>
 
 </section>
 
-
-<!-- DLL READER -->
-
-<section
-    id="dllReader"
-    class="section hidden"
->
+<section id="dllReader" class="section hidden">
 
     <div class="section-title">
-
-        <h2>
-            📦 DLL Reader
-        </h2>
-
-        <span class="badge">
-            .DLL
-        </span>
-
+        <h2>📦 DLL Reader</h2>
+        <span class="badge">.DLL</span>
     </div>
-
 
     <div class="tool-box">
 
-        <h3>
-            🔍 Read a DLL
-        </h3>
+        <h3>🔍 Read a DLL</h3>
 
         <p>
-            Select a .NET DLL to inspect it
-            locally in your browser.
+            Select a .NET DLL to inspect it locally in your browser.
         </p>
 
-
-        <!-- DROP AREA -->
-
-        <label
-            id="dllDrop"
-            class="dll-drop"
-            for="dllInput"
-        >
-
-            <strong>
-                📁 Choose DLL
-            </strong>
-
+        <label id="dllDrop" class="dll-drop" for="dllInput">
+            <strong>📁 Choose DLL</strong>
             <br>
-
-            <span>
-                or drag and drop a .dll here
-            </span>
-
+            <span>or drag and drop a .dll here</span>
         </label>
-
 
         <input
             id="dllInput"
@@ -981,18 +513,9 @@
             accept=".dll"
         >
 
-
-        <!-- INFO -->
-
-        <div
-            id="dllInfo"
-            class="output"
-        >
+        <div id="dllInfo" class="output">
             No DLL selected.
         </div>
-
-
-        <!-- SEARCH -->
 
         <input
             id="dllSearch"
@@ -1002,23 +525,13 @@
             oninput="searchDLL()"
         >
 
-
-        <!-- STRINGS -->
-
-        <div
-            id="dllStrings"
-            class="output dll-strings"
-        >
+        <div id="dllStrings" class="output dll-strings">
             DLL strings will appear here.
         </div>
 
-
-        <h3>
-            ℹ️ Reader information
-        </h3>
+        <h3>ℹ️ Reader information</h3>
 
         <div class="code">
-
 This browser version can currently read:
 
 • PE/DLL signature
@@ -1032,1033 +545,402 @@ It processes the DLL locally.
 Full C# decompilation requires
 a .NET/WASM decompiler and cannot
 be achieved using ordinary JavaScript alone.
-
         </div>
 
     </div>
-
 </section>
 
-
-<!-- LINKS -->
-
-<section
-    id="links"
-    class="section hidden"
->
+<section id="links" class="section hidden">
 
     <div class="section-title">
-
-        <h2>
-            🔗 My Other Links
-        </h2>
-
-        <span class="badge">
-            3 links
-        </span>
-
+        <h2>🔗 My Other Links</h2>
+        <span class="badge">3 links</span>
     </div>
-
 
     <div class="cards">
 
-
         <div class="card searchable">
-
-            <h3>
-                🐙 GitHub
-            </h3>
-
-            <p>
-                My GitHub account.
-            </p>
+            <h3>🐙 GitHub</h3>
+            <p>My GitHub account.</p>
 
             <a
                 class="button"
                 href="https://github.com/Penglo5"
                 target="_blank"
                 rel="noopener noreferrer"
-            >
-                Visit
-            </a>
-
+            >Visit</a>
         </div>
 
-
         <div class="card searchable">
-
-            <h3>
-                ▶️ YouTube
-            </h3>
-
-            <p>
-                My YouTube channel.
-            </p>
+            <h3>▶️ YouTube</h3>
+            <p>My YouTube channel.</p>
 
             <a
                 class="button"
                 href="https://www.youtube.com/@Penglo5"
                 target="_blank"
                 rel="noopener noreferrer"
-            >
-                Visit
-            </a>
-
+            >Visit</a>
         </div>
 
-
         <div class="card searchable">
-
-            <h3>
-                ♪ TikTok
-            </h3>
-
-            <p>
-                My TikTok account.
-            </p>
+            <h3>♪ TikTok</h3>
+            <p>My TikTok account.</p>
 
             <a
                 class="button"
                 href="https://www.tiktok.com/@penglo97"
                 target="_blank"
                 rel="noopener noreferrer"
-            >
-                Visit
-            </a>
-
+            >Visit</a>
         </div>
 
-
     </div>
-
 </section>
 
-
 </div>
-
-
-<!-- FOOTER -->
 
 <footer>
-
     🐧 Penglo Tools
-
     <br>
-
-    <small>
-        Made by Penglo
-    </small>
-
+    <small>Made by Penglo</small>
 </footer>
 
-
-<!-- TOAST -->
-
-<div
-    id="toast"
-    class="toast"
->
-    Copied!
-</div>
-
+<div id="toast" class="toast">Copied!</div>
 
 <script>
 
-
-/* =========================
-   NAVIGATION
-========================= */
-
-function showSection(id) {
-
-    document
-        .querySelectorAll(".section")
-        .forEach(section => {
-
-            section.classList.add(
-                "hidden"
-            );
-
-        });
-
-
-    document
-        .getElementById(id)
-        .classList.remove(
-            "hidden"
-        );
-
-
-    window.scrollTo({
-        top: 0,
-        behavior: "smooth"
+function showSection(id){
+    document.querySelectorAll(".section").forEach(section=>{
+        section.classList.add("hidden");
     });
 
+    document.getElementById(id).classList.remove("hidden");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
+function siteSearch(){
+    const search=document
+        .getElementById("siteSearch")
+        .value
+        .toLowerCase();
 
-/* =========================
-   SEARCH
-========================= */
+    document.querySelectorAll(".searchable").forEach(item=>{
+        const text=item.textContent.toLowerCase();
 
-function siteSearch() {
-
-    const search =
-        document
-            .getElementById(
-                "siteSearch"
-            )
-            .value
-            .toLowerCase();
-
-
-    document
-        .querySelectorAll(
-            ".searchable"
-        )
-        .forEach(item => {
-
-            const text =
-                item.textContent
-                    .toLowerCase();
-
-
-            item.style.display =
-                text.includes(search)
-                    ? ""
-                    : "none";
-
-        });
-
+        item.style.display=
+            text.includes(search) ? "" : "none";
+    });
 }
 
-
-/* =========================
-   FILE SECTIONS
-========================= */
-
-function toggleFiles(id) {
-
-    document
-        .getElementById(id)
-        .classList.toggle(
-            "open"
-        );
-
+function toggleFiles(id){
+    document.getElementById(id).classList.toggle("open");
 }
 
+function openTool(tool){
+    document.getElementById("textTool").classList.add("hidden");
+    document.getElementById("jsonTool").classList.add("hidden");
 
-/* =========================
-   TOOLS
-========================= */
-
-function openTool(tool) {
-
-    document
-        .getElementById(
-            "textTool"
-        )
-        .classList.add(
-            "hidden"
-        );
-
-
-    document
-        .getElementById(
-            "jsonTool"
-        )
-        .classList.add(
-            "hidden"
-        );
-
-
-    document
-        .getElementById(
-            tool + "Tool"
-        )
-        .classList.remove(
-            "hidden"
-        );
-
+    document.getElementById(tool+"Tool").classList.remove("hidden");
 }
 
-
-/* =========================
-   TEXT
-========================= */
-
-function upperText() {
-
-    const input =
-        document.getElementById(
-            "textInput"
-        );
-
-
-    input.value =
-        input.value.toUpperCase();
-
+function upperText(){
+    const input=document.getElementById("textInput");
+    input.value=input.value.toUpperCase();
 }
 
-
-function lowerText() {
-
-    const input =
-        document.getElementById(
-            "textInput"
-        );
-
-
-    input.value =
-        input.value.toLowerCase();
-
+function lowerText(){
+    const input=document.getElementById("textInput");
+    input.value=input.value.toLowerCase();
 }
 
+function copyText(){
+    const input=document.getElementById("textInput");
 
-function copyText() {
-
-    const input =
-        document.getElementById(
-            "textInput"
-        );
-
-
-    copyToClipboard(
-        input.value
-    );
-
-
-    showToast(
-        "Text copied!"
-    );
-
+    copyToClipboard(input.value);
+    showToast("Text copied!");
 }
 
+function formatJSON(){
+    const input=document
+        .getElementById("jsonInput")
+        .value
+        .trim();
 
-/* =========================
-   JSON
-========================= */
+    const output=document.getElementById("jsonOutput");
 
-function formatJSON() {
-
-    const input =
-        document
-            .getElementById(
-                "jsonInput"
-            )
-            .value
-            .trim();
-
-
-    const output =
-        document.getElementById(
-            "jsonOutput"
-        );
-
-
-    if (!input) {
-
-        output.textContent =
-            "Paste JSON here first.";
-
+    if(!input){
+        output.textContent="Paste JSON here first.";
         return;
-
     }
 
+    try{
+        const json=JSON.parse(input);
 
-    try {
+        output.textContent=
+            JSON.stringify(json,null,4);
 
-        const json =
-            JSON.parse(
-                input
-            );
-
-
-        output.textContent =
-            JSON.stringify(
-                json,
-                null,
-                4
-            );
-
-
-        showToast(
-            "JSON formatted!"
-        );
-
+        showToast("JSON formatted!");
     }
-
-    catch (error) {
-
-        output.textContent =
-            "❌ Invalid JSON:\n" +
-            error.message;
-
+    catch(error){
+        output.textContent=
+            "❌ Invalid JSON:\n"+error.message;
     }
-
 }
 
+function generateUUID(){
+    const uuid=crypto.randomUUID();
 
-/* =========================
-   UUID
-========================= */
-
-function generateUUID() {
-
-    const uuid =
-        crypto.randomUUID();
-
-
-    copyToClipboard(
-        uuid
-    );
-
-
-    showToast(
-        "UUID copied!"
-    );
-
+    copyToClipboard(uuid);
+    showToast("UUID copied!");
 }
 
+function updateColor(){
+    const color=document
+        .getElementById("colorPicker")
+        .value;
 
-/* =========================
-   COLOR
-========================= */
-
-function updateColor() {
-
-    const color =
-        document
-            .getElementById(
-                "colorPicker"
-            )
-            .value;
-
-
-    document
-        .getElementById(
-            "colorValue"
-        )
-        .textContent =
-        color.toUpperCase();
-
+    document.getElementById("colorValue")
+        .textContent=color.toUpperCase();
 }
 
+function copyColor(){
+    const color=document
+        .getElementById("colorPicker")
+        .value;
 
-function copyColor() {
-
-    const color =
-        document
-            .getElementById(
-                "colorPicker"
-            )
-            .value;
-
-
-    copyToClipboard(
-        color
-    );
-
-
-    showToast(
-        "Color copied!"
-    );
-
+    copyToClipboard(color);
+    showToast("Color copied!");
 }
 
+let dllStringList=[];
 
-/* =========================
-   DLL READER
-========================= */
+document.getElementById("dllInput")
+    .addEventListener("change",event=>{
+        const file=event.target.files[0];
+        readDLL(file);
+    });
 
-let dllStringList = [];
+async function readDLL(file){
 
+    if(!file)return;
 
-document
-    .getElementById(
-        "dllInput"
-    )
-    .addEventListener(
-        "change",
-        event => {
+    const info=document.getElementById("dllInfo");
 
-            const file =
-                event.target
-                    .files[0];
+    info.textContent=
+        "⏳ Reading "+file.name+"...";
 
+    try{
 
-            readDLL(
-                file
-            );
+        const buffer=await file.arrayBuffer();
+        const bytes=new Uint8Array(buffer);
 
-        }
-    );
+        const isPE=
+            bytes[0]===0x4D &&
+            bytes[1]===0x5A;
 
+        let isDotNet=false;
 
-async function readDLL(file) {
+        for(let i=0;i<bytes.length-4;i++){
 
-    if (!file)
-        return;
-
-
-    const info =
-        document.getElementById(
-            "dllInfo"
-        );
-
-
-    info.textContent =
-        "⏳ Reading " +
-        file.name +
-        "...";
-
-
-    try {
-
-        const buffer =
-            await file.arrayBuffer();
-
-
-        const bytes =
-            new Uint8Array(
-                buffer
-            );
-
-
-        /* DLL / PE CHECK */
-
-        const isPE =
-            bytes[0] === 0x4D &&
-            bytes[1] === 0x5A;
-
-
-        /* .NET CHECK */
-
-        let isDotNet =
-            false;
-
-
-        for (
-            let i = 0;
-            i < bytes.length - 4;
-            i++
-        ) {
-
-            if (
-
-                bytes[i] === 0x42 &&
-
-                bytes[i + 1] === 0x53 &&
-
-                bytes[i + 2] === 0x4A &&
-
-                bytes[i + 3] === 0x42
-
-            ) {
-
-                isDotNet =
-                    true;
-
+            if(
+                bytes[i]===0x42 &&
+                bytes[i+1]===0x53 &&
+                bytes[i+2]===0x4A &&
+                bytes[i+3]===0x42
+            ){
+                isDotNet=true;
                 break;
-
             }
-
         }
 
+        dllStringList=extractStrings(bytes);
 
-        /* STRINGS */
-
-        dllStringList =
-            extractStrings(
-                bytes
-            );
-
-
-        info.innerHTML = `
-
-            <strong>
-                📦 ${escapeHTML(file.name)}
-            </strong>
-
+        info.innerHTML=`
+            <strong>📦 ${escapeHTML(file.name)}</strong>
             <br>
-
-            Size:
-            ${formatBytes(
-                bytes.length
-            )}
-
+            Size: ${formatBytes(bytes.length)}
             <br>
-
-            PE/DLL:
-            ${
-                isPE
-                    ? "✅ Yes"
-                    : "❌ No"
-            }
-
+            PE/DLL: ${isPE ? "✅ Yes" : "❌ No"}
             <br>
-
-            .NET Assembly:
-            ${
-                isDotNet
-                    ? "✅ Detected"
-                    : "❌ Not detected"
-            }
-
+            .NET Assembly: ${isDotNet ? "✅ Detected" : "❌ Not detected"}
             <br>
-
-            Readable strings:
-            ${dllStringList.length}
-
+            Readable strings: ${dllStringList.length}
         `;
 
-
-        renderDLLStrings(
-            dllStringList
-        );
-
-
-        showToast(
-            "DLL loaded!"
-        );
+        renderDLLStrings(dllStringList);
+        showToast("DLL loaded!");
 
     }
+    catch(error){
 
-    catch (error) {
-
-        info.textContent =
-            "❌ Could not read DLL: " +
-            error.message;
-
+        info.textContent=
+            "❌ Could not read DLL: "+error.message;
     }
-
 }
 
+function extractStrings(bytes){
 
-/* =========================
-   STRING EXTRACTION
-========================= */
+    const strings=[];
+    let current="";
 
-function extractStrings(
-    bytes
-) {
+    for(let i=0;i<bytes.length;i++){
 
-    const strings = [];
+        const value=bytes[i];
 
-    let current = "";
-
-
-    for (
-        let i = 0;
-        i < bytes.length;
-        i++
-    ) {
-
-        const value =
-            bytes[i];
-
-
-        if (
-            value >= 32 &&
-            value <= 126
-        ) {
-
-            current +=
-                String.fromCharCode(
-                    value
-                );
-
+        if(value>=32 && value<=126){
+            current+=String.fromCharCode(value);
         }
+        else{
 
-        else {
-
-            if (
-                current.length >= 4
-            ) {
-
-                strings.push(
-                    current
-                );
-
+            if(current.length>=4){
+                strings.push(current);
             }
 
-
-            current = "";
-
+            current="";
         }
-
     }
 
-
-    if (
-        current.length >= 4
-    ) {
-
-        strings.push(
-            current
-        );
-
+    if(current.length>=4){
+        strings.push(current);
     }
 
-
-    return [
-        ...new Set(
-            strings
-        )
-    ];
-
+    return [...new Set(strings)];
 }
 
+function searchDLL(){
 
-/* =========================
-   DLL SEARCH
-========================= */
+    const search=document
+        .getElementById("dllSearch")
+        .value
+        .toLowerCase();
 
-function searchDLL() {
-
-    const search =
-        document
-            .getElementById(
-                "dllSearch"
-            )
-            .value
-            .toLowerCase();
-
-
-    const results =
-        dllStringList.filter(
-            string =>
-                string
-                    .toLowerCase()
-                    .includes(
-                        search
-                    )
-        );
-
-
-    renderDLLStrings(
-        search
-            ? results
-            : dllStringList
+    const results=dllStringList.filter(string=>
+        string.toLowerCase().includes(search)
     );
 
+    renderDLLStrings(
+        search ? results : dllStringList
+    );
 }
 
+function renderDLLStrings(strings){
 
-/* =========================
-   DISPLAY DLL STRINGS
-========================= */
+    const output=document.getElementById("dllStrings");
 
-function renderDLLStrings(
-    strings
-) {
-
-    const output =
-        document.getElementById(
-            "dllStrings"
-        );
-
-
-    if (
-        strings.length === 0
-    ) {
-
-        output.textContent =
+    if(strings.length===0){
+        output.textContent=
             "No readable strings found.";
-
         return;
-
     }
 
-
-    output.innerHTML =
-        strings
-            .map(
-                string => `
-
-                    <div
-                        class="dll-string"
-                    >
-                        ${
-                            escapeHTML(
-                                string
-                            )
-                        }
-                    </div>
-
-                `
-            )
-            .join("");
-
+    output.innerHTML=strings.map(string=>`
+        <div class="dll-string">
+            ${escapeHTML(string)}
+        </div>
+    `).join("");
 }
 
+function formatBytes(bytes){
 
-/* =========================
-   FILE SIZE
-========================= */
+    if(bytes===0)return "0 Bytes";
 
-function formatBytes(
-    bytes
-) {
-
-    if (
-        bytes === 0
-    ) {
-
-        return "0 Bytes";
-
-    }
-
-
-    const units = [
+    const units=[
         "Bytes",
         "KB",
         "MB",
         "GB"
     ];
 
-
-    const index =
-        Math.floor(
-            Math.log(bytes) /
-            Math.log(1024)
-        );
-
-
-    return (
-
-        parseFloat(
-
-            (
-
-                bytes /
-                Math.pow(
-                    1024,
-                    index
-                )
-
-            ).toFixed(2)
-
-        )
-
-        +
-
-        " "
-
-        +
-
-        units[index]
-
+    const index=Math.floor(
+        Math.log(bytes)/Math.log(1024)
     );
 
+    return parseFloat(
+        (bytes/Math.pow(1024,index)).toFixed(2)
+    )+" "+units[index];
 }
 
+const dllDrop=document.getElementById("dllDrop");
 
-/* =========================
-   DRAG & DROP
-========================= */
+dllDrop.addEventListener("dragover",event=>{
+    event.preventDefault();
+    dllDrop.classList.add("dragover");
+});
 
-const dllDrop =
-    document.getElementById(
-        "dllDrop"
-    );
+dllDrop.addEventListener("dragleave",()=>{
+    dllDrop.classList.remove("dragover");
+});
 
+dllDrop.addEventListener("drop",event=>{
 
-dllDrop.addEventListener(
-    "dragover",
-    event => {
+    event.preventDefault();
 
-        event.preventDefault();
+    dllDrop.classList.remove("dragover");
 
-        dllDrop.classList.add(
-            "dragover"
-        );
+    const file=event.dataTransfer.files[0];
 
+    if(
+        file &&
+        file.name.toLowerCase().endsWith(".dll")
+    ){
+        readDLL(file);
     }
-);
-
-
-dllDrop.addEventListener(
-    "dragleave",
-    () => {
-
-        dllDrop.classList.remove(
-            "dragover"
-        );
-
+    else{
+        showToast("Please drop a .DLL file!");
     }
-);
+});
 
+function copyToClipboard(text){
 
-dllDrop.addEventListener(
-    "drop",
-    event => {
-
-        event.preventDefault();
-
-
-        dllDrop.classList.remove(
-            "dragover"
-        );
-
-
-        const file =
-            event
-                .dataTransfer
-                .files[0];
-
-
-        if (
-            file &&
-            file.name
-                .toLowerCase()
-                .endsWith(
-                    ".dll"
-                )
-        ) {
-
-            readDLL(
-                file
-            );
-
-        }
-
-        else {
-
-            showToast(
-                "Please drop a .DLL file!"
-            );
-
-        }
-
-    }
-);
-
-
-/* =========================
-   CLIPBOARD
-========================= */
-
-function copyToClipboard(
-    text
-) {
-
-    if (
-        navigator.clipboard
-    ) {
-
-        navigator.clipboard
-            .writeText(
-                text
-            );
-
+    if(navigator.clipboard){
+        navigator.clipboard.writeText(text);
         return;
-
     }
 
+    const textarea=document.createElement("textarea");
 
-    const textarea =
-        document.createElement(
-            "textarea"
-        );
+    textarea.value=text;
 
-
-    textarea.value =
-        text;
-
-
-    document.body.appendChild(
-        textarea
-    );
-
+    document.body.appendChild(textarea);
 
     textarea.select();
 
-
-    document.execCommand(
-        "copy"
-    );
-
+    document.execCommand("copy");
 
     textarea.remove();
-
 }
 
+function showToast(message){
 
-/* =========================
-   TOAST
-========================= */
+    const toast=document.getElementById("toast");
 
-function showToast(
-    message
-) {
+    toast.textContent=message;
+    toast.style.display="block";
 
-    const toast =
-        document.getElementById(
-            "toast"
-        );
-
-
-    toast.textContent =
-        message;
-
-
-    toast.style.display =
-        "block";
-
-
-    setTimeout(
-        () => {
-
-            toast.style.display =
-                "none";
-
-        },
-        2000
-    );
-
+    setTimeout(()=>{
+        toast.style.display="none";
+    },2000);
 }
 
-
-/* =========================
-   HTML SAFETY
-========================= */
-
-function escapeHTML(
-    text
-) {
+function escapeHTML(text){
 
     return String(text)
-
-        .replaceAll(
-            "&",
-            "&amp;"
-        )
-
-        .replaceAll(
-            "<",
-            "&lt;"
-        )
-
-        .replaceAll(
-            ">",
-            "&gt;"
-        )
-
-        .replaceAll(
-            '"',
-            "&quot;"
-        )
-
-        .replaceAll(
-            "'",
-            "&#039;"
-        );
-
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
 }
+
+/* Everything starts closed */
+showSection("home");
 
 </script>
 
 </body>
-
 </html>
