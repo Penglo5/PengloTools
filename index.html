@@ -71,16 +71,16 @@
         }
 
         nav button {
-            background: #1b212d;
+            background: #2800b0;
             color: white;
-            border: 1px solid #2c3442;
+            border: 1px solid #de7ff0;
             border-radius: 8px;
             padding: 10px 16px;
             cursor: pointer;
         }
 
         nav button:hover {
-            background: #293242;
+            background: #3814d0;
         }
 
 
@@ -109,6 +109,10 @@
             font-size: 16px;
             outline: none;
             margin-bottom: 30px;
+        }
+
+        .search:focus {
+            border-color: #de7ff0;
         }
 
 
@@ -149,7 +153,11 @@
 
         .card:hover {
             transform: translateY(-4px);
-            border-color: #4a566b;
+            border-color: #de7ff0;
+        }
+
+        .card h3 {
+            margin-top: 0;
         }
 
         .card p {
@@ -160,38 +168,54 @@
 
 
         /* -------------------------
+           FEATURED
+        ------------------------- */
+
+        .featured {
+            border-color: #ff8800;
+        }
+
+        .featured:hover {
+            border-color: #ff8800;
+        }
+
+
+        /* -------------------------
            BUTTONS
         ------------------------- */
 
         .button {
-    display: inline-block;
-    background: #ff8800;
-    color: white;
-    border: none;
-    border-radius: 7px;
-    padding: 9px 14px;
-    cursor: pointer;
-    text-decoration: none;
-    margin-top: 8px;
-}
+            display: inline-block;
+            background: #2800b0;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            padding: 9px 14px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 8px;
+        }
 
-.button:hover {
-    background: #ff991f;
-}
+        .button:hover {
+            background: #3814d0;
         }
 
         .secondary {
             background: #242b38;
         }
 
+        .secondary:hover {
+            background: #303949;
+        }
+
 
         /* -------------------------
-           BADGE
+           BADGES
         ------------------------- */
 
         .badge {
             background: #252d3b;
-            color: #aeb8c9;
+            color: #de7ff0;
             padding: 5px 9px;
             border-radius: 20px;
             font-size: 12px;
@@ -199,12 +223,12 @@
 
 
         /* -------------------------
-           TOOLS
+           TOOL BOX
         ------------------------- */
 
         .tool-box {
             background: #10151e;
-            border: 1px solid #293240;
+            border: 1px solid #de7ff0;
             border-radius: 12px;
             padding: 20px;
             margin-top: 15px;
@@ -220,15 +244,40 @@
             border-radius: 8px;
             padding: 12px;
             font-family: monospace;
+            outline: none;
         }
+
+        textarea:focus {
+            border-color: #de7ff0;
+        }
+
+
+        /* -------------------------
+           COLOR PICKER
+        ------------------------- */
+
+        input[type="color"] {
+            width: 70px;
+            height: 40px;
+            border: none;
+            background: transparent;
+            cursor: pointer;
+        }
+
+
+        /* -------------------------
+           OUTPUT
+        ------------------------- */
 
         .output {
             white-space: pre-wrap;
+            word-break: break-word;
             background: #090c11;
             border: 1px solid #272f3c;
             border-radius: 8px;
             padding: 12px;
             margin-top: 10px;
+            color: #cbd3df;
         }
 
 
@@ -238,10 +287,6 @@
 
         .hidden {
             display: none;
-        }
-
-        .featured {
-            border-color: #ff8800;
         }
 
 
@@ -254,6 +299,7 @@
             color: #687384;
             border-top: 1px solid #252c38;
             padding: 30px;
+            margin-top: 40px;
         }
 
 
@@ -266,7 +312,7 @@
             bottom: 20px;
             right: 20px;
             background: #1d2531;
-            border: 1px solid #354052;
+            border: 1px solid #de7ff0;
             padding: 12px 18px;
             border-radius: 8px;
             display: none;
@@ -283,8 +329,16 @@
                 font-size: 30px;
             }
 
+            .logo {
+                font-size: 38px;
+            }
+
             .container {
                 padding: 20px 12px;
+            }
+
+            .cards {
+                grid-template-columns: 1fr;
             }
 
         }
@@ -337,7 +391,7 @@
         </button>
 
         <button onclick="showCategory('links')">
-            🔗 Links
+            🔗 My Other Links
         </button>
 
     </nav>
@@ -353,13 +407,14 @@
         <input
             id="search"
             class="search"
+            type="text"
             placeholder="🔍 Search Penglo Tools..."
             oninput="searchItems()"
         >
 
 
         <!-- -------------------------
-             HOME
+             FEATURED
         ------------------------- -->
 
         <section class="section category">
@@ -382,7 +437,8 @@
                     </h3>
 
                     <p>
-                        A hub I made for convinience
+                        Your personal collection of
+                        tools, files and links.
                     </p>
 
                 </div>
@@ -521,12 +577,12 @@
                     <input
                         type="color"
                         id="colorPicker"
-                        value="#ff8800"
+                        value="#de7ff0"
                         onchange="updateColor()"
                     >
 
                     <p id="colorValue">
-                        #ff8800
+                        #DE7FF0
                     </p>
 
                     <button
@@ -661,11 +717,11 @@
             <div class="section-title">
 
                 <h2>
-                    🔗 Links
+                    🔗 My Other Links
                 </h2>
 
                 <span class="badge">
-                    My other links you can check out
+                    3 links
                 </span>
 
             </div>
@@ -674,11 +730,7 @@
             <div class="cards">
 
 
-                <!--
-                    CHANGE THESE LINKS
-                    TO YOUR OWN LINKS.
-                -->
-
+                <!-- GITHUB -->
 
                 <div class="card searchable">
 
@@ -687,7 +739,7 @@
                     </h3>
 
                     <p>
-                        My GitHub profile.
+                        My GitHub account.
                     </p>
 
                     <a
@@ -700,6 +752,8 @@
 
                 </div>
 
+
+                <!-- YOUTUBE -->
 
                 <div class="card searchable">
 
@@ -721,14 +775,17 @@
 
                 </div>
 
+
+                <!-- TIKTOK -->
+
                 <div class="card searchable">
 
                     <h3>
-                       ♪ tiktok
+                        ♪ TikTok
                     </h3>
 
                     <p>
-                        My tiktok account.
+                        My TikTok account.
                     </p>
 
                     <a
@@ -781,7 +838,7 @@
 
 
         /* -------------------------
-           FILES
+           FILE LIST
         ------------------------- */
 
 
@@ -789,16 +846,18 @@
 
             {
                 name: "Example File",
-
                 file: "files/example.txt",
-
                 description:
                     "Example downloadable file.",
-
                 type: "TXT"
             }
 
         ];
+
+
+        /* -------------------------
+           LOAD FILES
+        ------------------------- */
 
 
         function loadFiles() {
@@ -868,25 +927,6 @@
         }
 
 
-        function copyFileLink(file) {
-
-            const url =
-                new URL(
-                    file,
-                    window.location.href
-                ).href;
-
-
-            copyTextToClipboard(url);
-
-
-            showToast(
-                "File link copied!"
-            );
-
-        }
-
-
         /* -------------------------
            NAVIGATION
         ------------------------- */
@@ -905,9 +945,9 @@
                 });
 
 
-            document
-                .getElementById("search")
-                .value = "";
+            document.getElementById(
+                "search"
+            ).value = "";
 
 
             hideTools();
@@ -959,7 +999,7 @@
                 .forEach(item => {
 
                     const text =
-                        item.innerText
+                        item.textContent
                             .toLowerCase();
 
 
@@ -974,7 +1014,7 @@
 
 
         /* -------------------------
-           TOOLS
+           TOOL WINDOWS
         ------------------------- */
 
 
@@ -1022,7 +1062,7 @@
 
 
         /* -------------------------
-           TEXT CONVERTER
+           TEXT TOOL
         ------------------------- */
 
 
@@ -1182,7 +1222,7 @@
 
 
         /* -------------------------
-           COPY
+           COPY TO CLIPBOARD
         ------------------------- */
 
 
@@ -1213,6 +1253,32 @@
             document
                 .body
                 .removeChild(textarea);
+
+        }
+
+
+        /* -------------------------
+           FILE LINK
+        ------------------------- */
+
+
+        function copyFileLink(file) {
+
+            const url =
+                new URL(
+                    file,
+                    window.location.href
+                ).href;
+
+
+            copyTextToClipboard(
+                url
+            );
+
+
+            showToast(
+                "File link copied!"
+            );
 
         }
 
@@ -1260,5 +1326,4 @@
 
 </body>
 
-```html
 </html>
