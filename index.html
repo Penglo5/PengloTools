@@ -1,437 +1,294 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
 
-<meta charset="UTF-8">
-
-<meta
-    name="viewport"
-    content="width=device-width, initial-scale=1.0"
->
-
-<title>Penglo Tools 🐧</title>
-
-
-<style>
-
-/* -------------------------
-   MAIN PAGE
-------------------------- */
-
-* {
-    box-sizing: border-box;
-}
-
-
-body {
-    margin: 0;
-
-    font-family: Arial, sans-serif;
-
-    background: #0b0e13;
-
-    color: white;
-}
-
-
-/* -------------------------
-   HEADER
-------------------------- */
-
-header {
-    background: #121722;
-
-    border-bottom: 1px solid #252c38;
-
-    padding: 30px 20px;
-
-    text-align: center;
-}
-
-
-.logo {
-    font-size: 45px;
-
-    margin-bottom: 5px;
-}
-
-
-header h1 {
-    margin: 0;
-
-    font-size: 38px;
-}
-
-
-header p {
-    color: #9ca6b5;
-
-    margin-top: 10px;
-}
-
-
-/* -------------------------
-   NAVIGATION
-------------------------- */
-
-nav {
-    background: #10141d;
-
-    border-bottom: 1px solid #252c38;
-
-    padding: 12px;
-
-    display: flex;
-
-    justify-content: center;
-
-    gap: 8px;
-
-    flex-wrap: wrap;
-}
-
-
-nav button {
-    background: #1b212d;
-
-    color: white;
-
-    border: 1px solid #2c3442;
-
-    border-radius: 8px;
-
-    padding: 10px 16px;
-
-    cursor: pointer;
-}
-
-
-nav button:hover {
-    background: #293242;
-}
-
-
-/* -------------------------
-   CONTAINER
-------------------------- */
-
-.container {
-    max-width: 1100px;
-
-    margin: auto;
-
-    padding: 30px 20px;
-}
-
-
-/* -------------------------
-   SEARCH
-------------------------- */
-
-.search {
-    width: 100%;
-
-    padding: 16px;
-
-    border-radius: 10px;
-
-    border: 1px solid #303847;
-
-    background: #151a23;
-
-    color: white;
-
-    font-size: 16px;
-
-    outline: none;
-
-    margin-bottom: 30px;
-}
-
-
-.search:focus {
-    border-color: #7289ff;
-}
-
-
-/* -------------------------
-   SECTIONS
-------------------------- */
-
-.section {
-    margin-bottom: 45px;
-}
-
-
-.section-title {
-    display: flex;
-
-    align-items: center;
-
-    justify-content: space-between;
-
-    margin-bottom: 15px;
-}
-
-
-.section-title h2 {
-    margin: 0;
-}
-
-
-/* -------------------------
-   BADGES
-------------------------- */
-
-.badge {
-    background: #252d3b;
-
-    color: #aeb8c9;
-
-    padding: 5px 9px;
-
-    border-radius: 20px;
-
-    font-size: 12px;
-}
-
-
-/* -------------------------
-   CARDS
-------------------------- */
-
-.cards {
-    display: grid;
-
-    grid-template-columns:
-        repeat(auto-fit, minmax(230px, 1fr));
-
-    gap: 16px;
-}
-
-
-.card {
-    background: #141922;
-
-    border: 1px solid #272f3c;
-
-    border-radius: 12px;
-
-    padding: 20px;
-
-    transition: 0.2s;
-}
-
-
-.card:hover {
-    transform: translateY(-4px);
-
-    border-color: #4a566b;
-}
-
-
-.card h3 {
-    margin: 0 0 8px;
-}
-
-
-.card p {
-    color: #9ca6b5;
-
-    font-size: 14px;
-
-    line-height: 1.5;
-}
-
-
-/* -------------------------
-   BUTTONS
-------------------------- */
-
-.button {
-    display: inline-block;
-
-    background: #586ee8;
-
-    color: white;
-
-    border: none;
-
-    border-radius: 7px;
-
-    padding: 9px 14px;
-
-    cursor: pointer;
-
-    text-decoration: none;
-
-    margin-top: 8px;
-}
-
-
-.button:hover {
-    background: #6c80ff;
-}
-
-
-.secondary {
-    background: #242b38;
-}
-
-
-.secondary:hover {
-    background: #303949;
-}
-
-
-/* -------------------------
-   TOOL BOX
-------------------------- */
-
-.tool-box {
-    background: #10151e;
-
-    border: 1px solid #293240;
-
-    border-radius: 12px;
-
-    padding: 20px;
-
-    margin-top: 15px;
-}
-
-
-textarea,
-.tool-input {
-    width: 100%;
-
-    background: #171d27;
-
-    color: white;
-
-    border: 1px solid #303847;
-
-    border-radius: 8px;
-
-    padding: 12px;
-
-    outline: none;
-
-    margin: 8px 0;
-
-    font-family: monospace;
-}
-
-
-textarea {
-    min-height: 130px;
-
-    resize: vertical;
-}
-
-
-/* -------------------------
-   OUTPUT
-------------------------- */
-
-.output {
-    white-space: pre-wrap;
-
-    word-break: break-word;
-
-    background: #090c11;
-
-    border: 1px solid #272f3c;
-
-    border-radius: 8px;
-
-    padding: 12px;
-
-    margin-top: 10px;
-
-    color: #cbd3df;
-
-    min-height: 40px;
-}
-
-
-/* -------------------------
-   OTHER
-------------------------- */
-
-.hidden {
-    display: none;
-}
-
-
-.featured {
-    border-color: #586ee8;
-}
-
-
-/* -------------------------
-   FOOTER
-------------------------- */
-
-footer {
-    text-align: center;
-
-    color: #687384;
-
-    border-top: 1px solid #252c38;
-
-    padding: 30px;
-
-    margin-top: 40px;
-}
-
-
-/* -------------------------
-   TOAST
-------------------------- */
-
-.toast {
-    position: fixed;
-
-    bottom: 20px;
-
-    right: 20px;
-
-    background: #1d2531;
-
-    border: 1px solid #354052;
-
-    padding: 12px 18px;
-
-    border-radius: 8px;
-
-    display: none;
-}
-
-
-/* -------------------------
-   MOBILE
-------------------------- */
-
-@media (max-width: 600px) {
-
-    header h1 {
-        font-size: 30px;
-    }
-
-
-    .logo {
-        font-size: 38px;
-    }
-
-
-    .container {
-        padding: 20px 12px;
-    }
-
-}
-
-</style>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <title>Penglo Tools 🐧</title>
+
+
+    <style>
+
+        /* -------------------------
+           MAIN PAGE
+        ------------------------- */
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background: #0b0e13;
+            color: white;
+        }
+
+
+        /* -------------------------
+           HEADER
+        ------------------------- */
+
+        header {
+            background: #121722;
+            border-bottom: 1px solid #252c38;
+            padding: 30px 20px;
+            text-align: center;
+        }
+
+        .logo {
+            font-size: 45px;
+        }
+
+        header h1 {
+            margin: 5px 0;
+            font-size: 38px;
+        }
+
+        header p {
+            color: #9ca6b5;
+        }
+
+
+        /* -------------------------
+           NAVIGATION
+        ------------------------- */
+
+        nav {
+            background: #10141d;
+            border-bottom: 1px solid #252c38;
+            padding: 12px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        nav button {
+            background: #1b212d;
+            color: white;
+            border: 1px solid #2c3442;
+            border-radius: 8px;
+            padding: 10px 16px;
+            cursor: pointer;
+        }
+
+        nav button:hover {
+            background: #293242;
+        }
+
+
+        /* -------------------------
+           CONTAINER
+        ------------------------- */
+
+        .container {
+            max-width: 1100px;
+            margin: auto;
+            padding: 30px 20px;
+        }
+
+
+        /* -------------------------
+           SEARCH
+        ------------------------- */
+
+        .search {
+            width: 100%;
+            padding: 16px;
+            border-radius: 10px;
+            border: 1px solid #303847;
+            background: #151a23;
+            color: white;
+            font-size: 16px;
+            outline: none;
+            margin-bottom: 30px;
+        }
+
+
+        /* -------------------------
+           SECTIONS
+        ------------------------- */
+
+        .section {
+            margin-bottom: 45px;
+        }
+
+        .section-title {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 15px;
+        }
+
+
+        /* -------------------------
+           CARDS
+        ------------------------- */
+
+        .cards {
+            display: grid;
+            grid-template-columns:
+                repeat(auto-fit, minmax(230px, 1fr));
+            gap: 16px;
+        }
+
+        .card {
+            background: #141922;
+            border: 1px solid #272f3c;
+            border-radius: 12px;
+            padding: 20px;
+            transition: 0.2s;
+        }
+
+        .card:hover {
+            transform: translateY(-4px);
+            border-color: #4a566b;
+        }
+
+        .card p {
+            color: #9ca6b5;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+
+        /* -------------------------
+           BUTTONS
+        ------------------------- */
+
+        .button {
+            display: inline-block;
+            background: #586ee8;
+            color: white;
+            border: none;
+            border-radius: 7px;
+            padding: 9px 14px;
+            cursor: pointer;
+            text-decoration: none;
+            margin-top: 8px;
+        }
+
+        .button:hover {
+            background: #6c80ff;
+        }
+
+        .secondary {
+            background: #242b38;
+        }
+
+
+        /* -------------------------
+           BADGE
+        ------------------------- */
+
+        .badge {
+            background: #252d3b;
+            color: #aeb8c9;
+            padding: 5px 9px;
+            border-radius: 20px;
+            font-size: 12px;
+        }
+
+
+        /* -------------------------
+           TOOLS
+        ------------------------- */
+
+        .tool-box {
+            background: #10151e;
+            border: 1px solid #293240;
+            border-radius: 12px;
+            padding: 20px;
+            margin-top: 15px;
+        }
+
+        textarea {
+            width: 100%;
+            min-height: 130px;
+            resize: vertical;
+            background: #171d27;
+            color: white;
+            border: 1px solid #303847;
+            border-radius: 8px;
+            padding: 12px;
+            font-family: monospace;
+        }
+
+        .output {
+            white-space: pre-wrap;
+            background: #090c11;
+            border: 1px solid #272f3c;
+            border-radius: 8px;
+            padding: 12px;
+            margin-top: 10px;
+        }
+
+
+        /* -------------------------
+           OTHER
+        ------------------------- */
+
+        .hidden {
+            display: none;
+        }
+
+        .featured {
+            border-color: #586ee8;
+        }
+
+
+        /* -------------------------
+           FOOTER
+        ------------------------- */
+
+        footer {
+            text-align: center;
+            color: #687384;
+            border-top: 1px solid #252c38;
+            padding: 30px;
+        }
+
+
+        /* -------------------------
+           TOAST
+        ------------------------- */
+
+        .toast {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #1d2531;
+            border: 1px solid #354052;
+            padding: 12px 18px;
+            border-radius: 8px;
+            display: none;
+        }
+
+
+        /* -------------------------
+           MOBILE
+        ------------------------- */
+
+        @media (max-width: 600px) {
+
+            header h1 {
+                font-size: 30px;
+            }
+
+            .container {
+                padding: 20px 12px;
+            }
+
+        }
+
+    </style>
 
 </head>
 
@@ -439,1090 +296,948 @@ footer {
 <body>
 
 
-<!-- -------------------------
-     HEADER
-------------------------- -->
+    <!-- -------------------------
+         HEADER
+    ------------------------- -->
 
-<header>
+    <header>
 
-    <div class="logo">
-        🐧
-    </div>
-
-
-    <h1>
-        Penglo Tools
-    </h1>
-
-
-    <p>
-        Tools, files and useful links — all in one place.
-    </p>
-
-</header>
-
-
-<!-- -------------------------
-     NAVIGATION
-------------------------- -->
-
-<nav>
-
-    <button onclick="showAll()">
-        🏠 Home
-    </button>
-
-
-    <button onclick="showCategory('tools')">
-        🔧 Tools
-    </button>
-
-
-    <button onclick="showCategory('files')">
-        📁 Files
-    </button>
-
-
-    <button onclick="showCategory('links')">
-        🔗 Links
-    </button>
-
-</nav>
-
-
-<div class="container">
-
-
-<!-- -------------------------
-     SEARCH
-------------------------- -->
-
-<input
-    id="search"
-    class="search"
-    type="text"
-    placeholder="🔍 Search Penglo Tools..."
-    oninput="searchItems()"
->
-
-
-<!-- -------------------------
-     FEATURED
-------------------------- -->
-
-<section class="section category">
-
-
-    <div class="section-title">
-
-        <h2>
-            ⭐ Featured
-        </h2>
-
-    </div>
-
-
-    <div class="cards">
-
-
-        <div class="card featured searchable">
-
-            <h3>
-                🐧 Welcome to Penglo Tools
-            </h3>
-
-
-            <p>
-                Your personal collection of tools,
-                downloads and useful links.
-            </p>
-
-
-            <button
-                class="button"
-                onclick="showAll()"
-            >
-                Explore
-            </button>
-
+        <div class="logo">
+            🐧
         </div>
 
+        <h1>
+            Penglo Tools
+        </h1>
 
-        <div class="card featured searchable">
+        <p>
+            Tools, files and useful links.
+        </p>
 
-            <h3>
-                🔧 Text Tools
-            </h3>
-
-
-            <p>
-                Quickly convert, format and copy text.
-            </p>
+    </header>
 
 
-            <button
-                class="button"
-                onclick="showTool('text')"
-            >
-                Open Tool
-            </button>
+    <!-- -------------------------
+         NAVIGATION
+    ------------------------- -->
 
-        </div>
+    <nav>
 
-    </div>
+        <button onclick="showAll()">
+            🏠 Home
+        </button>
 
-</section>
-
-
-<!-- -------------------------
-     TOOLS
-------------------------- -->
-
-<section
-    id="tools"
-    class="section category"
->
-
-
-    <div class="section-title">
-
-        <h2>
+        <button onclick="showCategory('tools')">
             🔧 Tools
-        </h2>
-
-
-        <span
-            id="toolCount"
-            class="badge"
-        >
-            4 tools
-        </span>
-
-    </div>
-
-
-    <div class="cards">
-
-
-        <!-- TEXT CONVERTER -->
-
-        <div class="card searchable">
-
-            <h3>
-                📝 Text Converter
-            </h3>
-
-
-            <p>
-                Convert text between uppercase
-                and lowercase.
-            </p>
-
-
-            <button
-                class="button"
-                onclick="showTool('text')"
-            >
-                Open
-            </button>
-
-        </div>
-
-
-        <!-- JSON FORMATTER -->
-
-        <div class="card searchable">
-
-            <h3>
-                📦 JSON Formatter
-            </h3>
-
-
-            <p>
-                Format messy JSON and make it
-                easier to read.
-            </p>
-
-
-            <button
-                class="button"
-                onclick="showTool('json')"
-            >
-                Open
-            </button>
-
-        </div>
-
-
-        <!-- UUID GENERATOR -->
-
-        <div class="card searchable">
-
-            <h3>
-                🔢 UUID Generator
-            </h3>
-
-
-            <p>
-                Generate a random UUID instantly.
-            </p>
-
-
-            <button
-                class="button"
-                onclick="generateUUID()"
-            >
-                Generate
-            </button>
-
-        </div>
-
-
-        <!-- COLOR PICKER -->
-
-        <div class="card searchable">
-
-            <h3>
-                🎨 Color Picker
-            </h3>
-
-
-            <p>
-                Pick a color and copy its HEX code.
-            </p>
-
-
-            <input
-                type="color"
-                id="colorPicker"
-                value="#586ee8"
-                onchange="updateColor()"
-            >
-
-
-            <p id="colorValue">
-                #586EE8
-            </p>
-
-
-            <button
-                class="button"
-                onclick="copyColor()"
-            >
-                Copy Color
-            </button>
-
-        </div>
-
-    </div>
-
-
-    <!-- -------------------------
-         TEXT TOOL
-    ------------------------- -->
-
-    <div
-        id="textTool"
-        class="tool-box hidden"
-    >
-
-        <h3>
-            📝 Text Converter
-        </h3>
-
-
-        <textarea
-            id="textInput"
-            placeholder="Type or paste your text here..."
-        ></textarea>
-
-
-        <button
-            class="button"
-            onclick="upperText()"
-        >
-            UPPERCASE
         </button>
 
-
-        <button
-            class="button secondary"
-            onclick="lowerText()"
-        >
-            lowercase
-        </button>
-
-
-        <button
-            class="button secondary"
-            onclick="copyText()"
-        >
-            Copy
-        </button>
-
-    </div>
-
-
-    <!-- -------------------------
-         JSON TOOL
-    ------------------------- -->
-
-    <div
-        id="jsonTool"
-        class="tool-box hidden"
-    >
-
-        <h3>
-            📦 JSON Formatter
-        </h3>
-
-
-        <textarea
-            id="jsonInput"
-            placeholder="Paste JSON here..."
-        ></textarea>
-
-
-        <button
-            class="button"
-            onclick="formatJSON()"
-        >
-            Format JSON
-        </button>
-
-
-        <div
-            id="jsonOutput"
-            class="output"
-        ></div>
-
-    </div>
-
-</section>
-
-
-<!-- -------------------------
-     FILES
-------------------------- -->
-
-<section
-    id="files"
-    class="section category"
->
-
-
-    <div class="section-title">
-
-        <h2>
+        <button onclick="showCategory('files')">
             📁 Files
-        </h2>
+        </button>
+
+        <button onclick="showCategory('links')">
+            🔗 Links
+        </button>
+
+    </nav>
 
 
-        <span
-            id="fileCount"
-            class="badge"
+    <div class="container">
+
+
+        <!-- -------------------------
+             SEARCH
+        ------------------------- -->
+
+        <input
+            id="search"
+            class="search"
+            placeholder="🔍 Search Penglo Tools..."
+            oninput="searchItems()"
         >
-            0 files
-        </span>
+
+
+        <!-- -------------------------
+             HOME
+        ------------------------- -->
+
+        <section class="section category">
+
+            <div class="section-title">
+
+                <h2>
+                    ⭐ Featured
+                </h2>
+
+            </div>
+
+
+            <div class="cards">
+
+                <div class="card featured searchable">
+
+                    <h3>
+                        🐧 Welcome to Penglo Tools
+                    </h3>
+
+                    <p>
+                        Your personal collection of
+                        tools, files and links.
+                    </p>
+
+                </div>
+
+
+                <div class="card featured searchable">
+
+                    <h3>
+                        🔧 Tools
+                    </h3>
+
+                    <p>
+                        Useful browser-based tools.
+                    </p>
+
+                    <button
+                        class="button"
+                        onclick="showCategory('tools')"
+                    >
+                        View Tools
+                    </button>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- -------------------------
+             TOOLS
+        ------------------------- -->
+
+        <section
+            id="tools"
+            class="section category"
+        >
+
+            <div class="section-title">
+
+                <h2>
+                    🔧 Tools
+                </h2>
+
+                <span class="badge">
+                    4 tools
+                </span>
+
+            </div>
+
+
+            <div class="cards">
+
+
+                <!-- TEXT -->
+
+                <div class="card searchable">
+
+                    <h3>
+                        📝 Text Converter
+                    </h3>
+
+                    <p>
+                        Convert text to uppercase
+                        or lowercase.
+                    </p>
+
+                    <button
+                        class="button"
+                        onclick="showTool('text')"
+                    >
+                        Open
+                    </button>
+
+                </div>
+
+
+                <!-- JSON -->
+
+                <div class="card searchable">
+
+                    <h3>
+                        📦 JSON Formatter
+                    </h3>
+
+                    <p>
+                        Format JSON so it is
+                        easier to read.
+                    </p>
+
+                    <button
+                        class="button"
+                        onclick="showTool('json')"
+                    >
+                        Open
+                    </button>
+
+                </div>
+
+
+                <!-- UUID -->
+
+                <div class="card searchable">
+
+                    <h3>
+                        🔢 UUID Generator
+                    </h3>
+
+                    <p>
+                        Generate a random UUID.
+                    </p>
+
+                    <button
+                        class="button"
+                        onclick="generateUUID()"
+                    >
+                        Generate
+                    </button>
+
+                </div>
+
+
+                <!-- COLOR -->
+
+                <div class="card searchable">
+
+                    <h3>
+                        🎨 Color Picker
+                    </h3>
+
+                    <p>
+                        Pick a color and copy
+                        its HEX code.
+                    </p>
+
+                    <input
+                        type="color"
+                        id="colorPicker"
+                        value="#586ee8"
+                        onchange="updateColor()"
+                    >
+
+                    <p id="colorValue">
+                        #586EE8
+                    </p>
+
+                    <button
+                        class="button"
+                        onclick="copyColor()"
+                    >
+                        Copy Color
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <!-- TEXT TOOL -->
+
+            <div
+                id="textTool"
+                class="tool-box hidden"
+            >
+
+                <h3>
+                    📝 Text Converter
+                </h3>
+
+                <textarea
+                    id="textInput"
+                    placeholder="Type or paste text here..."
+                ></textarea>
+
+                <br>
+
+                <button
+                    class="button"
+                    onclick="upperText()"
+                >
+                    UPPERCASE
+                </button>
+
+                <button
+                    class="button secondary"
+                    onclick="lowerText()"
+                >
+                    lowercase
+                </button>
+
+                <button
+                    class="button secondary"
+                    onclick="copyText()"
+                >
+                    Copy
+                </button>
+
+            </div>
+
+
+            <!-- JSON TOOL -->
+
+            <div
+                id="jsonTool"
+                class="tool-box hidden"
+            >
+
+                <h3>
+                    📦 JSON Formatter
+                </h3>
+
+                <textarea
+                    id="jsonInput"
+                    placeholder="Paste JSON here..."
+                ></textarea>
+
+                <button
+                    class="button"
+                    onclick="formatJSON()"
+                >
+                    Format JSON
+                </button>
+
+                <div
+                    id="jsonOutput"
+                    class="output"
+                ></div>
+
+            </div>
+
+        </section>
+
+
+        <!-- -------------------------
+             FILES
+        ------------------------- -->
+
+        <section
+            id="files"
+            class="section category"
+        >
+
+            <div class="section-title">
+
+                <h2>
+                    📁 Files
+                </h2>
+
+                <span
+                    id="fileCount"
+                    class="badge"
+                >
+                    0 files
+                </span>
+
+            </div>
+
+
+            <div
+                id="fileList"
+                class="cards"
+            ></div>
+
+        </section>
+
+
+        <!-- -------------------------
+             LINKS
+        ------------------------- -->
+
+        <section
+            id="links"
+            class="section category"
+        >
+
+            <div class="section-title">
+
+                <h2>
+                    🔗 Links
+                </h2>
+
+                <span class="badge">
+                    Your Links
+                </span>
+
+            </div>
+
+
+            <div class="cards">
+
+
+                <!--
+                    CHANGE THESE LINKS
+                    TO YOUR OWN LINKS.
+                -->
+
+
+                <div class="card searchable">
+
+                    <h3>
+                        🐙 GitHub
+                    </h3>
+
+                    <p>
+                        My GitHub profile.
+                    </p>
+
+                    <a
+                        class="button"
+                        href="https://github.com/"
+                        target="_blank"
+                    >
+                        Visit
+                    </a>
+
+                </div>
+
+
+                <div class="card searchable">
+
+                    <h3>
+                        ▶️ YouTube
+                    </h3>
+
+                    <p>
+                        My YouTube channel.
+                    </p>
+
+                    <a
+                        class="button"
+                        href="https://youtube.com/"
+                        target="_blank"
+                    >
+                        Visit
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
 
     </div>
 
 
-    <!--
-        FILES ARE GENERATED AUTOMATICALLY
-        FROM THE FILE LIST IN JAVASCRIPT.
-    -->
+    <!-- -------------------------
+         FOOTER
+    ------------------------- -->
 
+    <footer>
+
+        🐧 Penglo Tools
+
+        <br>
+
+        <small>
+            Made by Penglo
+        </small>
+
+    </footer>
+
+
+    <!-- -------------------------
+         TOAST
+    ------------------------- -->
 
     <div
-        id="fileList"
-        class="cards"
-    ></div>
-
-</section>
-
-
-<!-- -------------------------
-     LINKS
-------------------------- -->
-
-<section
-    id="links"
-    class="section category"
->
-
-
-    <div class="section-title">
-
-        <h2>
-            🔗 Links
-        </h2>
-
-
-        <span class="badge">
-            Useful
-        </span>
-
+        id="toast"
+        class="toast"
+    >
+        Copied!
     </div>
 
 
-    <div class="cards">
+    <script>
 
 
-        <!-- GITHUB -->
+        /* -------------------------
+           FILES
+        ------------------------- */
 
-        <div class="card searchable">
 
-            <h3>
-                🐙 GitHub
-            </h3>
+        const files = [
 
+            {
+                name: "Example File",
 
-            <p>
-                Visit GitHub.
-            </p>
+                file: "files/example.txt",
 
+                description:
+                    "Example downloadable file.",
 
-            <a
-                class="button"
-                href="https://github.com/"
-                target="_blank"
-            >
-                Visit
-            </a>
+                type: "TXT"
+            }
 
-        </div>
+        ];
 
 
-        <!-- YOUTUBE -->
+        function loadFiles() {
 
-        <div class="card searchable">
+            const list =
+                document.getElementById("fileList");
 
-            <h3>
-                ▶️ YouTube
-            </h3>
+            const count =
+                document.getElementById("fileCount");
 
 
-            <p>
-                Visit YouTube.
-            </p>
+            list.innerHTML = "";
 
 
-            <a
-                class="button"
-                href="https://youtube.com/"
-                target="_blank"
-            >
-                Visit
-            </a>
+            files.forEach(item => {
 
-        </div>
+                const card =
+                    document.createElement("div");
 
 
-        <!-- GORILLA TAG -->
+                card.className =
+                    "card searchable";
 
-        <div class="card searchable">
 
-            <h3>
-                🎮 Gorilla Tag
-            </h3>
+                card.innerHTML = `
 
+                    <h3>
+                        📄 ${item.name}
+                    </h3>
 
-            <p>
-                Official Gorilla Tag website.
-            </p>
+                    <p>
+                        ${item.description}
+                    </p>
 
+                    <span class="badge">
+                        ${item.type}
+                    </span>
 
-            <a
-                class="button"
-                href="https://www.gorillatagvr.com/"
-                target="_blank"
-            >
-                Visit
-            </a>
+                    <br>
 
-        </div>
+                    <a
+                        class="button"
+                        href="${item.file}"
+                        download
+                    >
+                        Download
+                    </a>
 
-    </div>
+                    <button
+                        class="button secondary"
+                        onclick="copyFileLink('${item.file}')"
+                    >
+                        Copy Link
+                    </button>
 
-</section>
+                `;
 
 
-</div>
+                list.appendChild(card);
 
+            });
 
-<!-- -------------------------
-     FOOTER
-------------------------- -->
 
-<footer>
+            count.textContent =
+                files.length + " files";
 
-    🐧 Penglo Tools
+        }
 
-    <br>
 
-    <small>
-        Made by Penglo
-    </small>
+        function copyFileLink(file) {
 
-</footer>
+            const url =
+                new URL(
+                    file,
+                    window.location.href
+                ).href;
 
 
-<!-- -------------------------
-     TOAST
-------------------------- -->
+            copyTextToClipboard(url);
 
-<div
-    id="toast"
-    class="toast"
->
-    Copied!
-</div>
 
+            showToast(
+                "File link copied!"
+            );
 
-<script>
+        }
 
 
-/* -------------------------
-   FILE LIST
-------------------------- */
+        /* -------------------------
+           NAVIGATION
+        ------------------------- */
 
 
-/*
-    ADD YOUR FILES HERE.
+        function showAll() {
 
-    Example:
+            document
+                .querySelectorAll(".category")
+                .forEach(section => {
 
-    {
-        name: "My Mod",
-        file: "files/mymod.dll",
-        description: "My awesome mod.",
-        type: "DLL"
-    }
+                    section.classList.remove(
+                        "hidden"
+                    );
 
-    Make sure the actual file
-    exists inside your "files"
-    folder on GitHub.
-*/
+                });
 
 
-const files = [
+            document
+                .getElementById("search")
+                .value = "";
 
-    {
-        name: "Example File",
 
-        file: "files/example.txt",
+            hideTools();
 
-        description:
-            "My first Penglo Tools download.",
+        }
 
-        type: "TXT"
-    },
 
+        function showCategory(category) {
 
-    {
-        name: "Example ZIP",
+            document
+                .querySelectorAll(".category")
+                .forEach(section => {
 
-        file: "files/example.zip",
+                    section.classList.add(
+                        "hidden"
+                    );
 
-        description:
-            "Example ZIP download.",
+                });
 
-        type: "ZIP"
-    }
 
-];
+            document
+                .getElementById(category)
+                .classList.remove(
+                    "hidden"
+                );
 
 
-/* -------------------------
-   NAVIGATION
-------------------------- */
+            hideTools();
 
+        }
 
-function showAll() {
 
+        /* -------------------------
+           SEARCH
+        ------------------------- */
 
-    document
-        .querySelectorAll(".category")
-        .forEach(section => {
 
-            section.classList.remove("hidden");
+        function searchItems() {
 
-        });
+            const search =
+                document
+                    .getElementById("search")
+                    .value
+                    .toLowerCase();
 
 
-    document
-        .getElementById("search")
-        .value = "";
+            document
+                .querySelectorAll(".searchable")
+                .forEach(item => {
 
+                    const text =
+                        item.innerText
+                            .toLowerCase();
 
-    hideTools();
 
-}
+                    item.style.display =
+                        text.includes(search)
+                            ? ""
+                            : "none";
 
+                });
 
-function showCategory(category) {
+        }
 
 
-    document
-        .querySelectorAll(".category")
-        .forEach(section => {
+        /* -------------------------
+           TOOLS
+        ------------------------- */
 
-            section.classList.add("hidden");
 
-        });
+        function hideTools() {
 
+            document
+                .getElementById("textTool")
+                .classList.add("hidden");
 
-    const selected =
-        document.getElementById(category);
 
+            document
+                .getElementById("jsonTool")
+                .classList.add("hidden");
 
-    if (selected) {
+        }
 
-        selected.classList.remove("hidden");
 
-    }
+        function showTool(tool) {
 
+            hideTools();
 
-    hideTools();
 
-}
+            if (tool === "text") {
 
-
-/* -------------------------
-   SEARCH
-------------------------- */
-
-
-function searchItems() {
-
-
-    const search =
-        document
-            .getElementById("search")
-            .value
-            .toLowerCase();
-
-
-    document
-        .querySelectorAll(".searchable")
-        .forEach(item => {
-
-
-            const text =
-                item.innerText.toLowerCase();
-
-
-            if (text.includes(search)) {
-
-                item.style.display = "";
-
-            } else {
-
-                item.style.display = "none";
+                document
+                    .getElementById("textTool")
+                    .classList.remove(
+                        "hidden"
+                    );
 
             }
 
-        });
 
-}
+            if (tool === "json") {
 
+                document
+                    .getElementById("jsonTool")
+                    .classList.remove(
+                        "hidden"
+                    );
 
-/* -------------------------
-   TOOL WINDOWS
-------------------------- */
+            }
 
+        }
 
-function hideTools() {
 
+        /* -------------------------
+           TEXT CONVERTER
+        ------------------------- */
 
-    document
-        .getElementById("textTool")
-        .classList.add("hidden");
 
+        function upperText() {
 
-    document
-        .getElementById("jsonTool")
-        .classList.add("hidden");
+            const input =
+                document.getElementById(
+                    "textInput"
+                );
 
-}
 
+            input.value =
+                input.value.toUpperCase();
 
-function showTool(tool) {
+        }
 
 
-    hideTools();
+        function lowerText() {
 
+            const input =
+                document.getElementById(
+                    "textInput"
+                );
 
-    if (tool === "text") {
 
+            input.value =
+                input.value.toLowerCase();
 
-        document
-            .getElementById("textTool")
-            .classList.remove("hidden");
+        }
 
-    }
 
+        function copyText() {
 
-    if (tool === "json") {
+            const text =
+                document.getElementById(
+                    "textInput"
+                ).value;
 
 
-        document
-            .getElementById("jsonTool")
-            .classList.remove("hidden");
+            copyTextToClipboard(text);
 
-    }
 
-}
+            showToast(
+                "Text copied!"
+            );
 
+        }
 
-/* -------------------------
-   TEXT TOOL
-------------------------- */
 
+        /* -------------------------
+           JSON FORMATTER
+        ------------------------- */
 
-function upperText() {
 
+        function formatJSON() {
 
-    const input =
-        document.getElementById("textInput");
+            const input =
+                document.getElementById(
+                    "jsonInput"
+                ).value;
 
 
-    input.value =
-        input.value.toUpperCase();
+            const output =
+                document.getElementById(
+                    "jsonOutput"
+                );
 
-}
 
+            try {
 
-function lowerText() {
+                const json =
+                    JSON.parse(input);
 
 
-    const input =
-        document.getElementById("textInput");
+                output.textContent =
+                    JSON.stringify(
+                        json,
+                        null,
+                        4
+                    );
 
+            }
 
-    input.value =
-        input.value.toLowerCase();
+            catch (error) {
 
-}
+                output.textContent =
+                    "❌ Invalid JSON:\n" +
+                    error.message;
 
+            }
 
-function copyText() {
+        }
 
 
-    const text =
-        document
-            .getElementById("textInput")
-            .value;
+        /* -------------------------
+           UUID
+        ------------------------- */
 
 
-    copyToClipboard(text);
+        function generateUUID() {
 
+            const uuid =
+                crypto.randomUUID();
 
-    showToast("Text copied!");
 
-}
-
-
-/* -------------------------
-   JSON FORMATTER
-------------------------- */
-
-
-function formatJSON() {
-
-
-    const input =
-        document
-            .getElementById("jsonInput")
-            .value;
-
-
-    const output =
-        document
-            .getElementById("jsonOutput");
-
-
-    try {
-
-
-        const parsed =
-            JSON.parse(input);
-
-
-        output.textContent =
-            JSON.stringify(
-                parsed,
-                null,
-                4
+            copyTextToClipboard(
+                uuid
             );
 
 
-    }
+            showToast(uuid);
 
+        }
 
-    catch (error) {
 
+        /* -------------------------
+           COLOR PICKER
+        ------------------------- */
 
-        output.textContent =
-            "❌ Invalid JSON:\n" +
-            error.message;
 
-    }
+        function updateColor() {
 
-}
+            const color =
+                document.getElementById(
+                    "colorPicker"
+                ).value;
 
 
-/* -------------------------
-   UUID GENERATOR
-------------------------- */
+            document.getElementById(
+                "colorValue"
+            ).textContent =
+                color.toUpperCase();
 
+        }
 
-function generateUUID() {
 
+        function copyColor() {
 
-    const uuid =
-        crypto.randomUUID();
+            const color =
+                document.getElementById(
+                    "colorPicker"
+                ).value;
 
 
-    copyToClipboard(uuid);
+            copyTextToClipboard(
+                color
+            );
 
 
-    showToast(uuid);
+            showToast(
+                "Copied " +
+                color +
+                "!"
+            );
 
-}
+        }
 
 
-/* -------------------------
-   COLOR PICKER
-------------------------- */
+        /* -------------------------
+           COPY
+        ------------------------- */
 
 
-function updateColor() {
+        function copyTextToClipboard(text) {
 
+            const textarea =
+                document.createElement(
+                    "textarea"
+                );
 
-    const color =
-        document
-            .getElementById("colorPicker")
-            .value;
 
+            textarea.value = text;
 
-    document
-        .getElementById("colorValue")
-        .textContent =
-            color.toUpperCase();
 
-}
+            document
+                .body
+                .appendChild(textarea);
 
 
-function copyColor() {
+            textarea.select();
 
 
-    const color =
-        document
-            .getElementById("colorPicker")
-            .value;
+            document.execCommand(
+                "copy"
+            );
 
 
-    copyToClipboard(color);
+            document
+                .body
+                .removeChild(textarea);
 
+        }
 
-    showToast(
-        "Copied " +
-        color +
-        "!"
-    );
 
-}
+        /* -------------------------
+           TOAST
+        ------------------------- */
 
 
-/* -------------------------
-   FILE SYSTEM
-------------------------- */
+        function showToast(message) {
 
+            const toast =
+                document.getElementById(
+                    "toast"
+                );
 
-function loadFiles() {
 
+            toast.textContent =
+                message;
 
-    const fileList =
-        document.getElementById("fileList");
 
-  const files = [
+            toast.style.display =
+                "block";
 
-    {
-    name: "test",
-    file: "files/test.dll",
-    description: "test.",
-    type: "DLL"
-}
 
+            setTimeout(() => {
 
-    const fileCount =
-        document.getElementById("fileCount");
+                toast.style.display =
+                    "none";
 
+            }, 2000);
 
-    fileList.innerHTML = "";
+        }
 
 
-    files.forEach(item => {
+        /* -------------------------
+           START
+        ------------------------- */
 
 
-        const card =
-            document.createElement("div");
+        loadFiles();
 
-
-        card.className =
-            "card searchable";
-
-
-        card.innerHTML = `
-
-            <h3>
-                📄 ${item.name}
-            </h3>
-
-
-            <p>
-                ${item.description}
-            </p>
-
-
-            <span class="badge">
-                ${item.type}
-            </span>
-
-
-            <br>
-
-
-            <a
-                class="button"
-                href="${item.file}"
-                download
-            >
-                Download
-            </a>
-
-
-            <button
-                class="button secondary"
-                onclick="copyFileLink('${item.file}')"
-            >
-                Copy Link
-            </button>
-
-        `;
-
-
-        fileList.appendChild(card);
-
-    });
-
-
-    fileCount.textContent =
-        files.length +
-        " files";
-
-}
-
-
-function copyFileLink(file) {
-
-
-    const url =
-        new URL(
-            file,
-            window.location.href
-        ).href;
-
-
-    copyToClipboard(url);
-
-
-    showToast(
-        "File link copied!"
-    );
-
-}
-
-
-/* -------------------------
-   CLIPBOARD
-------------------------- */
-
-
-function copyToClipboard(text) {
-
-
-    const textarea =
-        document.createElement(
-            "textarea"
-        );
-
-
-    textarea.value = text;
-
-
-    document
-        .body
-        .appendChild(textarea);
-
-
-    textarea.select();
-
-
-    document.execCommand("copy");
-
-
-    document
-        .body
-        .removeChild(textarea);
-
-}
-
-
-/* -------------------------
-   TOAST MESSAGE
-------------------------- */
-
-
-function showToast(message) {
-
-
-    const toast =
-        document
-            .getElementById("toast");
-
-
-    toast.textContent =
-        message;
-
-
-    toast.style.display =
-        "block";
-
-
-    setTimeout(() => {
-
-
-        toast.style.display =
-            "none";
-
-
-    }, 2000);
-
-}
-
-
-/* -------------------------
-   START WEBSITE
-------------------------- */
-
-
-loadFiles();
-
-</script>
+    </script>
 
 
 </body>
+
 </html>
